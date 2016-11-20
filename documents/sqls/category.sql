@@ -1,0 +1,21 @@
+INSERT INTO category (CAID,name) VALUES (1,'pen');
+INSERT INTO category (CAID,name) VALUES (2,'pencil');
+INSERT INTO category (CAID,name) VALUES (3,'box');
+INSERT INTO category (CAID,name) VALUES (4,'necklace');
+INSERT INTO category (CAID,name) VALUES (5,'mug');
+INSERT INTO category (CAID,name) VALUES (6,'ring');
+INSERT INTO category (CAID,name) VALUES (7,'pencil case');
+INSERT INTO category (CAID,name) VALUES (8,'scarf');
+INSERT INTO category (CAID,name) VALUES (9,'wallet');
+INSERT INTO category (CAID,name) VALUES (10,'purse');
+INSERT INTO category (CAID,name) VALUES (11,'pillow');
+INSERT INTO category (CAID,name) VALUES (12,'pixel');
+INSERT INTO category (CAID,name) VALUES (13,'key case');
+INSERT INTO category (CAID,name) VALUES (14,'coat');
+INSERT INTO category (CAID,name) VALUES (15,'toy');
+INSERT INTO category (CAID,name) VALUES (16,'bracelate');
+INSERT INTO category (CAID,name) VALUES (17,'bag');
+INSERT INTO category (CAID,name) VALUES (18,'candle');
+INSERT INTO category (CAID,name) VALUES (19,'frame');
+INSERT INTO category (CAID,name) VALUES (20,'vase');
+

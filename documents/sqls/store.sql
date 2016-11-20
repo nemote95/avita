@@ -1,0 +1,21 @@
+INSERT INTO store (SID,name) VALUES (1,'Sirencester');
+INSERT INTO store (SID,name) VALUES (2,'Cappadocia');
+INSERT INTO store (SID,name) VALUES (3,'Transmere');
+INSERT INTO store (SID,name) VALUES (4,'Willesden');
+INSERT INTO store (SID,name) VALUES (5,'Greenflower');
+INSERT INTO store (SID,name) VALUES (6,'Romsey');
+INSERT INTO store (SID,name) VALUES (7,'Ormskirk');
+INSERT INTO store (SID,name) VALUES (8,'Pendle');
+INSERT INTO store (SID,name) VALUES (9,'Penzance');
+INSERT INTO store (SID,name) VALUES (10,'Caelkirk');
+INSERT INTO store (SID,name) VALUES (11,'Fanfoss');
+INSERT INTO store (SID,name) VALUES (12,'Sherfield');
+INSERT INTO store (SID,name) VALUES (13,'Azmarin');
+INSERT INTO store (SID,name) VALUES (14,'Hartlepool');
+INSERT INTO store (SID,name) VALUES (15,'Hankala');
+INSERT INTO store (SID,name) VALUES (16,'Bredon');
+INSERT INTO store (SID,name) VALUES (17,'Drumnadrochit');
+INSERT INTO store (SID,name) VALUES (18,'Tergaron');
+INSERT INTO store (SID,name) VALUES (19,'Grimsby');
+INSERT INTO store (SID,name) VALUES (20,'Aquarin ');
+

@@ -1,0 +1,21 @@
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID,DID) VALUES (1,'flower pen',2.9,'s','pink',1,10,1,1,1);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID,DID) VALUES (2,'bik pencil',3.9,'s','blue',1,5,2,2,2);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID,DID) VALUES (3,'love box',2.8,'m','red',0,0,3,3,3);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID,DID) VALUES (4,'golden necklace',20,'s','gold',1,7,4,4,4);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID,DID) VALUES (5,'magic mug',15,'l','black',1,9,5,5,5);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID,DID) VALUES (6,'heart ring',20,'l','silver',1,4,6,6,6);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID,DID) VALUES (7,'angry bird pencil case',10.5,'m','green',1,11,7,7,7);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID,DID) VALUES (8,'butterfly scarf',7.9,'s','blue',1,6,8,8,8);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID,DID) VALUES (9,'new wallet',30,'l','brown',1,2,9,9,9);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID,DID) VALUES (10,'purse',35,'s','cream',1,8,10,10,10);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID) VALUES (11,'soft pillow',15.4,'l','white',1,15,11,11,11);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID) VALUES (12,'computer science pixel',5.8,'l','black',1,3,12,12);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID) VALUES (13,'skull key case',2.8,'l','black',0,0,13,13);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID) VALUES (14,'felt coat',70.2,'m','purple',1,2,14,14);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID) VALUES (15,'doll',9.5,'s','pink',1,3,15,15);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID) VALUES (16,'golden bracelate',10,'m','gold',1,3,16,16);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID) VALUES (17,'floral bag',7.9,'s','green',1,2,17,17);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID) VALUES (18,'diamond candle',2.8,'s','white',1,1,18,18);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID) VALUES (19,'wooden frame',5,'m','brown',1,7,19,19);
+INSERT INTO product (PRID,name,cost,color,size,isAvailable,count,SID,CAID) VALUES (20,'fantasy vase',2.8,'m','cyan',1,2,20,20);
+

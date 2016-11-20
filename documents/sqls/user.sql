@@ -1,0 +1,22 @@
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (0,"behzad@gmail.com","ahmadi","behzad","09127472816","yazd","jdjwjs");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (1,"r_razavi@gmail.com","razavi","reza","09111448416","tehran","cscwqs");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (2,"wakman@gmail.com","ahmadi","mohammad","09351264578","tehran","98668n");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (3,"comp@gmail.com","safizade","ali","09134567019","yazd","salam");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (4,"maetal73@yahoo.com","ghaderi","behzad","09167180494","ahwaz","123456");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (5,"nabavi@gmail.com","nabavi","mohamad","09387623590","kerman","salam45");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (6,"z_naghizade@gmail.com","zare","hosein","09365431122","tehran","kermo");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (7,"sara85@gmail.com","azadi","sara","09120012344","tehran","8585");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (8,"ghlam_so@gmail.com","gholami","pouya","09198445326","jiroft","jolbak");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (9,"rouyesh@gmail.com","ghane","naid","09175551123","shiraz","atomi");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (10,"alavi@yahoo.com","alavi","sorosh","09301401120","ahwaz","nooob");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (11,"espartakus@gmail.com","khalafi","omid","09219907713","yazd","espartakus");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (12,"selfi_mariz@gmail.com","jadidi","abas","09309996633","dezful","poster");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (13,"mamooti@gmail.com","ahmadinezhad","mohmmad","09365678904","tehran","mfghjat");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (14,"khavari@yahoo.com","khavari","bahman","09331122113","tehran","147852");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (15,"mashayi@gmail.com","mashayi","mohamadreza","09121111111","tehran","ahmadi");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (16,"m_khoochakzade@gmail.com","khoochakzade","mehdi","09122758595","tehran","paydarichi");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (17,"mrasa@gmail.com","rasayi","ahmad","09361212344","tehran","paydarichi2");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (18,"moazenzade12@gmail.com","moazenzade","ali","09174445676","tehran","789456");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (19,"zanjani2015@gmail.com","zanjani","babak","09121122111","tehran","852963");
+INSERT INTO user (UID,email,last_name,first_name,phone,address,password) VALUES (20,"resam33@gmail.com","barghi","mehdi","09397783421","tehran","b14782");
+
