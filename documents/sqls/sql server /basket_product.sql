@@ -11,6 +11,7 @@ GO
 CREATE TABLE [dbo].[basket_product](
 	[BID] [int] NOT NULL,
 	[PRID] [int] NOT NULL,
+	[Count] [int] DEFAULT 1,
  CONSTRAINT [PK_basket_product] PRIMARY KEY CLUSTERED 
 (
 	[BID] ASC,

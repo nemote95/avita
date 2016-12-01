@@ -13,7 +13,7 @@ GO
 
 CREATE TABLE [dbo].[purchase](
 	[PUID] [int] NOT NULL,
-	[date] [date] NOT NULL,
+	[date] [date] NULL,
 	[type] [bit] NOT NULL,
 	[phone] [char](11) NULL,
 	[last_name] [nvarchar](50) NULL,
