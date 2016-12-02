@@ -4,7 +4,7 @@ $most_popular_sql = "select basket_product.PRID, count(basket_product.PRID) as c
                     where purchase.bid=basket_product.bid and product.PRID=basket_product.PRID
                     group by basket_product.PRID
                     order by count desc 
-                    limit 5";
+                    limit 4";
 $most_popular=$dbh->query($most_popular_sql);
 
 ?>
@@ -883,129 +883,38 @@ $most_popular=$dbh->query($most_popular_sql);
                 <!--  ==========  -->
                 <!--  = Product =  -->
                 <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/most-popular-products/popular-1.jpg" alt="" width="540"
-                                     height="412"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
-                            <h5 class="no-margin">محصول ویژه 456</h5>
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
+                <?php
+                foreach ($most_popular as $mp){
+                    echo '<div class="span3" >
+                    <div class="product" >
+                        <div class="product-img" >
+                            <div class="picture" >'.
+                        '<img src="images/dummy/products/' . $mp['PRID'] . '/1.jpg" alt = "" width = "540"
+                                     height = "412" />';
+                             echo   '<div class="img-overlay" >
+                                    <a href = "product.php?PRID='.$mp['PRID'] .'" class="btn more btn-primary" > توضیحات بیشتر </a >
+                                    <a href = "#" class="btn buy btn-danger" > اضافه به سبد خرید </a >
+                                </div >
+                            </div >
+                        </div >
+                        <div class="main-titles no-margin" >';
 
-                        </p>
-                    </div>
-                </div> <!-- /product -->
+                            echo '<h3 class="no-margin" >'.$mp['name'].'</h3 >';
+                                if ($mp['DID']==null){
+                                    echo '<h4 class="title" >'. $mp['cost']*1000 .'تومان</h4 >';}
+                                else {
+                                    echo '<h4 class="title" style="text-decoration: line-through;color: grey;">'. $mp['cost']*1000 .'تومان</h4 >';
+                                    $discount_sql="select percentage from discount where DID=".$mp['DID'];
+                                    $discount=$dbh->query($discount_sql)->fetch();
+                                    echo '<h4 class="title" style="color: forestgreen;">'. $mp['cost']*(1-$discount['percentage'])*1000 .'تومان</h4 >';
 
-
-                <!--  ==========  -->
-                <!--  = Product =  -->
-                <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/most-popular-products/popular-2.jpg" alt="" width="540"
-                                     height="412"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
-                            <h5 class="no-margin">محصول ویژه 280</h5>
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
+                                }
+                        echo '</div >                        
+                    </div >
+                </div > <!-- /product-->';
+                } ?>
 
 
-                <!--  ==========  -->
-                <!--  = Product =  -->
-                <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/most-popular-products/popular-3.jpg" alt="" width="540"
-                                     height="412"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
-                            <h5 class="no-margin">محصول ویژه 158</h5>
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
-
-
-                <!--  ==========  -->
-                <!--  = Product =  -->
-                <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/most-popular-products/popular-4.jpg" alt="" width="540"
-                                     height="412"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
-                            <h5 class="no-margin">محصول ویژه 275</h5>
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
             </div>
         </div>
     </div> <!-- /most popular -->
