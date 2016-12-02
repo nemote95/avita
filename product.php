@@ -1,7 +1,13 @@
 <?php include 'config.php';
 $PRID = $_GET['PRID'];
 $sql = "SELECT * FROM product WHERE PRID = " . $PRID;
-$row = $dbh->query($sql)->fetch();
+$product = $dbh->query($sql)->fetch();
+$price_after_discount = null;
+if ($product['DID']!=null){
+    $discount_sql ="SELECT percentage FROM discount WHERE DID = " . $product['DID'];
+    $discount=$dbh->query($discount_sql)->fetch();
+    $price_after_discount=(1-$discount['percentage'])*$product["cost"];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -130,12 +136,19 @@ $row = $dbh->query($sql)->fetch();
                 <?php
                 echo '<div class="span7">
                     <div class="product-title">
-                        <h1 class="name"><span class="light"></span>' . $row['name'] . '</h1>';
+                        <h1 class="name"><span class="light"></span>' . $product['name'] . '</h1>'; ?>
 
-                echo '<div class="meta">
-                                <span class="tag">' . $row['cost'] * 1000 . ' تومان</span>';
+                <div class="meta">
+                    <?php
+                    if ($price_after_discount==null){
+                    echo'<span class="tag">' . $product['cost'] *1000 . ' تومان</span>';}
+                    else{
+                        echo'<span class="tag" style="text; text-decoration: line-through; color: grey;">' . $product['cost'] *1000 . ' تومان</span>';
+                        echo'<span class="tag" style="text; color:forestgreen">' . $price_after_discount *1000 . ' تومان</span>';
+
+                    }
                 echo '<span class="stock">';
-                if ($row['count'] > 0) {
+                if ($product['count'] > 0) {
                     echo '<span class="btn btn-success">موجود</span>';
                 } else {
                     echo '<span class="btn btn-danger">اتمام موجودی</span>';
@@ -145,8 +158,8 @@ $row = $dbh->query($sql)->fetch();
         </div>
         <div class="product-description">
             <?php echo '
-            <p>رنگ :' . $row['color'] . '</p>
-            <p>اندازه :' . $row['size'] . '</p>
+            <p>رنگ :' . $product['color'] . '</p>
+            <p>اندازه :' . $product['size'] . '</p>
             <hr />'; ?>
 
             <!--  ==========  -->

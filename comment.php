@@ -11,8 +11,6 @@ if (isset($_POST['text'])){
     $sql->bindParam(':date', $current_date);
     $sql->bindParam(':UID', $UID);
     $sql->bindParam(':PRID', $PRID);
-    $sql->execute();
-    header("Location: product.php?PRID=".$PRID);
-    die();
-}
-?>
+    $sql->execute();}
+header("Location: product.php?PRID=".$PRID);
+die();
