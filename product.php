@@ -1,14 +1,18 @@
-<?php  include 'config.php';
-$PRID= $_GET['PRID'];
-$sql="SELECT * FROM product WHERE PRID = " . $PRID ;
-$row=$dbh->query($sql)->fetch();
+<?php include 'config.php';
+$PRID = $_GET['PRID'];
+$sql = "SELECT * FROM product WHERE PRID = " . $PRID;
+$row = $dbh->query($sql)->fetch();
 ?>
 <!DOCTYPE html>
 <html>
-<!--[if lt IE 8]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 8]>
+<html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>
+<html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <title>Webmarket HTML Template - Product Page</title>
@@ -17,7 +21,9 @@ $row=$dbh->query($sql)->fetch();
     <meta name="author" content="ProteusThemes">
 
     <!--  Google Fonts  -->
-    <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek' rel='stylesheet' type='text/css'>
+    <link
+        href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek'
+        rel='stylesheet' type='text/css'>
 
     <!-- Twitter Bootstrap -->
     <link href="stylesheets/bootstrap.css" rel="stylesheet">
@@ -31,7 +37,6 @@ $row=$dbh->query($sql)->fetch();
     <!-- main styles -->
 
     <link href="stylesheets/main.css" rel="stylesheet">
-
 
 
     <!-- Modernizr -->
@@ -50,8 +55,7 @@ $row=$dbh->query($sql)->fetch();
 
 <div class="master-wrapper">
 
-    <?php include 'header.php'?>
-
+    <?php include 'header.php' ?>
 
 
     <!--  ==========  -->
@@ -100,21 +104,21 @@ $row=$dbh->query($sql)->fetch();
                 <div class="span5">
                     <div class="product-preview">
                         <div class="picture">
-                            <?php echo '<img src="images/dummy/products/'.$PRID.'/1.jpg" alt="" width="940" height="740" id="mainPreviewImg" />'; ?>
+                            <?php echo '<img src="images/dummy/products/' . $PRID . '/1.jpg" alt="" width="940" height="740" id="mainPreviewImg" />'; ?>
 
-                                    </div>
+                        </div>
                         <div class="thumbs clearfix">
                             <div class="thumb active">
                                 <a href="#mainPreviewImg">
-                                    <?php echo '<img src="images/dummy/products/'.$PRID.'/1.jpg" alt="" width="940" height="940" /></a>'; ?>
+                                    <?php echo '<img src="images/dummy/products/' . $PRID . '/1.jpg" alt="" width="940" height="940" /></a>'; ?>
                             </div>
                             <div class="thumb">
                                 <a href="#mainPreviewImg">
-                                    <?php echo '<img src="images/dummy/products/'.$PRID.'/2.jpg" alt="" width="940" height="940" /></a>'; ?>
+                                    <?php echo '<img src="images/dummy/products/' . $PRID . '/2.jpg" alt="" width="940" height="940" /></a>'; ?>
 
                             </div>
                             <div class="thumb">
-                                <?php echo '<img src="images/dummy/products/'.$PRID.'/3.jpg" alt="" width="940" height="940" /></a>'; ?>
+                                <?php echo '<img src="images/dummy/products/' . $PRID . '/3.jpg" alt="" width="940" height="940" /></a>'; ?>
                             </div>
                         </div>
                     </div>
@@ -124,24 +128,25 @@ $row=$dbh->query($sql)->fetch();
                 <!--  = Title and short desc =  -->
                 <!--  ==========  -->
                 <?php
-                    echo '<div class="span7">
+                echo '<div class="span7">
                     <div class="product-title">
                         <h1 class="name"><span class="light"></span>' . $row['name'] . '</h1>';
 
-                    echo '<div class="meta">
-                                <span class="tag">'. $row['cost']*1000 .' تومان</span>';
-                    echo '<span class="stock">';
-                    if ($row['count']>0){
-                        echo '<span class="btn btn-success">موجود</span>';}
-                    else{
-                        echo '<span class="btn btn-danger">اتمام موجودی</span>';}?>
+                echo '<div class="meta">
+                                <span class="tag">' . $row['cost'] * 1000 . ' تومان</span>';
+                echo '<span class="stock">';
+                if ($row['count'] > 0) {
+                    echo '<span class="btn btn-success">موجود</span>';
+                } else {
+                    echo '<span class="btn btn-danger">اتمام موجودی</span>';
+                } ?>
                 </span>
             </div>
         </div>
         <div class="product-description">
             <?php echo '
-            <p>رنگ :'. $row['color'] . '</p>
-            <p>اندازه :'. $row['size'] .'</p>
+            <p>رنگ :' . $row['color'] . '</p>
+            <p>اندازه :' . $row['size'] . '</p>
             <hr />'; ?>
 
             <!--  ==========  -->
@@ -149,14 +154,14 @@ $row=$dbh->query($sql)->fetch();
             <!--  ==========  -->
             <form action="#" class="form form-inline clearfix">
                 <div class="numbered">
-                    <input type="text" name="num" value="1" class="tiny-size" />
+                    <input type="text" name="num" value="1" class="tiny-size"/>
                     <span class="clickable add-one icon-plus-sign-alt"></span>
                     <span class="clickable remove-one icon-minus-sign-alt"></span>
                 </div>
                 <button class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</button>
             </form>
 
-            <hr />
+            <hr/>
 
             <!--  ==========  -->
             <!--  = Share buttons =  -->
@@ -170,7 +175,8 @@ $row=$dbh->query($sql)->fetch();
                         <a class="addthis_button_pinterest_pinit"></a>
                         <a class="addthis_counter addthis_pill_style"></a>
                     </div>
-                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-517459541beb3977"></script>
+                    <script type="text/javascript"
+                            src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-517459541beb3977"></script>
                     <!-- AddThis Button END -->
                 </div>
                 با دوستان خود به اشتراک بگذارید :
@@ -198,18 +204,28 @@ $row=$dbh->query($sql)->fetch();
 
 
             <div class="fade in tab-pane active" id="tab-3">
+                <?php echo '<form action="comment.php?PRID='. $PRID.'" method="post">' ?>
+                    <input style="width: 1100px ; height:100px ;" type="text" name="text">
+                    <input type="submit">
+                </form>
                 <?php
-                $sql="SELECT text,date,user.first_name as first_name,user.last_name as last_name
-                      FROM comment,user WHERE user.UID=comment.UID AND PRID = " . $PRID ;
-                foreach ($dbh->query($sql) as $comment){
-                    echo '<p style="border:1px solid;text-align: left">'.$comment['first_name']. ' '.$comment['last_name'].
-                            ': <br>'.$comment['text'] . '<br>'.$comment['date'] .'</p>';
+                $sql = "SELECT text,date,user.first_name as first_name,user.last_name as last_name
+                      FROM comment,user WHERE user.UID=comment.UID AND PRID = " . $PRID;
+                foreach ($dbh->query($sql) as $comment) {
+                    echo '<p style="border:1px solid;text-align: left">' . $comment['first_name'] . ' ' . $comment['last_name'] .
+                        ': <br>' . $comment['text'] . '<br>' . $comment['date'] . '</p>';
                 }
                 ?>
             </div>
             <div class="fade tab-pane" id="tab-4">
                 <p>
-                    لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد، آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم است. هدف از این نسخه فرهنگ پس از آن و دستاوردهای خوب شاید باشد. حروفچینی لازم در شرایط فعلی لازمه تکنولوژی بود که گذشته، حال و آینده را شامل گردد. سی و پنج درصد از طراحان در قرن پانزدهم میبایست پرینتر در ستون و سطر حروف لازم است، بلکه شناخت این ابزار گاه اساسا بدون هدف بود و سئوالهای زیادی در گذشته بوجود می آید، تنها لازمه آن بود...
+                    لورم ایپسوم متنی است که ساختگی برای طراحی و چاپ آن مورد است. صنعت چاپ زمانی لازم بود شرایطی شما باید
+                    فکر ثبت نام و طراحی، لازمه خروج می باشد. در ضمن قاعده همفکری ها جوابگوی سئوالات زیاد شاید باشد،
+                    آنچنان که لازم بود طراحی گرافیکی خوب بود. کتابهای زیادی شرایط سخت ، دشوار و کمی در سالهای دور لازم
+                    است. هدف از این نسخه فرهنگ پس از آن و دستاوردهای خوب شاید باشد. حروفچینی لازم در شرایط فعلی لازمه
+                    تکنولوژی بود که گذشته، حال و آینده را شامل گردد. سی و پنج درصد از طراحان در قرن پانزدهم میبایست
+                    پرینتر در ستون و سطر حروف لازم است، بلکه شناخت این ابزار گاه اساسا بدون هدف بود و سئوالهای زیادی در
+                    گذشته بوجود می آید، تنها لازمه آن بود...
                 </p>
             </div>
         </div>
@@ -245,9 +261,6 @@ $row=$dbh->query($sql)->fetch();
 </div>
 
 
-
-
-
 <!--  ==========  -->
 <!--  = Footer =  -->
 <!--  ==========  -->
@@ -260,8 +273,10 @@ $row=$dbh->query($sql)->fetch();
         <div class="container">
             <div class="row">
                 <div class="span4">
-                    <h2 class="pacifico">Webmarket &nbsp; <img src="images/webmarket.png" alt="Webmarket Cart" class="align-baseline" /></h2>
-                    <p>این یک نوشته آزمایشی است. شما میتوانید این قسمت را با نوشته های دلخواه خود که مناسب این ناحیه باشند پر نمایید. ما این بخش را با نوشته هایی بی معنی پر کرده ایم.</p>
+                    <h2 class="pacifico">Webmarket &nbsp; <img src="images/webmarket.png" alt="Webmarket Cart"
+                                                               class="align-baseline"/></h2>
+                    <p>این یک نوشته آزمایشی است. شما میتوانید این قسمت را با نوشته های دلخواه خود که مناسب این ناحیه
+                        باشند پر نمایید. ما این بخش را با نوشته هایی بی معنی پر کرده ایم.</p>
                 </div>
                 <div class="span4">
                     <div class="main-titles lined">
@@ -269,7 +284,9 @@ $row=$dbh->query($sql)->fetch();
                     </div>
                     <div class="bordered">
                         <div class="fill-iframe">
-                            <div class="fb-like-box" data-href="https://www.facebook.com/ProteusNet" data-width="292" data-height="200" data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+                            <div class="fb-like-box" data-href="https://www.facebook.com/ProteusNet" data-width="292"
+                                 data-height="200" data-colorscheme="dark" data-show-faces="true" data-header="false"
+                                 data-stream="false" data-show-border="false"></div>
                         </div>
                     </div>
                 </div>
@@ -280,10 +297,15 @@ $row=$dbh->query($sql)->fetch();
                     <p>این بخشی از یک نوشتار آزمایشی صرفا برای پر کردن این ناحیه است.</p>
                     <!-- Begin MailChimp Signup Form -->
                     <div id="mc_embed_signup">
-                        <form action="http://proteusthemes.us4.list-manage1.com/subscribe/post?u=ea0786485977f5ec8c9283d5c&amp;id=5dad3f35e9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form form-inline" target="_blank" novalidate>
+                        <form
+                            action="http://proteusthemes.us4.list-manage1.com/subscribe/post?u=ea0786485977f5ec8c9283d5c&amp;id=5dad3f35e9"
+                            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                            class="validate form form-inline" target="_blank" novalidate>
                             <div class="mc-field-group">
-                                <input type="email" value="" placeholder="آدرس ایمیلتان را وارد کنید" name="EMAIL" class="required email" id="mce-EMAIL">
-                                <input type="submit" value="ارسال" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+                                <input type="email" value="" placeholder="آدرس ایمیلتان را وارد کنید" name="EMAIL"
+                                       class="required email" id="mce-EMAIL">
+                                <input type="submit" value="ارسال" name="subscribe" id="mc-embedded-subscribe"
+                                       class="btn btn-primary">
                             </div>
                             <div id="mce-responses" class="clear">
                                 <div class="response" id="mce-error-response" style="display:none"></div>
@@ -374,7 +396,8 @@ $row=$dbh->query($sql)->fetch();
 
         <div class="cpContainter">
             <div class="mcopyright">
-                <div class="inside">فارسی سازی و ویرایش توسط <a href="https://mrcode.ir" target="_blank" title="مسترکد">MrCode.ir</a></div>
+                <div class="inside">فارسی سازی و ویرایش توسط <a href="https://mrcode.ir" target="_blank" title="مسترکد">MrCode.ir</a>
+                </div>
             </div>
         </div>
 
@@ -393,7 +416,8 @@ $row=$dbh->query($sql)->fetch();
                     &copy; Copyright 2013. Images of products by <a target="_blank" href="http://www.horsefeathers.eu/">horsefeathers</a>.
                 </div>
                 <div class="span6">
-                    <div class="pull-right">قالب HTML وبمارکت توسط<a href="http://www.proteusthemes.com">ProteusThemes</a></div>
+                    <div class="pull-right">قالب HTML وبمارکت توسط<a
+                            href="http://www.proteusthemes.com">ProteusThemes</a></div>
                 </div>
             </div>
         </div>
@@ -406,7 +430,8 @@ $row=$dbh->query($sql)->fetch();
 <!--  ==========  -->
 
 <!--  = Login =  -->
-<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+<div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+     aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="loginModalLabel"><span class="light">ورود</span> در وبمارکت</h3>
@@ -444,7 +469,8 @@ $row=$dbh->query($sql)->fetch();
 </div>
 
 <!--  = Register =  -->
-<div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+<div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel"
+     aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="registerModalLabel"><span class="light">عضویت</span> در وبمارکت</h3>
@@ -484,7 +510,6 @@ $row=$dbh->query($sql)->fetch();
 </div> <!-- end of master-wrapper -->
 
 
-
 <!--  ==========  -->
 <!--  = JavaScript =  -->
 <!--  ==========  -->
@@ -492,10 +517,11 @@ $row=$dbh->query($sql)->fetch();
 <!--  = FB =  -->
 
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
+        js = d.createElement(s);
+        js.id = id;
         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=126780447403102";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
