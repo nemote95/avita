@@ -1,9 +1,0 @@
-ALTER TABLE "user" Add constraint CONSTRAINT_PHONE_USER check ("phone" Not like '%[^0-9]%' );
-
-ALTER TABLE "purchase" Add constraint CONSTRAINT_PHONE_PURCHASE check ("phone" Not like '%[^0-9]%' );
-
-ALTER TABLE "deleiverer" Add constraint CONSTRAINT_PHONE_DELIVERER check ("phone" Not like '%[^0-9]%' );
-
-ALTER TABLE "discount" Add constraint CONSTRAINT_percentage check ("percentage" between 0 and 100 );
-
-ALTER TABLE "product" Add constraint CONSTRAINT_cost check ("cost">0 );

@@ -11,8 +11,8 @@
             <div class="span7">
                 <a class="brand" href="index.php">
                     <img src="images/logo.png" alt="Webmarket Logo" width="48" height="48" />
-                    <span class="pacifico">Webmarket</span>
-                    <span class="tagline">قالب فروشگاهی HTML قدرتمند</span>
+                    <span class="pacifico">Avita</span>
+<!--                    <span class="tagline">قالب فروشگاهی HTML قدرتمند</span>-->
                 </a>
             </div>
 
@@ -22,19 +22,6 @@
             <div class="span5">
                 <div class="topmost-line">
                     <div class="lang-currency">
-                        <div class="dropdown js-selectable-dropdown">
-                            <a data-toggle="dropdown" class="selected" href="#"><span class="js-change-text"><i class="famfamfam-flag-gb"></i> انگلیسی (EN)</span> <b class="caret"></b></a>
-                            <!-- for all available country flags look the styles in lib/components/_flags.scss -->
-                            <ul class="dropdown-menu js-possibilities" role="menu" aria-labelledby="dLabel">
-                                <li><a href="#"><i class="famfamfam-flag-gb"></i> انگلیسی (EN)</a></li>
-                            </ul>
-                        </div>
-                        <div class="dropdown js-selectable-dropdown">
-                            <a data-toggle="dropdown" class="selected" href="#"><span class="js-change-text">USD ($)</span> <b class="caret"></b></a>
-                            <ul class="dropdown-menu js-possibilities" role="menu" aria-labelledby="dLabel">
-                                <li><a href="#">USD ($)</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 <div class="top-right">

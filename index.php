@@ -59,8 +59,9 @@ $most_popular=$dbh->query($most_popular_sql);
 
 <div class="master-wrapper">
 
-    <?php include 'header.php' ?>
     <?php include 'login_register.php' ?>
+    <?php include 'header.php' ?>
+
 
     <!--  ==========  -->
     <!--  = Slider Revolution =  -->
@@ -70,7 +71,6 @@ $most_popular=$dbh->query($most_popular_sql);
             <ul>
                 <li data-transition="premium-random" data-slotamount="3">
                     <img src="images/dummy/slides/1/slide.jpg" alt="slider img" width="1400" height="377"/>
-
                     <!-- baloons -->
                     <div class="caption lft ltt"
                          data-x="570"
@@ -885,7 +885,7 @@ $most_popular=$dbh->query($most_popular_sql);
                 <!--  = Product =  -->
                 <!--  ==========  -->
                 <?php
-                foreach ($most_popular as $mp){
+                foreach($most_popular as $mp){
                     echo '<div class="span3" >
                     <div class="product" >
                         <div class="product-img" >
