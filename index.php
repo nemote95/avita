@@ -59,10 +59,9 @@ $most_popular=$dbh->query($most_popular_sql);
 
 <div class="master-wrapper">
 
-    <<<<<<< HEAD
     <?php include 'register.php' ?>
     <?php include 'login.php'?>
-    
+
     <?php include 'header.php' ?>
 
 

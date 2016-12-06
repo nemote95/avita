@@ -1,49 +1,60 @@
 <!--  ==========  -->
 <!--  = Header =  -->
 <!--  ==========  -->
+<?php
+//session_start(); // Right at the top of your script
+//?>
+<?php //include 'login.php' ?>
+<?php //include  'register.php'?>
+<?php
+?>
 <header id="header">
     <div class="container">
         <div class="row">
-
             <!--  ==========  -->
             <!--  = Logo =  -->
             <!--  ==========  -->
             <div class="span7">
                 <a class="brand" href="index.php">
-                    <img src="images/logo.png" alt="Webmarket Logo" width="48" height="48" />
+                    <<<<<<< HEAD
+                    <!--<img src="images/logo.png" alt="Webmarket Logo" width="48" height="48" />-->
+                    
                     <span class="pacifico">Avita</span>
-<!--                    <span class="tagline">قالب فروشگاهی HTML قدرتمند</span>-->
+                    <!--                    <span class="tagline">قالب فروشگاهی HTML قدرتمند</span>-->
                 </a>
             </div>
 
             <!--  ==========  -->
             <!--  = Social Icons =  -->
             <!--  ==========  -->
-            <div class="span5">
-                <div class="topmost-line">
-                    <div class="lang-currency">
-                    </div>
+            <!--            <div class="span5">-->
+            <div class="topmost-line">
+                <<<<<<< HEAD
+                =======
+                <div class="lang-currency">
                 </div>
-                <div class="top-right">
-                    <div class="icons">
-                        <a href="http://www.facebook.com/ProteusNet"><span class="zocial-facebook"></span></a>
-                        <a href="skype:primozcigler?call"><span class="zocial-skype"></span></a>
-                        <a href="https://twitter.com/proteusnetcom"><span class="zocial-twitter"></span></a>
-                        <a href="http://eepurl.com/xFPYD"><span class="zocial-rss"></span></a>
-                        <a href="#"><span class="zocial-wordpress"></span></a>
-                        <a href="#"><span class="zocial-android"></span></a>
-                        <a href="#"><span class="zocial-html5"></span></a>
-                        <a href="#"><span class="zocial-windows"></span></a>
-                        <a href="#"><span class="zocial-apple"></span></a>
-                    </div>
-                    <div class="register">
-                        <a href="#loginModal" role="button" data-toggle="modal">ورود</a> یا
-                        <a href="#registerModal" role="button" data-toggle="modal">ثبت نام</a>
-                    </div>
+                >>>>>>> 8165691b151f8db723bffc7f8cd3676bec67df9d
+            </div>
+            <div class="top-right">
+                <div class="register">
+                    <!--                        --><?php
+                    //                        if($_SESSION['logged']==true){
+                    //                            echo $_SESSION["username"];
+                    //                            echo '<a href="#loginModal" role="button" data-toggle="modal">ورود</a> یا';
+                    //                        }
+                    //                        elseif($_SESSION['logged']==false)
+                    //                            echo ' <a href="#registerModal" role="button" data-toggle="modal">ثبت نام</a>';
+                    //                        ?>
+                    <a href="#loginModal" role="button" data-toggle="modal">ورود</a>
+                    <a href="#registerModal" role="button" data-toggle="modal">ثبت نام</a>
+
+
+
                 </div>
-            </div> <!-- /social icons -->
+                <!--                </div>-->
+                <!--            </div> <!-- /social icons -->
+            </div>
         </div>
-    </div>
 </header>
 
 <!--  ==========  -->
@@ -190,6 +201,7 @@
                         </div>
                     </div>
                 </div> <!-- /cart -->
+                <p>سلام </p>
             </div>
         </div>
     </div>
