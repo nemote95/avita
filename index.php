@@ -62,9 +62,7 @@ $most_popular=$dbh->query($most_popular_sql);
     <<<<<<< HEAD
     <?php include 'register.php' ?>
     <?php include 'login.php'?>
-    =======
-    <?php include 'login_register.php' ?>
-    >>>>>>> 8165691b151f8db723bffc7f8cd3676bec67df9d
+    
     <?php include 'header.php' ?>
 
 
