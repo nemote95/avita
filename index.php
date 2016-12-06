@@ -73,33 +73,7 @@ $most_popular=$dbh->query($most_popular_sql);
             <ul>
                 <li data-transition="premium-random" data-slotamount="3">
                     <img src="images/dummy/slides/1/slide.jpg" alt="slider img" width="1400" height="377"/>
-                    <!-- baloons -->
-                    <div class="caption lft ltt"
-                         data-x="570"
-                         data-y="50"
-                         data-speed="4000"
-                         data-start="1000"
-                         data-easing="easeOutElastic">
-                        <img src="images/dummy/slides/1/baloon1.png" alt="baloon" width="135" height="186"/>
-                    </div>
 
-                    <div class="caption lft ltt"
-                         data-x="770"
-                         data-y="60"
-                         data-speed="4000"
-                         data-start="1200"
-                         data-easing="easeOutElastic">
-                        <img src="images/dummy/slides/1/baloon3.png" alt="baloon" width="40" height="55"/>
-                    </div>
-
-                    <div class="caption lft ltt"
-                         data-x="870"
-                         data-y="80"
-                         data-speed="4000"
-                         data-start="1500"
-                         data-easing="easeOutElastic">
-                        <img src="images/dummy/slides/1/baloon2.png" alt="baloon" width="60" height="83"/>
-                    </div>
 
                     <!-- texts -->
                     <div class="caption lfl big_theme"
@@ -133,25 +107,6 @@ $most_popular=$dbh->query($most_popular_sql);
                 <li data-transition="premium-random" data-slotamount="3">
                     <img src="images/dummy/slides/2/slide.jpg" alt="slider img" width="1400" height="377"/>
 
-                    <!-- woman -->
-                    <div class="caption lfb ltb"
-                         data-x="800"
-                         data-y="50"
-                         data-speed="1000"
-                         data-start="1000"
-                         data-easing="easeInOutCubic">
-                        <img src="images/dummy/slides/2/woman.png" alt="woman" width="361" height="374"/>
-                    </div>
-
-                    <!-- plane -->
-                    <div class="caption lfl str"
-                         data-x="400"
-                         data-y="20"
-                         data-speed="10000"
-                         data-start="1000"
-                         data-easing="linear">
-                        <img src="images/dummy/slides/2/plane.png" alt="aircraft" width="117" height="28"/>
-                    </div>
 
                     <!-- texts -->
                     <div class="caption lfl big_theme"
@@ -185,15 +140,7 @@ $most_popular=$dbh->query($most_popular_sql);
                 <li data-transition="premium-random" data-slotamount="3">
                     <img src="images/dummy/slides/3/slide.jpg" alt="slider img" width="1400" height="377"/>
 
-                    <!-- phone -->
-                    <div class="caption sfr fadeout"
-                         data-x="950"
-                         data-y="77"
-                         data-speed="1000"
-                         data-start="2500"
-                         data-easing="easeInOutCubic">
-                        <img src="images/dummy/slides/3/phone.png" alt="phone in a hand" width="495" height="377"/>
-                    </div>
+
 
                     <!-- texts -->
                     <div class="caption lfl big_theme"
@@ -227,63 +174,6 @@ $most_popular=$dbh->query($most_popular_sql);
                 <li data-transition="premium-random" data-slotamount="3">
                     <img src="images/dummy/slides/4/slide.jpg" alt="slider img" width="1400" height="377"/>
 
-                    <!-- faces -->
-                    <div class="caption lft ltt"
-                         data-x="-150"
-                         data-y="0"
-                         data-speed="300"
-                         data-start="2000"
-                         data-easing="easeInOutCubic">
-                        <img src="images/dummy/slides/4/person1.png" alt="satisfied customer" width="108" height="204"/>
-                    </div>
-                    <div class="caption lft ltt"
-                         data-x="0"
-                         data-y="0"
-                         data-speed="300"
-                         data-start="2200"
-                         data-easing="easeInOutCubic">
-                        <img src="images/dummy/slides/4/person2.png" alt="satisfied customer" width="108" height="321"/>
-                    </div>
-                    <div class="caption lft ltt"
-                         data-x="500"
-                         data-y="0"
-                         data-speed="300"
-                         data-start="2400"
-                         data-easing="easeInOutCubic">
-                        <img src="images/dummy/slides/4/person3.png" alt="satisfied customer" width="108" height="139"/>
-                    </div>
-                    <div class="caption lft ltt"
-                         data-x="720"
-                         data-y="0"
-                         data-speed="300"
-                         data-start="2600"
-                         data-easing="easeInOutCubic">
-                        <img src="images/dummy/slides/4/person4.png" alt="satisfied customer" width="108" height="191"/>
-                    </div>
-                    <div class="caption lft ltt"
-                         data-x="940"
-                         data-y="0"
-                         data-speed="300"
-                         data-start="2800"
-                         data-easing="easeInOutCubic">
-                        <img src="images/dummy/slides/4/person5.png" alt="satisfied customer" width="108" height="139"/>
-                    </div>
-                    <div class="caption lft ltt"
-                         data-x="1200"
-                         data-y="0"
-                         data-speed="300"
-                         data-start="3000"
-                         data-easing="easeInOutCubic">
-                        <img src="images/dummy/slides/4/person6.png" alt="satisfied customer" width="108" height="179"/>
-                    </div>
-                    <div class="caption lft ltt"
-                         data-x="1350"
-                         data-y="0"
-                         data-speed="300"
-                         data-start="3200"
-                         data-easing="easeInOutCubic">
-                        <img src="images/dummy/slides/4/person7.png" alt="satisfied customer" width="108" height="133"/>
-                    </div>
 
                     <!-- texts -->
                     <div class="caption lfl big_theme"
@@ -327,9 +217,8 @@ $most_popular=$dbh->query($most_popular_sql);
     <!--  = Main container =  -->
     <!--  ==========  -->
     <div class="container">
-        <div class="row">
-            <div class="span12">
-                <div class="push-up over-slider blocks-spacer">
+
+                <div class=" over-slider blocks-spacer">
 
                     <!--  ==========  -->
                     <!--  = Three Banners =  -->
@@ -355,8 +244,7 @@ $most_popular=$dbh->query($most_popular_sql);
                         </div>
                     </div> <!-- /three banners -->
                 </div>
-            </div>
-        </div>
+
 
         <!--  ==========  -->
         <!--  = Featured Items =  -->
@@ -906,7 +794,7 @@ $most_popular=$dbh->query($most_popular_sql);
                     if ($mp['DID']==null){
                         echo '<h4 class="title" >'. $mp['cost']*1000 .'تومان</h4 >';}
                     else {
-                        echo '<h4 class="title" style="text-decoration: line-through;color: grey;">'. $mp['cost']*1000 .'تومان</h4 >';
+                        echo '<h4 class="title" style="text-decoration: line-through;color: darkslategray;">' . $mp['cost']*1000 .'تومان</h4 >';
                         $discount_sql="select percentage from discount where DID=".$mp['DID'];
                         $discount=$dbh->query($discount_sql)->fetch();
                         echo '<h4 class="title" style="color: forestgreen;">'. $mp['cost']*(1-$discount['percentage'])*1000 .'تومان</h4 >';
@@ -921,136 +809,6 @@ $most_popular=$dbh->query($most_popular_sql);
             </div>
         </div>
     </div> <!-- /most popular -->
-
-    <!--  ==========  -->
-    <!--  = Lastest News =  -->
-    <!--  ==========  -->
-    <<<<<<< HEAD
-
-
-    =======
-    <div class="darker-stripe blocks-spacer more-space latest-news with-shadows">
-        <div class="container">
-
-            <!--  ==========  -->
-            <!--  = Title =  -->
-            <!--  ==========  -->
-            <div class="row">
-                <div class="span12">
-                    <div class="main-titles center-align">
-                        <h2 class="title">
-                            <span class="clickable icon-chevron-right" id="tweetsRight"></span> &nbsp;&nbsp;&nbsp;
-                            <span class="light">آخرین</span> خبر ها &nbsp;&nbsp;&nbsp;
-                            <span class="clickable icon-chevron-left" id="tweetsLeft"></span>
-                        </h2>
-                    </div>
-                </div>
-            </div> <!-- /title -->
-
-            <!--  ==========  -->
-            <!--  = News content =  -->
-            <!--  ==========  -->
-            <div class="row">
-                <div class="span12">
-                    <div class="carouFredSel" data-nav="tweets" data-autoplay="false">
-
-
-                        <!--  ==========  -->
-                        <!--  = Slide =  -->
-                        <!--  ==========  -->
-                        <div class="slide">
-                            <div class="row">
-                                <div class="span6">
-                                    <div class="news-item">
-                                        <div class="published">12 بهمن 1392</div>
-                                        <h6><a href="#">عنوان خبر شما</a></h6>
-                                        <p>در این قسمت میتوانید خبر خود را بنویسید. این یک نوشته ی آزمایشی است که صرفا
-                                            برای پر کردن این بخش به کار رفته و جنبه ی دیگری ندارد. شما میتوانید این
-                                            ناحیه را با محتوای دلخواه خود پر کنید.</p>
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <div class="news-item">
-                                        <div class="published">15 بهمن 1392</div>
-                                        <h6><a href="#">یک خبر جالب دیگر</a></h6>
-                                        <p>در این قسمت میتوانید خبر خود را بنویسید. این یک نوشته ی آزمایشی است که صرفا
-                                            برای پر کردن این بخش به کار رفته و جنبه ی دیگری ندارد. شما میتوانید این
-                                            ناحیه را با محتوای دلخواه خود پر کنید.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- /slide -->
-
-
-                        <!--  ==========  -->
-                        <!--  = Slide =  -->
-                        <!--  ==========  -->
-                        <div class="slide">
-                            <div class="row">
-                                <div class="span6">
-                                    <div class="news-item">
-                                        <div class="published">12 بهمن 1392</div>
-                                        <h6><a href="#">عنوان خبر شما</a></h6>
-                                        <p>در این قسمت میتوانید خبر خود را بنویسید. این یک نوشته ی آزمایشی است که صرفا
-                                            برای پر کردن این بخش به کار رفته و جنبه ی دیگری ندارد. شما میتوانید این
-                                            ناحیه را با محتوای دلخواه خود پر کنید.</p>
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <div class="news-item">
-                                        <div class="published">15 بهمن 1392</div>
-                                        <h6><a href="#">یک خبر جالب دیگر</a></h6>
-                                        <p>در این قسمت میتوانید خبر خود را بنویسید. این یک نوشته ی آزمایشی است که صرفا
-                                            برای پر کردن این بخش به کار رفته و جنبه ی دیگری ندارد. شما میتوانید این
-                                            ناحیه را با محتوای دلخواه خود پر کنید.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- /slide -->
-
-                    </div>
-                </div>
-            </div> <!-- /news content -->
-        </div>
-    </div> <!-- /latest news -->
-
-    <!--  ==========  -->
-    <!--  = Brands Carousel =  -->
-    <!--  ==========  -->
-    <div class="container blocks-spacer-last">
-
-        <!--  ==========  -->
-        <!--  = Title =  -->
-        <!--  ==========  -->
-        <div class="row">
-            <div class="span12">
-                <div class="main-titles lined">
-                    <h2 class="title"><span class="light">برند های</span> ما</h2>
-                    <div class="arrows">
-                        <a href="#" class="icon-chevron-right" id="brandsRight"></a>
-                        <a href="#" class="icon-chevron-left" id="brandsLeft"></a>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- /title -->
-
-        <!--  ==========  -->
-        <!--  = Logos =  -->
-        <!--  ==========  -->
-        <div class="row">
-            <div class="span12">
-                <div class="brands carouFredSel" data-nav="brands" data-autoplay="true">
-                    <img src="images/dummy/brands/brands_01.jpg" alt="" width="203" height="104"/>
-                    <img src="images/dummy/brands/brands_02.jpg" alt="" width="203" height="104"/>
-                    <img src="images/dummy/brands/brands_03.jpg" alt="" width="203" height="104"/>
-                    <img src="images/dummy/brands/brands_04.jpg" alt="" width="203" height="104"/>
-                    <img src="images/dummy/brands/brands_05.jpg" alt="" width="203" height="104"/>
-                    <img src="images/dummy/brands/brands_06.jpg" alt="" width="203" height="104"/>
-                </div>
-            </div>
-        </div> <!-- /logos -->
-    </div> <!-- /brands carousel -->
-    >>>>>>> 8165691b151f8db723bffc7f8cd3676bec67df9d
 
     <?php include 'footer.php'; ?>
 

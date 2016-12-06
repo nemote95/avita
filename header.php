@@ -27,11 +27,7 @@
             <!--  = Social Icons =  -->
             <!--  ==========  -->
             <!--            <div class="span5">-->
-            <div class="topmost-line">
 
-                <div class="lang-currency">
-                </div>
-            </div>
             <div class="top-right">
                 <div class="register">
                     <!--                        --><?php
@@ -70,21 +66,13 @@
                     <!--  ==========  -->
                     <div class="nav-collapse collapse">
                         <ul class="nav" id="mainNavigation">
-                            <li class="dropdown active">
-                                <a href="index.php" class="dropdown-toggle"> خانه <b class="caret"></b> </a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown active">
-                                        <a href="index.php"><i class="icon-caret-left pull-right visible-desktop"></i> رنگ های پوسته</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="active"><a href="index.php">پوسته پیش فرض</a></li>
+                            <li class="active">
+                                <a href="index.php" >خانه</a>
 
-                                        </ul>
-                                    </li>
-                                </ul>
                             </li>
 
                             <li class="dropdown">
-                                <a href="shop.php" class="dropdown-toggle"> فروشگاه <b class="caret"></b> </a>
+                                <a href="shop.php" class="dropdown-toggle"> دسته بندی ها <b class="caret"></b> </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="shop.php">قالب بندی پیش فرض</a></li>
                                     <li><a href="shop-no-sideba.php">تمام صفحه</a></li>
