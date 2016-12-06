@@ -105,32 +105,15 @@
                             </div>
                             <div id="filterOne" class="accordion-body collapse in">
                                 <div class="accordion-inner">
-                                    <a href="#" data-target=".filter--accessories" class="selectable"><i
-                                            class="box"></i> لوازم شخصی</a>
-                                    <a href="#" data-target=".filter--bags, .filter--hats" class="selectable"><i
-                                            class="box"></i>کیف و کلاه</a>
-                                    <a href="#" data-target=".filter--polo-shirts" class="selectable"><i
-                                            class="box"></i> تی شرت های پولو</a>
-                                    <a href="#" data-target=".filter--shirts" class="selectable"><i class="box"></i>
-                                        پیراهن</a>
-                                    <a href="#" data-target=".filter--shoes, .filter--boots, .filter--trainers"
-                                       class="selectable"><i class="box"></i> کفش اسپورت و رسمی</a>
-                                    <a href="#" data-target=".filter--shorts" class="selectable"><i class="box"></i>
-                                        لوازم جانبی</a>
-                                    <a href="#" data-target=".filter--suits, .filter--blazers" class="selectable"><i
-                                            class="box"></i> لباس رسمی</a>
-                                    <a href="#" data-target=".filter--sunglasses" class="selectable"><i class="box"></i>
-                                        عینک آفتابی</a>
-                                    <a href="#" data-target=".filter--swimwear" class="selectable"><i class="box"></i>
-                                        لباس شنا</a>
-                                    <a href="#" data-target=".filter--trousers, .filter--chinos" class="selectable"><i
-                                            class="box"></i> شلوار</a>
-                                    <a href="#" data-target=".filter--t-shirts, .filter--vests" class="selectable"><i
-                                            class="box"></i> تی شرت و جلیقه</a>
-                                    <a href="#" data-target=".filter--bags" class="selectable"><i class="box"></i>
-                                        کیف</a>
-                                    <a href="#" data-target=".filter--underwear, .filter--socks" class="selectable"><i
-                                            class="box"></i> زیر پوش و جوراب</a>
+                                    <?php
+                                    $cat_sql = "select * from category";
+                                    $categories=$dbh->query($cat_sql);
+                                    foreach ($categories as $cat){
+                                        echo '<a href="#" data-target=".filter--accessories" class="selectable"><i
+                                            class="box"></i>'.$cat['name'].'</a>';
+                                    }
+                                    ?>
+
 
                                 </div>
                             </div>
@@ -209,32 +192,7 @@
                             </div>
                         </div> <!-- /color filter -->
 
-                        <!--  ==========  -->
-                        <!--  = Brand filter =  -->
-                        <!--  ==========  -->
-                        <div class="accordion-group">
-                            <div class="accordion-heading">
-                                <a class="accordion-toggle collapsed" data-toggle="collapse" href="#filterFour">برند <b
-                                        class="caret"></b></a>
-                            </div>
-                            <div id="filterFour" class="accordion-body collapse">
-                                <div class="accordion-inner">
-                                    <a href="#" data-target="s-oliver" data-type="brand" class="selectable detailed"><i
-                                            class="box"></i> S. Oliver</a>
-                                    <a href="#" data-target="nike" data-type="brand" class="selectable detailed"><i
-                                            class="box"></i> Nike</a>
-                                    <a href="#" data-target="naish" data-type="brand" class="selectable detailed"><i
-                                            class="box"></i> Naish</a>
-                                    <a href="#" data-target="adidas" data-type="brand" class="selectable detailed"><i
-                                            class="box"></i> Adidas</a>
-                                    <a href="#" data-target="puma" data-type="brand" class="selectable detailed"><i
-                                            class="box"></i> Puma</a>
-                                    <a href="#" data-target="shred" data-type="brand" class="selectable detailed"><i
-                                            class="box"></i> Shred</a>
 
-                                </div>
-                            </div>
-                        </div> <!-- /brand filter -->
 
                         <a href="#" class="remove-filter" id="removeFilters"><span class="icon-ban-circle"></span> حذف
                             همه فیلتر ها</a>

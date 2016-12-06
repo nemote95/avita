@@ -6,8 +6,7 @@
 //?>
 <?php //include 'login.php' ?>
 <?php //include  'register.php'?>
-<?php
-?>
+<?php include 'config.php'?>
 <header id="header">
     <div class="container">
         <div class="row">
@@ -74,10 +73,13 @@
                             <li class="dropdown">
                                 <a href="shop.php" class="dropdown-toggle"> دسته بندی ها <b class="caret"></b> </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="shop.php">قالب بندی پیش فرض</a></li>
-                                    <li><a href="shop-no-sideba.php">تمام صفحه</a></li>
-                                    <li><a href="product.php">محصول تکی</a></li>
-                                    <li><a href="shop-search.php">نتایج جستجو</a></li>
+                                    <?php
+                                    $cat_sql = "select * from category";
+                                    $categories=$dbh->query($cat_sql);
+                                    foreach ($categories as $cat){
+                                    echo '<li><a href="shop.php?CAID='.$cat['CAID'].'">'.$cat['name'].'</a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </li>
 
