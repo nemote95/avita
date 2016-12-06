@@ -35,20 +35,19 @@ if(isset($_POST['btn-login']) ) {
         $result = $dbh->prepare($query);
         $result->execute();
         $row=$result->fetch(PDO::FETCH_OBJ);
-        $rows = $result->fetchAll(); // assuming $result == true
-        $n = count($rows);
+        $count=$result->rowCount();
 
 //<!--        <h1>--><?php //echo $row->password<!-- </h1>-->
-        if( $n == 1) {
-            echo "<h1>".$row->password."</h1>";
+
+        if( $count==1) {
+//            echo "<h1>".$row->password."</h1>";
             if($row->password==$pass){
-
-                echo "<h1>".$row->password."</h1>";
-
+//                echo "<h1>".$row->password."</h1>";
                 $_SESSION['user'] = $row->UID;
-                $_SESSION['email']=$row->email;
-                header("Location: index.php");
-                $errMSG = "u logged in successfully..";
+                $_SESSION['lastname']=$row->last_name;
+//                echo "<h1>".$_SESSION['lastname']."</h1>";
+//                header("Location: index.php");
+//                $errMSG = "u logged in successfully..";
             }
             else{
                 $errMSG = "Incorrect Credentials, Try again...";

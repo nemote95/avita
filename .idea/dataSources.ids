@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Sqlite (Xerial) - jdbc:sqlite:/home/lenovo/www/avita/&lt;?php try {     $dbh = new PDO(&apos;mysql:host=localhost;dbname=avita&apos;, $user, $pass);     foreach($dbh-&gt;query(&apos;SELECT * from FOO&apos;) as $row) {         print_r($row);     }     $dbh = null; } catch (PDOException $e) {     print &quot;Error!: &quot; . $e-&gt;getMessage() . &quot;&lt;br/&gt;&quot;;     die(); } ?&gt;" uuid="994e3247-2bc3-468b-a037-fe5de7d4aea9">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

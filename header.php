@@ -44,9 +44,6 @@
                     //                        ?>
                     <a href="#loginModal" role="button" data-toggle="modal">ورود</a>
                     <a href="#registerModal" role="button" data-toggle="modal">ثبت نام</a>
-
-
-
                 </div>
                 <!--                </div>-->
                 <!--            </div> <!-- /social icons -->
@@ -198,7 +195,8 @@
                         </div>
                     </div>
                 </div> <!-- /cart -->
-                <p>سلام </p>
+                <?php  echo "<p>سلام".$_SESSION['lastname']."</p>";?>
+                </p>
             </div>
         </div>
     </div>
