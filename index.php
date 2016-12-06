@@ -59,7 +59,12 @@ $most_popular=$dbh->query($most_popular_sql);
 
 <div class="master-wrapper">
 
+    <<<<<<< HEAD
+    <?php include 'register.php' ?>
+    <?php include 'login.php'?>
+    =======
     <?php include 'login_register.php' ?>
+    >>>>>>> 8165691b151f8db723bffc7f8cd3676bec67df9d
     <?php include 'header.php' ?>
 
 
@@ -892,7 +897,7 @@ $most_popular=$dbh->query($most_popular_sql);
                             <div class="picture" >'.
                         '<img src="images/dummy/products/' . $mp['PRID'] . '/1.jpg" alt = "" width = "540"
                                      height = "412" />';
-                             echo   '<div class="img-overlay" >
+                    echo   '<div class="img-overlay" >
                                     <a href = "product.php?PRID='.$mp['PRID'] .'" class="btn more btn-primary" > توضیحات بیشتر </a >
                                     <a href = "#" class="btn buy btn-danger" > اضافه به سبد خرید </a >
                                 </div >
@@ -900,17 +905,17 @@ $most_popular=$dbh->query($most_popular_sql);
                         </div >
                         <div class="main-titles no-margin" >';
 
-                            echo '<h3 class="no-margin" >'.$mp['name'].'</h3 >';
-                                if ($mp['DID']==null){
-                                    echo '<h4 class="title" >'. $mp['cost']*1000 .'تومان</h4 >';}
-                                else {
-                                    echo '<h4 class="title" style="text-decoration: line-through;color: grey;">'. $mp['cost']*1000 .'تومان</h4 >';
-                                    $discount_sql="select percentage from discount where DID=".$mp['DID'];
-                                    $discount=$dbh->query($discount_sql)->fetch();
-                                    echo '<h4 class="title" style="color: forestgreen;">'. $mp['cost']*(1-$discount['percentage'])*1000 .'تومان</h4 >';
+                    echo '<h3 class="no-margin" >'.$mp['name'].'</h3 >';
+                    if ($mp['DID']==null){
+                        echo '<h4 class="title" >'. $mp['cost']*1000 .'تومان</h4 >';}
+                    else {
+                        echo '<h4 class="title" style="text-decoration: line-through;color: grey;">'. $mp['cost']*1000 .'تومان</h4 >';
+                        $discount_sql="select percentage from discount where DID=".$mp['DID'];
+                        $discount=$dbh->query($discount_sql)->fetch();
+                        echo '<h4 class="title" style="color: forestgreen;">'. $mp['cost']*(1-$discount['percentage'])*1000 .'تومان</h4 >';
 
-                                }
-                        echo '</div >                        
+                    }
+                    echo '</div >                        
                     </div >
                 </div > <!-- /product-->';
                 } ?>
@@ -923,6 +928,10 @@ $most_popular=$dbh->query($most_popular_sql);
     <!--  ==========  -->
     <!--  = Lastest News =  -->
     <!--  ==========  -->
+    <<<<<<< HEAD
+
+
+    =======
     <div class="darker-stripe blocks-spacer more-space latest-news with-shadows">
         <div class="container">
 
@@ -1044,6 +1053,7 @@ $most_popular=$dbh->query($most_popular_sql);
             </div>
         </div> <!-- /logos -->
     </div> <!-- /brands carousel -->
+    >>>>>>> 8165691b151f8db723bffc7f8cd3676bec67df9d
 
     <?php include 'footer.php'; ?>
 
