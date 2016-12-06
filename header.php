@@ -16,9 +16,8 @@
             <!--  ==========  -->
             <div class="span7">
                 <a class="brand" href="index.php">
-                    <<<<<<< HEAD
                     <!--<img src="images/logo.png" alt="Webmarket Logo" width="48" height="48" />-->
-                    
+
                     <span class="pacifico">Avita</span>
                     <!--                    <span class="tagline">قالب فروشگاهی HTML قدرتمند</span>-->
                 </a>
@@ -29,11 +28,9 @@
             <!--  ==========  -->
             <!--            <div class="span5">-->
             <div class="topmost-line">
-                <<<<<<< HEAD
-                =======
+
                 <div class="lang-currency">
                 </div>
-                >>>>>>> 8165691b151f8db723bffc7f8cd3676bec67df9d
             </div>
             <div class="top-right">
                 <div class="register">
