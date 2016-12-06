@@ -51,7 +51,8 @@
   &.featured {
     background: image-url('shelf.png') no-repeat center bottom;
     @include background-size(100% auto);
-    padding-bottom: 14%;
+    padding-bottom: 1%;
+    margin-top: 100px;
     
     .picture {
       width: 70%;
