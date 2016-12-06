@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b83200-9495-4963-b4a2-83ba717bc872" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/stylesheets/.gitignore" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/header.php" afterPath="$PROJECT_DIR$/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/bootstrap.css" afterPath="$PROJECT_DIR$/stylesheets/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/main.css" afterPath="$PROJECT_DIR$/stylesheets/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/responsive.css" afterPath="$PROJECT_DIR$/stylesheets/responsive.css" />
     </list>
     <ignored path="avita.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,16 +38,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="shop-search.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shop-search.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8982">
-              <caret line="499" column="8" selection-start-line="499" selection-start-column="8" selection-end-line="499" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login_register.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/login_register.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -99,8 +86,8 @@
       <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stylesheets/bootstrap.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="2139" column="0" selection-start-line="2139" selection-start-column="0" selection-end-line="2139" selection-end-column="0" />
+            <state relative-caret-position="98">
+              <caret line="2114" column="3" selection-start-line="2114" selection-start-column="3" selection-end-line="2114" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -189,6 +176,7 @@
         <option value="$PROJECT_DIR$/stylesheets/main.css" />
         <option value="$PROJECT_DIR$/stylesheets/responsive.css" />
         <option value="$PROJECT_DIR$/stylesheets/bootstrap.css" />
+        <option value="$PROJECT_DIR$/stylesheets/.gitignore" />
       </list>
     </option>
   </component>
@@ -341,18 +329,18 @@
       <workItem from="1480803710708" duration="98000" />
       <workItem from="1480874688801" duration="3020000" />
       <workItem from="1481025823021" duration="609000" />
-      <workItem from="1481040281855" duration="1089000" />
+      <workItem from="1481040281855" duration="1206000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22941000" />
+    <option name="totallyTimeSpent" value="23058000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="52" width="1281" height="716" extended-state="4" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24668229" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24668229" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -387,31 +375,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20160">
-          <caret line="1120" column="4" selection-start-line="1120" selection-start-column="4" selection-end-line="1120" selection-end-column="4" />
-          <folding>
-            <element signature="e#45096#45102#0#HTML" expanded="true" />
-            <element signature="e#45102#45108#0#HTML" expanded="true" />
-            <element signature="e#45108#45114#0#HTML" expanded="true" />
-            <element signature="e#45183#45189#0#HTML" expanded="true" />
-            <element signature="e#45189#45195#0#HTML" expanded="true" />
-            <element signature="e#45195#45201#0#HTML" expanded="true" />
-            <marker date="1481040978793" expanded="true" signature="49:421" ph="select baske... " />
-            <marker date="1481040978793" expanded="true" signature="42809:43119" ph="..." />
-            <marker date="1481040978793" expanded="true" signature="42852:43119" ph="..." />
-            <marker date="1481040978793" expanded="true" signature="42903:43119" ph="..." />
-            <marker date="1481040978793" expanded="true" signature="42954:43119" ph="..." />
-            <marker date="1481040978793" expanded="true" signature="43065:43119" ph="..." />
-            <marker date="1481040978793" expanded="true" signature="43175:43452" ph="..." />
-            <marker date="1481040978793" expanded="true" signature="43870:43912" ph="..." />
-            <marker date="1481040978793" expanded="true" signature="43989:44031" ph="select perce... discount" />
-            <marker date="1481040978793" expanded="true" signature="44171:44190" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2700">
@@ -894,8 +857,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stylesheets/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="2139" column="0" selection-start-line="2139" selection-start-column="0" selection-end-line="2139" selection-end-column="0" />
+        <state relative-caret-position="98">
+          <caret line="2114" column="3" selection-start-line="2114" selection-start-column="3" selection-end-line="2114" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stylesheets/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
