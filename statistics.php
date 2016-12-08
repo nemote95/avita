@@ -7,7 +7,7 @@ where basket_product.prid=product.prid and purchase.bid=basket_product.bid and p
 $statement->execute();
 $no_discount=$statement->fetchAll();
 
-$statement=$dbh->prepare('select Date,cost*discount.percentage  
+$statement=$dbh->prepare('select Date,sum(cost*discount.percentage) as sum 
 from purchase,discount,product,basket_product 
 where basket_product.prid=product.prid and purchase.bid=basket_product.bid and product.did is not null and product.did=discount.did
 group by date;');
