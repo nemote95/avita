@@ -57,7 +57,7 @@ textarea { overflow: auto; vertical-align: top; }
     @page { margin: 0.5cm; }
     p, h2, h3 { orphans: 3; widows: 3; }
     h2, h3 { page-break-after: avoid; } }
-body { margin: 0; font-family: BYekan; font-size: 13px; line-height: 19px; color: #727272; background-color: #c49e71; }
+body { margin: 0; font-family: BYekan; font-size: 13px; line-height: 19px; color: #65421c; background-color: #c49e71; }
 
 a { color: #869633; text-decoration: none; }
 
@@ -1644,7 +1644,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini { *padding-top: 1px; *pad
 
 .alert-danger h4, .alert-error h4 { color: #e54b5d; }
 
-.alert-info { background-color: #f4f4f4; border-color: #e6e6e6; color: #666666; }
+.alert-info { background-color: #efd3b8; border-color: #efd3b8; color: #666666; }
 
 .alert-info h4 { color: #666666; }
 
@@ -1849,7 +1849,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini { *padding-top: 1px; *pad
 
 .navbar .nav > li { float: right; }
 
-.navbar .nav > li > a { float: none; padding: 18.5px 15px 18.5px; color: #d27070; text-decoration: none; text-shadow: 0 1px 0 #d27070; }
+.navbar .nav > li > a { float: none; padding: 18.5px 15px 18.5px; color: #65421c; text-decoration: none; text-shadow: 0 1px 0 #65421c; }
 
 .navbar .nav .dropdown-toggle .caret { margin-top: 8px; }
 

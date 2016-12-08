@@ -1,11 +1,12 @@
 <?php include 'config.php';
-$most_popular_sql = "select basket_product.PRID, count(basket_product.PRID) as count ,product.name,product.cost,product.DID
+$most_popular_stmnt = $dbh->prepare("select basket_product.PRID, count(basket_product.PRID) as count ,product.name,product.cost,product.DID
                     from basket_product,purchase,product
                     where purchase.bid=basket_product.bid and product.PRID=basket_product.PRID
                     group by basket_product.PRID
                     order by count desc 
-                    limit 4";
-$most_popular=$dbh->query($most_popular_sql);
+                    limit 4");
+$most_popular_stmnt->execute();
+$most_popular=$most_popular_stmnt->fetchAll();
 
 ?>
 <html>
@@ -794,7 +795,7 @@ $most_popular=$dbh->query($most_popular_sql);
                     if ($mp['DID']==null){
                         echo '<h4 class="title" >'. $mp['cost']*1000 .'تومان</h4 >';}
                     else {
-                        echo '<h4 class="title" style="text-decoration: line-through;color: darkslategray;">' . $mp['cost']*1000 .'تومان</h4 >';
+                        echo '<h4 class="title" style="text-decoration: line-through;color: #190f06;">' . $mp['cost']*1000 .'تومان</h4 >';
                         $discount_sql="select percentage from discount where DID=".$mp['DID'];
                         $discount=$dbh->query($discount_sql)->fetch();
                         echo '<h4 class="title" style="color: forestgreen;">'. $mp['cost']*(1-$discount['percentage'])*1000 .'تومان</h4 >';

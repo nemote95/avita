@@ -1,5 +1,4 @@
- 
-<!DOCTYPE html>
+
 <!--[if lt IE 8]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
@@ -87,11 +86,11 @@
                     		    <div class="clearfix">
                     		    	<div class="step done">
                     		    	    <div class="step-badge"><i class="icon-ok"></i></div>
-                    		    	    <a href="checkout-step-1.html">سبد خريد</a>
+                    		    	    <a href="checkout-step-1.php">سبد خريد</a>
                     		    	</div>
                     		    	<div class="step done">
                     		    	    <div class="step-badge"><i class="icon-ok"></i></div>
-                    		    	    <a href="checkout-step-2.html">آدرس ارسال</a>
+                    		    	    <a href="checkout-step-2.php">آدرس ارسال</a>
                     		    	</div>
                     		    	<div class="step active">
                                         <div class="step-badge">2</div>
@@ -189,7 +188,7 @@
 						    
 						    <p class="right-align">
 						        در مرحله بعدي شما قادر هستيد سفارشتان را بازبيني کرده و آن را تاييد کنيد &nbsp; &nbsp;
-						        <a href="checkout-step-4.html " class="btn btn-primary higher bold">ادامه</a>
+						        <a href="checkout-step-4.php " class="btn btn-primary higher bold">ادامه</a>
 						    </p>
 							    
 							    
