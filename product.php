@@ -85,7 +85,7 @@ if ($product['DID']!=null){
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
-                            <a href="product.html">تی شرت مردانه کلاه دار</a>
+                            <?php echo '<a href="product.html?PRID='.$product["PRID"].'">'.$product["name"].'</a>'; ?>
                         </li>
                     </ul>
                 </div>

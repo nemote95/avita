@@ -46,7 +46,6 @@
 
         <?php include 'register.php' ?>
         <?php include 'login.php'?>
-
         <?php include 'header.php' ?>
 
     
@@ -59,7 +58,7 @@
                 <div class="span12">
                     <ul class="breadcrumb">
                         <li>
-                            <a href="index.html">وبمارکت</a>
+                            <a href="index.html">آویتا</a>
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
@@ -158,11 +157,11 @@
                         		    <br />
                         		    <strong class="opensans dark-clr">فکس:</strong> 00386 31 567 538
                         		    <br />
-                        		    <strong class="opensans dark-clr">ایمیل:</strong> <a href="#">info@webmarket.com</a>
+                        		    <strong class="opensans dark-clr">ایمیل:</strong> <a href="#">info@Avita.com</a>
                         		</p>
                         	</div>
                         	<div class="span5">
-                        	    <div class="add-googlemap" data-height="205" data-addr="Prešernov Trg, Ljubljana" data-title="Webmarket Business" data-zoom="14" data-type="roadmap"></div>
+                        	    <div class="add-googlemap" data-height="205" data-addr="Prešernov Trg, Ljubljana" data-title="Avita Business" data-zoom="14" data-type="roadmap"></div>
                         	</div>
                         </div>
     

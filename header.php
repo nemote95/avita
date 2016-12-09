@@ -73,15 +73,7 @@
                         <ul class="nav" id="mainNavigation">
                             <li class="dropdown active">
                                 <a href="index.php" class="dropdown-toggle"> خانه <b class="caret"></b> </a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown active">
-                                        <a href="index.php"><i class="icon-caret-left pull-right visible-desktop"></i> رنگ های پوسته</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="active"><a href="index.php">پوسته پیش فرض</a></li>
 
-                                        </ul>
-                                    </li>
-                                </ul>
                             </li>
 
                             <li class="dropdown">

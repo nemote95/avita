@@ -1,12 +1,11 @@
 <?php include 'config.php';
-$most_popular_stmnt = $dbh->prepare("select basket_product.PRID, count(basket_product.PRID) as count ,product.name,product.cost,product.DID
+$most_popular_stmnt = "select basket_product.PRID, count(basket_product.PRID) as count ,product.name,product.cost,product.DID
                     from basket_product,purchase,product
                     where purchase.bid=basket_product.bid and product.PRID=basket_product.PRID
                     group by basket_product.PRID
-                    order by count desc 
-                    limit 4");
-$most_popular_stmnt->execute();
-$most_popular = $most_popular_stmnt->fetchAll();
+                    order by count desc;";
+
+$most_popular = array_slice($dbh->query($most_popular_stmnt)->fetchAll(),0,4);
 
 $day_product_sql="select product.PRID,product.name,product.cost,product.DID from product where product.count<5 and product.count>0 limit 3";
 $day_product=$dbh->query($day_product_sql);
