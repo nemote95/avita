@@ -34,15 +34,16 @@
 
                 <div class="register">
                     <?php
-                        if(isset($_SESSION['user'])) {
-                            echo "   سلام".$_SESSION['lastname'];
-                                echo '<a href="logout.php?logout" role="button" class="btn buy btn-danger" data-toggle="modal" style=" margin:10px;">خروج</a>';
+                    if(isset($_SESSION['lastname'])) {
+//                            if ($_SESSION['loggedIn'] == true) {
+                        echo '<a href="logout.php?logout" role="button" class="btn buy btn-danger" data-toggle="modal">خروج</a>';
+//                            }
+                    }
+                    else{
+                        echo '<a href="#loginModal" role="button" class="btn more btn-primary" data-toggle="modal">ورود</a> یا';
+                        echo ' <a href="#registerModal" role="button" class="btn more btn-primary" data-toggle="modal">ثبت نام</a>';
+                    }
 
-                        }
-                            else{
-                                echo '<a href="#loginModal" role="button" class="btn more btn-primary" data-toggle="modal">ورود</a> یا';
-                                echo ' <a href="#registerModal" role="button" class="btn more btn-primary" data-toggle="modal">ثبت نام</a>';
-                            }
 
 
                     ?>
@@ -199,7 +200,12 @@
                         </div>
                     </div>
                 </div> <!-- /cart -->
+                <?php
 
+                if(isset($_SESSION['lastname'])) {
+                    echo "<p>سلام".$_SESSION['lastname']."</p>";
+                }
+                ?>
             </div>
         </div>
     </div>
