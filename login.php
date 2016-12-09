@@ -1,4 +1,7 @@
 <?php
+include ('config.php');
+$error='';
+//session_start();
 if(isset($_POST['btn-login']) ) {
 // prevent sql injections/ clear user invalid inputs
     if(isset($_POST['email'])) {
@@ -45,9 +48,10 @@ if(isset($_POST['btn-login']) ) {
 //                echo "<h1>".$row->password."</h1>";
                 $_SESSION['user'] = $row->UID;
                 $_SESSION['lastname']=$row->last_name;
+                $_SESSION['loggedIn']=true;
 //                echo "<h1>".$_SESSION['lastname']."</h1>";
 //                header("Location: index.php");
-//                $errMSG = "u logged in successfully..";
+                $errMSG = "u logged in successfully..";
             }
             else{
                 $errMSG = "Incorrect Credentials, Try again...";
@@ -102,7 +106,7 @@ if(isset($_POST['btn-login']) ) {
                 <?php
             }
             ?>
-            <h3><?php echo  $_SESSION['user'] ?> </h3>
+<!--            <h3>--><?php //echo  $_SESSION['user'] ?><!-- </h3>-->
 <!--            <h3>--><?php //echo  $_SESSION['email'] ?><!-- </h3>-->
         </form>
         <p class="center-align push-down-0">

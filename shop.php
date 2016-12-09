@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+    <?php
+    include 'header.php';
+//    include ('filter.php');
+    include ('login.php');
+    $products = $_GET['PRODUCT'];
+    ?>
 <!--[if lt IE 8]>
 <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>
@@ -54,7 +60,6 @@
 
     <?php include 'header.php' ?>
 
-
     <!--  ==========  -->
     <!--  = Breadcrumbs =  -->
     <!--  ==========  -->
@@ -108,15 +113,13 @@
                             <div id="filterOne" class="accordion-body collapse in">
                                 <div class="accordion-inner">
                                     <?php
+                                    include 'config.php';
                                     $cat_sql = "select * from category";
                                     $categories=$dbh->query($cat_sql);
                                     foreach ($categories as $cat){
-                                        echo '<a href="#" data-target=".filter--accessories" class="selectable"><i
-                                            class="box"></i>'.$cat['name'].'</a>';
+                                        echo '<a href="shop.php?CAID='.$cat['CAID'].'" data-target=".filter--accessories" class="selectable"><i class="box"></i>'.$cat['name'].'</a>';
                                     }
                                     ?>
-
-
                                 </div>
                             </div>
                         </div> <!-- /categories -->
@@ -242,8 +245,6 @@
                     <!--  ==========  -->
                     <div class="row popup-products">
                         <div id="isotopeContainer" class="isotope-container">
-
-
                             <!--  ==========  -->
                             <!--  = Single Product =  -->
                             <!--  ==========  -->
@@ -281,6 +282,30 @@
                             <!--  ==========  -->
                             <!--  = Single Product =  -->
                             <!--  ==========  -->
+                            <?php
+                                foreach($products as $p){
+                                    echo '<div class="span3 filter--swimwear" data-price="323" data-popularity="3"
+                                 data-size="xs|s|m|xxl" data-color="pink|orange" data-brand="adidas">
+                                <div class="product">
+
+                                    <div class="product-img">
+                                        <div class="picture">
+                                            <img width="540" height="374" alt=""
+                                                 src="images/dummy/products/product-'.$p['PRID'].'.jpg"/>
+                                            <div class="img-overlay">
+                                                <a class="btn more btn-primary" href="#">توضیحات بیشتر</a>
+                                                <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main-titles no-margin">
+                                        <h4 class="title">'.$p['cost'].'</h4>
+                                        <h5 class="no-margin isotope--title">'.$p['name'].'</h5>
+                                    </div>
+                                </div>
+                            </div> <!-- /single product -->';
+                                }
+                            ?>
                             <div class="span3 filter--swimwear" data-price="323" data-popularity="3"
                                  data-size="xs|s|m|xxl" data-color="pink|orange" data-brand="adidas">
                                 <div class="product">
@@ -1472,6 +1497,7 @@
 
 <!--  = Custom JS =  -->
 <script src="js/custom.js" type="text/javascript"></script>
+<script src="js/angular.js"
 
 </body>
 </html>

@@ -1,7 +1,12 @@
 <!--  ==========  -->
 <!--  = Header =  -->
 <!--  ==========  -->
-<?php include 'config.php'?>
+
+
+<!--//session_start(); // Right at the top of your script-->
+<!--//-->
+<?php include 'login.php' ?>
+<?php //include  'register.php'?>
 <header id="header">
     <div class="container">
         <div class="row">
@@ -21,19 +26,27 @@
             <!--  = Social Icons =  -->
             <!--  ==========  -->
             <!--            <div class="span5">-->
-
+            <div class="topmost-line">
+                <div class="lang-currency">
+                </div>
+            </div>
             <div class="top-right">
                 <div class="register">
-                    <!--                        --><?php
-                    //                        if($_SESSION['logged']==true){
-                    //                            echo $_SESSION["username"];
-                    //                            echo '<a href="#loginModal" role="button" data-toggle="modal">ورود</a> یا';
-                    //                        }
-                    //                        elseif($_SESSION['logged']==false)
-                    //                            echo ' <a href="#registerModal" role="button" data-toggle="modal">ثبت نام</a>';
-                    //                        ?>
-                    <a href="#loginModal" role="button" data-toggle="modal">ورود</a>
-                    <a href="#registerModal" role="button" data-toggle="modal">ثبت نام</a>
+                    <?php
+                        if(isset($_SESSION['lastname'])) {
+//                            if ($_SESSION['loggedIn'] == true) {
+                                echo '<a href="logout.php?logout" role="button" class="btn buy btn-danger" data-toggle="modal">خروج</a>';
+//                            }
+                        }
+                            else{
+                                echo '<a href="#loginModal" role="button" class="btn more btn-primary" data-toggle="modal">ورود</a> یا';
+                                echo ' <a href="#registerModal" role="button" class="btn more btn-primary" data-toggle="modal">ثبت نام</a>';
+                            }
+
+
+                    ?>
+<!--                    <a href="#loginModal" role="button" data-toggle="modal">ورود</a>-->
+<!--                    <a href="#registerModal" role="button" data-toggle="modal">ثبت نام</a>-->
                 </div>
                 <!--                </div>-->
                 <!--            </div> <!-- /social icons -->
@@ -60,21 +73,26 @@
                     <!--  ==========  -->
                     <div class="nav-collapse collapse">
                         <ul class="nav" id="mainNavigation">
-                            <li class="active">
-                                <a href="index.php" >خانه</a>
+                            <li class="dropdown active">
+                                <a href="index.php" class="dropdown-toggle"> خانه <b class="caret"></b> </a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown active">
+                                        <a href="index.php"><i class="icon-caret-left pull-right visible-desktop"></i> رنگ های پوسته</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="active"><a href="index.php">پوسته پیش فرض</a></li>
 
+                                        </ul>
+                                    </li>
+                                </ul>
                             </li>
 
                             <li class="dropdown">
-                                <a href="shop.php" class="dropdown-toggle"> دسته بندی ها <b class="caret"></b> </a>
+                                <a href="shop.php" class="dropdown-toggle"> فروشگاه <b class="caret"></b> </a>
                                 <ul class="dropdown-menu">
-                                    <?php
-                                    $cat_sql = "select * from category";
-                                    $categories=$dbh->query($cat_sql);
-                                    foreach ($categories as $cat){
-                                    echo '<li><a href="shop.php?CAID='.$cat['CAID'].'">'.$cat['name'].'</a></li>';
-                                    }
-                                    ?>
+                                    <li><a href="shop.php">قالب بندی پیش فرض</a></li>
+                                    <li><a href="shop-no-sideba.php">تمام صفحه</a></li>
+                                    <li><a href="product.php">محصول تکی</a></li>
+                                    <li><a href="shop-search.php">نتایج جستجو</a></li>
                                 </ul>
                             </li>
 
@@ -181,9 +199,11 @@
                     </div>
                 </div> <!-- /cart -->
                 <?php
-                if (isset($_SESSION['lastname'])){
-                echo "<p>سلام".$_SESSION['lastname']."</p>";} ?>
-                </p>
+
+                if(isset($_SESSION['lastname'])) {
+                    echo "<p>سلام".$_SESSION['lastname']."</p>";
+                }
+                ?>
             </div>
         </div>
     </div>
