@@ -22,7 +22,7 @@ $day_product=$dbh->query($day_product_sql);
 <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>Webmarket HTML Template _ Home</title>
+    <title>Avita _ Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
