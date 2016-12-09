@@ -62,7 +62,7 @@ if ($product['DID']!=null){
 <div class="master-wrapper">
 
     <?php include 'header.php' ?>
-    <?php include 'login_register.php' ?>
+<!--    --><?php //include 'login_register.php' ?>
 
 
     <!--  ==========  -->
