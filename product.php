@@ -173,7 +173,7 @@ if ($product['DID']!=null){
                     <span class="clickable remove-one icon-minus-sign-alt"></span>
                 </div>
                 <input type="hidden" name="PRID" value="<?php echo $PRID; ?>">
-                <input type="submit" class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</input>
+                <button type="submit" class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</button>
             </form>
 
             <hr/>

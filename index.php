@@ -6,7 +6,7 @@ $most_popular_stmnt = $dbh->prepare("select basket_product.PRID, count(basket_pr
                     order by count desc 
                     limit 4");
 $most_popular_stmnt->execute();
-$most_popular=$most_popular_stmnt->fetchAll();
+$most_popular = $most_popular_stmnt->fetchAll();
 
 ?>
 <html>
@@ -61,7 +61,7 @@ $most_popular=$most_popular_stmnt->fetchAll();
 <div class="master-wrapper">
 
     <?php include 'register.php' ?>
-    <?php include 'login.php'?>
+    <?php include 'login.php' ?>
 
     <?php include 'header.php' ?>
 
@@ -142,7 +142,6 @@ $most_popular=$most_popular_stmnt->fetchAll();
                     <img src="images/dummy/slides/3/slide.jpg" alt="slider img" width="1400" height="377"/>
 
 
-
                     <!-- texts -->
                     <div class="caption lfl big_theme"
                          data-x="120"
@@ -219,32 +218,32 @@ $most_popular=$most_popular_stmnt->fetchAll();
     <!--  ==========  -->
     <div class="container">
 
-                <div class=" over-slider blocks-spacer">
+        <div class=" over-slider blocks-spacer">
 
-                    <!--  ==========  -->
-                    <!--  = Three Banners =  -->
-                    <!--  ==========  -->
-                    <div class="row">
-                        <div class="span4">
-                            <a href="#" class="btn btn-block banner">
-                                <span class="title"><span class="light">فروش</span> تابستانی</span>
-                                <em>تا 60% تخفیف روی کفش ها</em>
-                            </a>
-                        </div>
-                        <div class="span4">
-                            <a href="#" class="btn btn-block colored banner">
-                                <span class="title"><span class="light">ارسال</span> رایگان</span>
-                                <em>برای خرید های بیش از 69000 تومان</em>
-                            </a>
-                        </div>
-                        <div class="span4">
-                            <a href="#" class="btn btn-block banner">
-                                <span class="title"><span class="light">محصولات</span> جدید</span>
-                                <em>از محصولات جدید دیدن کنید.</em>
-                            </a>
-                        </div>
-                    </div> <!-- /three banners -->
+            <!--  ==========  -->
+            <!--  = Three Banners =  -->
+            <!--  ==========  -->
+            <div class="row">
+                <div class="span4">
+                    <a href="#" class="btn btn-block banner">
+                        <span class="title"><span class="light">فروش</span> تابستانی</span>
+                        <em>تا 60% تخفیف روی کفش ها</em>
+                    </a>
                 </div>
+                <div class="span4">
+                    <a href="#" class="btn btn-block colored banner">
+                        <span class="title"><span class="light">ارسال</span> رایگان</span>
+                        <em>برای خرید های بیش از 69000 تومان</em>
+                    </a>
+                </div>
+                <div class="span4">
+                    <a href="#" class="btn btn-block banner">
+                        <span class="title"><span class="light">محصولات</span> جدید</span>
+                        <em>از محصولات جدید دیدن کنید.</em>
+                    </a>
+                </div>
+            </div> <!-- /three banners -->
+        </div>
 
 
         <!--  ==========  -->
@@ -776,29 +775,34 @@ $most_popular=$most_popular_stmnt->fetchAll();
                 <!--  = Product =  -->
                 <!--  ==========  -->
                 <?php
-                foreach($most_popular as $mp){
+                foreach ($most_popular as $mp) {
                     echo '<div class="span3" >
                     <div class="product" >
                         <div class="product-img" >
-                            <div class="picture" >'.
+                            <div class="picture" >' .
                         '<img src="images/dummy/products/' . $mp['PRID'] . '/1.jpg" alt = "" width = "540"
                                      height = "412" />';
-                    echo   '<div class="img-overlay" >
-                                    <a href = "product.php?PRID='.$mp['PRID'] .'" class="btn more btn-primary" > توضیحات بیشتر </a >
-                                    <a href = "#" class="btn buy btn-danger" > اضافه به سبد خرید </a >
+                    echo '<div class="img-overlay" >
+                                    <a href = "product.php?PRID=' . $mp['PRID'] . '" class="btn more btn-primary" > توضیحات بیشتر </a >
+                           
+                                    <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
+                                    
+                                    <input type="hidden" name="PRID" value="'. $mp['PRID'].'">
+                                    <button type="submit" class="btn buy btn-danger"> اضافه به سبد خرید</button>
+                                    </form>
                                 </div >
                             </div >
                         </div >
                         <div class="main-titles no-margin" >';
 
-                    echo '<h3 class="no-margin" >'.$mp['name'].'</h3 >';
-                    if ($mp['DID']==null){
-                        echo '<h4 class="title" >'. $mp['cost']*1000 .'تومان</h4 >';}
-                    else {
-                        echo '<h4 class="title" style="text-decoration: line-through;color: #190f06;">' . $mp['cost']*1000 .'تومان</h4 >';
-                        $discount_sql="select percentage from discount where DID=".$mp['DID'];
-                        $discount=$dbh->query($discount_sql)->fetch();
-                        echo '<h4 class="title" style="color: forestgreen;">'. $mp['cost']*(1-$discount['percentage'])*1000 .'تومان</h4 >';
+                    echo '<h3 class="no-margin" >' . $mp['name'] . '</h3 >';
+                    if ($mp['DID'] == null) {
+                        echo '<h4 class="title" >' . $mp['cost'] * 1000 . 'تومان</h4 >';
+                    } else {
+                        echo '<h4 class="title" style="text-decoration: line-through;color: #190f06;">' . $mp['cost'] * 1000 . 'تومان</h4 >';
+                        $discount_sql = "select percentage from discount where DID=" . $mp['DID'];
+                        $discount = $dbh->query($discount_sql)->fetch();
+                        echo '<h4 class="title" style="color: forestgreen;">' . $mp['cost'] * (1 - $discount['percentage']) * 1000 . 'تومان</h4 >';
 
                     }
                     echo '</div >                        

@@ -53,4 +53,4 @@ $sql->bindParam(':PRID', $PRID);
 $sql->bindParam(':count', $count);
 $sql->execute();
 
-header("Location: product.php?PRID=" . $PRID);
+header('Location: ' . $_SERVER['HTTP_REFERER']);
