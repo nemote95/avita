@@ -45,8 +45,10 @@
     
     <div class="master-wrapper">
 
-        <?php include 'header.php'?>
-        <?php include 'login_register.php' ?>
+        <?php include 'register.php' ?>
+        <?php include 'login.php'?>
+
+        <?php include 'header.php' ?>
 
     
     <!--  ==========  -->

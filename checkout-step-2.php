@@ -1,5 +1,4 @@
- 
-<!DOCTYPE html>
+
 <!--[if lt IE 8]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
@@ -87,7 +86,7 @@
                     		    <div class="clearfix">
                     		    	<div class="step done">
                     		    	    <div class="step-badge"><i class="icon-ok"></i></div>
-                    		    	    <a href="checkout-step-1.html">سبد خرید</a>
+                    		    	    <a href="checkout-step-1.php">سبد خرید</a>
                     		    	</div>
                     		    	<div class="step active">
                     		    	    <div class="step-badge">2</div>
@@ -174,7 +173,7 @@
 						    
 						    <p class="right-align">
 						        در مرحله بعدی شما شیوه پرداخت را انتخاب میکنید &nbsp; &nbsp;
-						        <a href="checkout-step-3.html " class="btn btn-primary higher bold">ادامه</a>
+						        <a href="checkout-step-3.php " class="btn btn-primary higher bold">ادامه</a>
 						    </p>
 							    
 							    

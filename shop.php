@@ -53,7 +53,12 @@
 
 <body class="">
 
- <div class="master-wrapper">
+<div class="master-wrapper">
+
+    <?php include 'register.php' ?>
+    <?php include 'login.php'?>
+
+    <?php include 'header.php' ?>
 
     <!--  ==========  -->
     <!--  = Breadcrumbs =  -->

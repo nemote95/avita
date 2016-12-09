@@ -2,12 +2,11 @@
 <!--  = Header =  -->
 <!--  ==========  -->
 
+
 <!--//session_start(); // Right at the top of your script-->
 <!--//-->
 <?php include 'login.php' ?>
 <?php //include  'register.php'?>
-<?php
-?>
 <header id="header">
     <div class="container">
         <div class="row">
@@ -200,6 +199,7 @@
                     </div>
                 </div> <!-- /cart -->
                 <?php
+
                 if(isset($_SESSION['lastname'])) {
                     echo "<p>سلام".$_SESSION['lastname']."</p>";
                 }

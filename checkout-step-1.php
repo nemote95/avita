@@ -1,12 +1,11 @@
- 
-<!DOCTYPE html>
+
 <!--[if lt IE 8]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title>Webmarket HTML Template - Checkout Step 4</title>
+    <title>Webmarket HTML Template - Checkout Step 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
@@ -69,7 +68,7 @@
                     		    	</div>
                     		    	<div class="span6">
                     		    	    <div class="center-align">
-                    		    	        <h1><span class="light">تاييد</span> و پرداخت</h1>
+                    		    	        <h1><span class="light">بازبینی</span> سبد خرید</h1>
                     		    	    </div>
                     		    	</div>
                     		    	<div class="span2">
@@ -85,21 +84,21 @@
 							<!--  ==========  -->
                     		<div class="checkout-steps">
                     		    <div class="clearfix">
-                    		    	<div class="step done">
-                    		    	    <div class="step-badge"><i class="icon-ok"></i></div>
-                    		    	    <a href="checkout-step-1.html">سبد خريد</a>
-                    		    	</div>
-                    		    	<div class="step done">
-                                        <div class="step-badge"><i class="icon-ok"></i></div>
-                                        <a href="checkout-step-2.html">آدرس ارسال</a>
-                                    </div>
-                    		    	<div class="step done">
-                    		    	    <div class="step-badge"><i class="icon-ok"></i></div>
-                    		    	    <a href="checkout-step-3.html">شيوه پرداخت</a>
-                    		    	</div>
                     		    	<div class="step active">
+                    		    	    <div class="step-badge">1</div>
+                    		    	    سبد خرید
+                    		    	</div>
+                    		    	<div class="step">
+                    		    	    <div class="step-badge">3</div>
+                    		    	    آدرس ارسال
+                    		    	</div>
+                    		    	<div class="step">
+                                        <div class="step-badge">2</div>
+                                        شیوه پرداخت
+                                    </div>
+                    		    	<div class="step">
                     		    	    <div class="step-badge">4</div>
-                    		    	    تاييد و پرداخت
+                    		    	    تایید و پرداخت
                     		    	</div>
                     		    </div>
                     		</div> <!-- /steps -->
@@ -110,18 +109,19 @@
 							<table class="table table-items">
 							    <thead>
 							    	<tr>
-							    		<th colspan="2">آيتم</th>
+							    		<th colspan="2">آیتم</th>
 							    		<th><div class="align-center">تعداد</div></th>
-							    		<th><div class="align-right">قيمت</div></th>
+							    		<th><div class="align-right">قیمت</div></th>
 							    	</tr>
 							    </thead>
 							    <tbody>
 							         
 							        <tr>
 							        	<td class="image"><img src="images/dummy/cart-items/cart-item-1.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
+							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
 							        	<td class="qty">
-							        	    3					            	    </td>
+							        	    <input type="text" class="tiny-size" value="4" />
+					            	    </td>
 							        	<td class="price">
 							        	    $59
 							        	</td>
@@ -129,9 +129,10 @@
 							         
 							        <tr>
 							        	<td class="image"><img src="images/dummy/cart-items/cart-item-2.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
+							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
 							        	<td class="qty">
-							        	    4					            	    </td>
+							        	    <input type="text" class="tiny-size" value="1" />
+					            	    </td>
 							        	<td class="price">
 							        	    $59
 							        	</td>
@@ -139,9 +140,10 @@
 							         
 							        <tr>
 							        	<td class="image"><img src="images/dummy/cart-items/cart-item-3.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
+							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
 							        	<td class="qty">
-							        	    2					            	    </td>
+							        	    <input type="text" class="tiny-size" value="2" />
+					            	    </td>
 							        	<td class="price">
 							        	    $59
 							        	</td>
@@ -149,9 +151,10 @@
 							         
 							        <tr>
 							        	<td class="image"><img src="images/dummy/cart-items/cart-item-4.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
+							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
 							        	<td class="qty">
-							        	    4					            	    </td>
+							        	    <input type="text" class="tiny-size" value="4" />
+					            	    </td>
 							        	<td class="price">
 							        	    $59
 							        	</td>
@@ -159,18 +162,22 @@
 							         
 							        <tr>
 							        	<td class="image"><img src="images/dummy/cart-items/cart-item-5.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
+							        	<td class="desc">لباس ورزشی آدیداس &nbsp; <a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
 							        	<td class="qty">
-							        	    2					            	    </td>
+							        	    <input type="text" class="tiny-size" value="4" />
+					            	    </td>
 							        	<td class="price">
 							        	    $59
 							        	</td>
 							        </tr>
 							        							        <tr>
 							        	<td colspan="2" rowspan="2">
-							        	    &nbsp;
+							        	    <div class="alert alert-info">
+                                                <button data-dismiss="alert" class="close" type="button">×</button>
+                                                هزینه ارسال بر اساس منطقه جغرافیایی محاسبه میشود. <a href="#">اطلاعات بیشتر</a>
+                                            </div>
 							        	</td>
-							        	<td class="stronger">هزينه ارسال :</td>
+							        	<td class="stronger">هزینه ارسال :</td>
 							        	<td class="stronger"><div class="align-right">$4.99</div></td>
 							        </tr>
 							        <tr>
@@ -180,8 +187,11 @@
 							    </tbody>
 							</table>
 							
+							<hr />
+							
 							<p class="right-align">
-							    <a href="index.html" class="btn btn-primary higher bold">تاييد و پرداخت</a>
+							    در مرحله بعدی شما آدرس ارسال را انتخاب خواهید کرد. &nbsp; &nbsp;
+							    <a href="checkout-step-2.php" class="btn btn-primary higher bold">ادامه</a>
 							</p>
                     	</div>
                     </div>
