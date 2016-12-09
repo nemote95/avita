@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1fc5fa8-7103-4362-8c75-201b1a1dd9b9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/401.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/add_to_basket.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documents/sqls/ basket.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/documents/sqls/ basket_product.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/login_register.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/404.html" afterPath="$PROJECT_DIR$/404.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documents/negar_mohamadhasan_samane_malmir_verion(95-8-19).docx" afterPath="$PROJECT_DIR$/documents/negar_mohamadhasan_samane_malmir_verion(95-8-19).docx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/dummy/products/14/1.jpg" afterPath="$PROJECT_DIR$/images/dummy/products/14/1.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/comment.php" afterPath="$PROJECT_DIR$/comment.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contact.php" afterPath="$PROJECT_DIR$/contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documents/sqls/create tables.sql" afterPath="$PROJECT_DIR$/documents/sqls/create tables.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documents/sqls/product.sql" afterPath="$PROJECT_DIR$/documents/sqls/product.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/header.php" afterPath="$PROJECT_DIR$/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product.php" afterPath="$PROJECT_DIR$/product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shop.php" afterPath="$PROJECT_DIR$/shop.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stylesheets/main.css" afterPath="$PROJECT_DIR$/stylesheets/main.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/documents/sqls/.~lock.useful queries.doc#" afterPath="" />
     </list>
     <ignored path="avita.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,8 +69,8 @@
       <file leaf-file-name="add_to_basket.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/add_to_basket.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="48" column="20" selection-start-line="48" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="-2">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <marker date="1481282441181" expanded="true" signature="423:451" ph="select bid f... basket" />
                 <marker date="1481282441181" expanded="true" signature="423:623" ph="select bid f... basket" />
@@ -114,16 +99,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="10" column="6" selection-start-line="0" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".~lock.useful queries.doc#" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/documents/sqls/.~lock.useful queries.doc#">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -348,12 +323,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1481270021291</updated>
-      <workItem from="1481270023953" duration="10770000" />
+      <workItem from="1481270023953" duration="10889000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10770000" />
+    <option name="totallyTimeSpent" value="10889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="52" width="1261" height="716" extended-state="4" />
@@ -659,8 +634,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/add_to_basket.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="48" column="20" selection-start-line="48" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="-2">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <marker date="1481282441181" expanded="true" signature="423:451" ph="select bid f... basket" />
             <marker date="1481282441181" expanded="true" signature="423:623" ph="select bid f... basket" />
