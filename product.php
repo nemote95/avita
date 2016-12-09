@@ -60,10 +60,10 @@ if ($product['DID']!=null){
 <body class="">
 
 <div class="master-wrapper">
+    <?php include 'register.php' ?>
+    <?php include 'login.php'?>
 
     <?php include 'header.php' ?>
-    <?php include 'login_register.php' ?>
-
 
     <!--  ==========  -->
     <!--  = Breadcrumbs =  -->
@@ -166,13 +166,14 @@ if ($product['DID']!=null){
             <!--  ==========  -->
             <!--  = Add to cart form =  -->
             <!--  ==========  -->
-            <form action="#" class="form form-inline clearfix">
+            <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
                 <div class="numbered">
-                    <input type="text" name="num" value="1" class="tiny-size"/>
+                    <input type="text" name="count" value="1" class="tiny-size"/>
                     <span class="clickable add-one icon-plus-sign-alt"></span>
                     <span class="clickable remove-one icon-minus-sign-alt"></span>
                 </div>
-                <button class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</button>
+                <input type="hidden" name="PRID" value="<?php echo $PRID; ?>">
+                <input type="submit" class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</input>
             </form>
 
             <hr/>
@@ -216,8 +217,7 @@ if ($product['DID']!=null){
         </ul>
         <div class="tab-content">
 
-
-            <div class="fade in tab-pane active" id="tab-3">
+<div class="fade in tab-pane active" id="tab-3">
                 <?php echo '<form action="comment.php?PRID='. $PRID.'" method="post">' ?>
                     <input style="width: 1100px ; height:100px ;" type="text" name="text">
                     <input type="submit">

@@ -303,7 +303,7 @@ header .register { display: -moz-inline-stack; display: inline-block; vertical-a
 .navbar .cart.opened:after { content: ""; position: absolute; display: block; z-index: 1102; height: 10px; left: 0px; right: -10; bottom: -10px; background: #cbaf90; }
 .navbar .cart p { display: -moz-inline-stack; display: inline-block; vertical-align: middle; *vertical-align: auto; zoom: 1; *display: inline; padding: 0 8px; }
 .navbar .cart .btn { padding: 7px 10px; margin-top: -9px; font-size: 16px; }
-.navbar .open-panel { display: none; position: absolute; top: 100%; z-index: 1100; right: -75%; left: 0; background: #cbaf90; box-shadow: 0 0 10px rgba(0, 0, 0, 0.33); }
+.navbar .open-panel { display: none; position: absolute; top: 100%; z-index: 1100; right: -75%; left: 0; background: #cbaf90; box-shadow: 0 0 10px rgba(0, 0, 0, 0.10); }
 .navbar .items { border-left: 1px solid #efd3b8; }
 .navbar .item-in-cart { padding: 10px; border-bottom: 1px solid #efd3b8; }
 .navbar .item-in-cart strong { display: block; color: 190F06; }
@@ -317,7 +317,7 @@ header .register { display: -moz-inline-stack; display: inline-block; vertical-a
 .navbar .item-in-cart .price { padding-top: 5px; width: 15%; float: left; text-align: right; }
 .navbar .summary { float: left; width: 50%; width: calc(50% - 10px); margin-right: 10px; font-weight: bold; color: 190F06; }
 .navbar .summary .span6 { min-height: 1px; }
-.navbar .summary .line { border-bottom: 1px dotted #efd3b8; padding: 10px 0; margin-right: -10px; padding-right: 10px; }
+.navbar .summary .line { border-bottom: 1px solid #efd3b8; padding: 10px 0; margin-right: -10px; padding-right: 10px; }
 .navbar .summary .line:last-of-type { border-bottom: none; padding-bottom: 15px; }
 .navbar .proceed { clear: both; padding: 15px; background-color: #cbaf90; min-height: 38px; }
 .navbar .proceed .btn { margin-top: 0; margin-left: 10px; }
@@ -1526,7 +1526,7 @@ label { font-weight: bold; }
     header .topmost-line { text-align: center; }
     header .top-right { text-align: center; padding-top: 10px; padding-bottom: 20px; }
     .navbar .container { width: auto; }
-    .navbar .cart-container { margin-top: 10px; border-top: 1px solid #e0e0e0; }
+    .navbar .cart-container { margin-top: 10px; border-top: 1px solid #efd3b8; }
     .navbar .cart { border-left: none; padding-top: 15px; padding-right: 10px; padding-left: 10px; min-height: 31px; }
     .navbar .cart.opened:after { left: 0; }
     .navbar .open-panel { right: 0; }

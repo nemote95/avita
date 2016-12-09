@@ -1,11 +1,6 @@
 <!--  ==========  -->
 <!--  = Header =  -->
 <!--  ==========  -->
-<?php
-//session_start(); // Right at the top of your script
-//?>
-<?php //include 'login.php' ?>
-<?php //include  'register.php'?>
 <?php include 'config.php'?>
 <header id="header">
     <div class="container">
@@ -185,7 +180,9 @@
                         </div>
                     </div>
                 </div> <!-- /cart -->
-                <?php  echo "<p>سلام".$_SESSION['lastname']."</p>";?>
+                <?php
+                if (isset($_SESSION['lastname'])){
+                echo "<p>سلام".$_SESSION['lastname']."</p>";} ?>
                 </p>
             </div>
         </div>
