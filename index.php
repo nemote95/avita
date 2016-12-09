@@ -63,7 +63,7 @@ $day_product=$dbh->query($day_product_sql);
 <div class="master-wrapper">
 
     <?php include 'register.php' ?>
-    <?php include 'login.php'?>
+    <?php include 'login.php' ?>
 
     <?php include 'header.php' ?>
 
@@ -273,10 +273,8 @@ $day_product=$dbh->query($day_product_sql);
                 <div class="carouFredSel" data-autoplay="false" data-nav="featuredItems">
                     <div class="slide">
                         <div class="row">
-                            <!--  ==========  -->
-                            <!--  = Product =  -->
-                            <!--  ==========  -->
-<!--
+
+
                             <!--  ==========  -->
                             <!--  = Product =  -->
                             <!--  ==========  -->
@@ -290,7 +288,11 @@ $day_product=$dbh->query($day_product_sql);
                                      height = "358" />';
                                 echo   '<div class="img-overlay" >
                                     <a href = "product.php?PRID='.$dp['PRID'].'" class="btn more btn-primary" > توضیحات بیشتر </a >
-                                    <a href = "#" class="btn buy btn-danger" > اضافه به سبد خرید </a >
+                                    <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
+                                    
+                                    <input type="hidden" name="PRID" value="'. $dp['PRID'].'">
+                                    <button type="submit" class="btn buy btn-danger"> اضافه به سبد خرید</button>
+                                    </form>
                                 </div >
                             </div >
                         </div >
@@ -310,102 +312,19 @@ $day_product=$dbh->query($day_product_sql);
                 </div > <!-- /product-->';
                             } ?>
 
-                            <!--  ==========  -->
-                            <!--  = Product =  -->
-                            <!--  ==========  -->
-<!--                            <div class="span4">-->
-<!--                                <div class="product">-->
-<!--                                    <div class="product-img featured">-->
-<!--                                        <div class="picture">-->
-<!--                                            <img src="images/dummy/featured-products/featured-3.png" alt="" width="518"-->
-<!--                                                 height="358"/>-->
-<!--                                            <div class="img-overlay">-->
-<!--                                                <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>-->
-<!--                                                <a href="#" class="btn buy btn-danger">خرید</a>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="main-titles">-->
-<!--                                        <h4 class="title">$40</h4>-->
-<!--                                        <h5 class="no-margin">محصول ویژه 387</h5>-->
-<!--                                    </div>-->
-<!--                                    <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>-->
-<!--                                    <p class="center-align stars">-->
-<!--                                        <span class="icon-star stars-clr"></span>-->
-<!--                                        <span class="icon-star stars-clr"></span>-->
-<!--                                        <span class="icon-star stars-clr"></span>-->
-<!--                                        <span class="icon-star stars-clr"></span>-->
-<!--                                        <span class="icon-star"></span>-->
-<!---->
-<!--                                    </p>-->
-<!--                                </div>-->
-<!--                            </div> <!-- /product -->
+
                         </div>
                     </div>
-                    <div class="slide">
+                    <!--<div class="slide">
                         <div class="row">
-                            <!--  ==========  -->
-                            <!--  = Product =  -->
-                            <!--  ==========  -->
-                            <div class="span4">
-                                <div class="product">
-                                    <div class="product-img featured">
-                                        <div class="picture">
-                                            <img src="images/dummy/featured-products/featured-1.png" alt="" width="518"
-                                                 height="358"/>
-                                            <div class="img-overlay">
-                                                <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                                <a href="#" class="btn buy btn-danger">خرید</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="main-titles">
-                                        <h4 class="title">$41</h4>
-                                        <h5 class="no-margin">محصول ویژه 515</h5>
-                                    </div>
-                                    <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
-                                    <p class="center-align stars">
-                                        <span class="icon-star stars-clr"></span>
-                                        <span class="icon-star stars-clr"></span>
-                                        <span class="icon-star stars-clr"></span>
-                                        <span class="icon-star stars-clr"></span>
-                                        <span class="icon-star stars-clr"></span>
 
-                                    </p>
-                                </div>
-                            </div> <!-- /product
-                            <?php
-                            foreach($day_product as $dp){
-                                echo '<div class="span4" >
-                    <div class="product" >
-                        <div class="product-img featured" >
-                            <div class="picture" >'.
-                                    '<img src="images/dummy/products/product-' . $dp['PRID'] . '.jpg" alt = "" width = "518"
-                                     height = "358" />';
-                                echo   '<div class="img-overlay" >
-                                    <a href = "product.php?PRID='.$dp['PRID'] .'" class="btn more btn-primary" > توضیحات بیشتر </a >
-                                    <a href = "#" class="btn buy btn-danger" > اضافه به سبد خرید </a >
-                                </div >
-                            </div >
-                        </div >
-                        <div class="main-titles" >';
 
-                                echo '<h3 class="no-margin" >'.$dp['name'].'</h3 >';
-                                if ($dp['DID']==null){
-                                    echo '<h4 class="title" >'. $dp['cost']*1000 .'تومان</h4 >';}
-                                else {
-                                    echo '<h4 class="title" style="text-decoration: line-through;color: darkslategray;">' . $dp['cost']*1000 .'تومان</h4 >';
-                                    $discount_sql="select percentage from discount where DID=".$dp['DID'];
-                                    $discount=$dbh->query($discount_sql)->fetch();
-                                    echo '<h4 class="title" style="color: forestgreen;">'. $dp['cost']*(1-$discount['percentage'])*1000 .'تومان</h4 >';
-                                }
-                                echo '</div >                        
-                    </div >
-                </div > <!-- /product-->';
-                            } ?>
+
+
+
 
                         </div>
-                    </div>
+                    </div>-->
                 </div> <!-- /carousel -->
             </div>
 
@@ -714,9 +633,8 @@ $day_product=$dbh->query($day_product_sql);
                     echo '<div class="span3" >
                     <div class="product" >
                         <div class="product-img" >
-                   <div class="picture" >' .
+                            <div class="picture" >' .
                         '<img src="images/dummy/products/' . $mp['PRID'] . '/1.jpg" alt = "" width = "540"
-
                                      height = "412" />';
                     echo '<div class="img-overlay" >
                                     <a href = "product.php?PRID=' . $mp['PRID'] . '" class="btn more btn-primary" > توضیحات بیشتر </a >
