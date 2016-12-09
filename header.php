@@ -31,12 +31,13 @@
                 </div>
             </div>
             <div class="top-right">
+
                 <div class="register">
                     <?php
-                        if(isset($_SESSION['lastname'])) {
-//                            if ($_SESSION['loggedIn'] == true) {
-                                echo '<a href="logout.php?logout" role="button" class="btn buy btn-danger" data-toggle="modal">خروج</a>';
-//                            }
+                        if(isset($_SESSION['user'])) {
+                            echo "   سلام".$_SESSION['lastname'];
+                                echo '<a href="logout.php?logout" role="button" class="btn buy btn-danger" data-toggle="modal" style=" margin:10px;">خروج</a>';
+
                         }
                             else{
                                 echo '<a href="#loginModal" role="button" class="btn more btn-primary" data-toggle="modal">ورود</a> یا';
@@ -45,11 +46,8 @@
 
 
                     ?>
-<!--                    <a href="#loginModal" role="button" data-toggle="modal">ورود</a>-->
-<!--                    <a href="#registerModal" role="button" data-toggle="modal">ثبت نام</a>-->
                 </div>
-                <!--                </div>-->
-                <!--            </div> <!-- /social icons -->
+
             </div>
         </div>
 </header>
@@ -87,12 +85,15 @@
                             </li>
 
                             <li class="dropdown">
-                                <a href="shop.php" class="dropdown-toggle"> فروشگاه <b class="caret"></b> </a>
+                                <a href="shop.php" class="dropdown-toggle"> دسته بندی ها <b class="caret"></b> </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="shop.php">قالب بندی پیش فرض</a></li>
-                                    <li><a href="shop-no-sideba.php">تمام صفحه</a></li>
-                                    <li><a href="product.php">محصول تکی</a></li>
-                                    <li><a href="shop-search.php">نتایج جستجو</a></li>
+                                    <?php
+                                    $cat_sql = "select * from category";
+                                    $categories=$dbh->query($cat_sql);
+                                    foreach ($categories as $cat){
+                                        echo '<li><a href="shop.php?CAID='.$cat['CAID'].'">'.$cat['name'].'</a></li>';
+                                    }
+                                    ?>
                                 </ul>
                             </li>
 
@@ -198,12 +199,7 @@
                         </div>
                     </div>
                 </div> <!-- /cart -->
-                <?php
 
-                if(isset($_SESSION['lastname'])) {
-                    echo "<p>سلام".$_SESSION['lastname']."</p>";
-                }
-                ?>
             </div>
         </div>
     </div>

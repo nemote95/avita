@@ -1,9 +1,7 @@
-<!DOCTYPE html>
+
     <?php
-    include 'header.php';
-//    include ('filter.php');
-    include ('login.php');
-    $products = $_GET['PRODUCT'];
+    if (isset($_GET['PRODUCT'])){
+    $products = $_GET['PRODUCT'];}
     ?>
 <!--[if lt IE 8]>
 <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
@@ -15,7 +13,7 @@
 <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>Webmarket HTML Template - All Products</title>
+    <title>Avita - All Products</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">

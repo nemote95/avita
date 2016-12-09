@@ -21,7 +21,7 @@ if ($product['DID']!=null){
 <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>Webmarket HTML Template - Product Page</title>
+    <title>Avita - Product Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
