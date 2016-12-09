@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1fc5fa8-7103-4362-8c75-201b1a1dd9b9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add_to_basket.php" afterPath="$PROJECT_DIR$/add_to_basket.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/product.php" afterPath="$PROJECT_DIR$/product.php" />
-    </list>
+    <list default="true" id="c1fc5fa8-7103-4362-8c75-201b1a1dd9b9" name="Default" comment="" />
     <ignored path="avita.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -55,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="789" column="90" selection-start-line="789" selection-start-column="90" selection-end-line="789" selection-end-column="90" />
+            <state relative-caret-position="18">
+              <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="6" selection-end-column="27" />
               <folding>
                 <marker date="1481283263027" expanded="true" signature="65:437" ph="select baske... " />
                 <marker date="1481283263027" expanded="true" signature="37107:37418" ph="..." />
@@ -92,7 +87,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_to_basket.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add_to_basket.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/add_to_basket.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="304">
@@ -350,12 +345,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1481270021291</updated>
-      <workItem from="1481270023953" duration="11600000" />
+      <workItem from="1481270023953" duration="11762000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11600000" />
+    <option name="totallyTimeSpent" value="11762000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="52" width="1261" height="716" extended-state="4" />
@@ -640,10 +635,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/add_to_basket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="55" column="48" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+          <folding>
+            <marker date="1481283344372" expanded="true" signature="423:451" ph="select bid f... basket" />
+            <marker date="1481283344372" expanded="true" signature="423:623" ph="select bid f... basket" />
+            <marker date="1481283344372" expanded="true" signature="589:622" ph="select purch... purchase" />
+            <marker date="1481283344372" expanded="true" signature="837:875" ph="INSERT INTO basket_product... " />
+            <marker date="1481283344372" expanded="true" signature="1027:1227" ph="select bid f... basket" />
+            <marker date="1481283344372" expanded="true" signature="1193:1226" ph="select purch... purchase" />
+            <marker date="1481283344372" expanded="true" signature="1423:1499" ph="INSERT INTO basket_product... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="789" column="90" selection-start-line="789" selection-start-column="90" selection-end-line="789" selection-end-column="90" />
+        <state relative-caret-position="18">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="6" selection-end-column="27" />
           <folding>
             <marker date="1481283263027" expanded="true" signature="65:437" ph="select baske... " />
             <marker date="1481283263027" expanded="true" signature="37107:37418" ph="..." />
@@ -657,22 +668,6 @@
             <marker date="1481283263027" expanded="true" signature="38514:38559" ph="..." />
             <marker date="1481283263027" expanded="true" signature="38642:38684" ph="select perce... discount" />
             <marker date="1481283263027" expanded="true" signature="38828:38847" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/add_to_basket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="55" column="48" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
-          <folding>
-            <marker date="1481283344372" expanded="true" signature="423:451" ph="select bid f... basket" />
-            <marker date="1481283344372" expanded="true" signature="423:623" ph="select bid f... basket" />
-            <marker date="1481283344372" expanded="true" signature="589:622" ph="select purch... purchase" />
-            <marker date="1481283344372" expanded="true" signature="837:875" ph="INSERT INTO basket_product... " />
-            <marker date="1481283344372" expanded="true" signature="1027:1227" ph="select bid f... basket" />
-            <marker date="1481283344372" expanded="true" signature="1193:1226" ph="select purch... purchase" />
-            <marker date="1481283344372" expanded="true" signature="1423:1499" ph="INSERT INTO basket_product... " />
           </folding>
         </state>
       </provider>
