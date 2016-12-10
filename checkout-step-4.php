@@ -64,7 +64,7 @@
                     		<header>
                     		    <div class="row">
                     		    	<div class="span2">
-                    		    		<a href="index.html"><img src="images/logo-bw.png" alt="Webmarket Logo" width="48" height="48" /></a>
+<!--                    		    		<a href="index.html"><img src="images/logo-bw.png" alt="Webmarket Logo" width="48" height="48" /></a>-->
                     		    	</div>
                     		    	<div class="span6">
                     		    	    <div class="center-align">
@@ -73,7 +73,7 @@
                     		    	</div>
                     		    	<div class="span2">
                     		    	    <div class="right-align">
-                    		    	    	<img src="images/buttons/security.jpg" alt="Security Sign" width="92" height="65" />
+<!--                    		    	    	<img src="images/buttons/security.jpg" alt="Security Sign" width="92" height="65" />-->
                     		    	    </div>
                     		    	</div>
                     		    </div>
@@ -117,52 +117,52 @@
 							    <tbody>
 							         
 							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-1.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
+							        	<td class="image"><img src="images/dummy/products/product-16.jpg" alt="" width="124" height="124" /></td>
+							        	<td class="desc">دستبند کریستال</td>
 							        	<td class="qty">
 							        	    3					            	    </td>
 							        	<td class="price">
-							        	    $59
+							        	    تومان59
 							        	</td>
 							        </tr>
 							         
 							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-2.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
+							        	<td class="image"><img src="images/dummy/products/product-15.jpg" alt="" width="124" height="124" /></td>
+							        	<td class="desc">دستبند کریستال</td>
 							        	<td class="qty">
 							        	    4					            	    </td>
 							        	<td class="price">
-							        	    $59
+							        	    تومان59
 							        	</td>
 							        </tr>
 							         
 							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-3.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
+							        	<td class="image"><img src="images/dummy/products/product-14.jpg" alt="" width="124" height="124" /></td>
+							        	<td class="desc">دستبند کریستال</td>
 							        	<td class="qty">
 							        	    2					            	    </td>
 							        	<td class="price">
-							        	    $59
+							        	    تومان59
 							        	</td>
 							        </tr>
 							         
 							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-4.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
+							        	<td class="image"><img src="images/dummy/products/product-1.jpg" alt="" width="124" height="124" /></td>
+							        	<td class="desc">کیف دستی</td>
 							        	<td class="qty">
 							        	    4					            	    </td>
 							        	<td class="price">
-							        	    $59
+							        	    تومان59
 							        	</td>
 							        </tr>
 							         
 							        <tr>
-							        	<td class="image"><img src="images/dummy/cart-items/cart-item-5.jpg" alt="" width="124" height="124" /></td>
-							        	<td class="desc">لباس ورزشي آديداس</td>
+							        	<td class="image"><img src="images/dummy/products/product-21.jpg" alt="" width="124" height="124" /></td>
+							        	<td class="desc">گردن آویز</td>
 							        	<td class="qty">
 							        	    2					            	    </td>
 							        	<td class="price">
-							        	    $59
+							        	    تومان59
 							        	</td>
 							        </tr>
 							        							        <tr>
@@ -170,11 +170,11 @@
 							        	    &nbsp;
 							        	</td>
 							        	<td class="stronger">هزينه ارسال :</td>
-							        	<td class="stronger"><div class="align-right">$4.99</div></td>
+							        	<td class="stronger"><div class="align-right">تومان4.99</div></td>
 							        </tr>
 							        <tr>
 							        	<td class="stronger">جمع کل :</td>
-							        	<td class="stronger"><div class="size-16 align-right">$357.81</div></td>
+							        	<td class="stronger"><div class="size-16 align-right">تومان357.81</div></td>
 							        </tr>
 							    </tbody>
 							</table>
