@@ -64,7 +64,7 @@
                     		<header>
                     		    <div class="row">
                     		    	<div class="span2">
-                    		    		<a href="index.html"><img src="images/logo-bw.png" alt="Webmarket Logo" width="48" height="48" /></a>
+<!--                    		    		<a href="index.html"><img src="images/logo-bw.png" alt="Webmarket Logo" width="48" height="48" /></a>-->
                     		    	</div>
                     		    	<div class="span6">
                     		    	    <div class="center-align">
@@ -73,7 +73,7 @@
                     		    	</div>
                     		    	<div class="span2">
                     		    	    <div class="right-align">
-                    		    	    	<img src="images/buttons/security.jpg" alt="Security Sign" width="92" height="65" />
+<!--                    		    	    	<img src="images/buttons/security.jpg" alt="Security Sign" width="92" height="65" />-->
                     		    	    </div>
                     		    	</div>
                     		    </div>

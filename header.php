@@ -72,7 +72,7 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav" id="mainNavigation">
                             <li class="dropdown active">
-                                <a href="index.php" class="dropdown-toggle"> خانه <b class="caret"></b> </a>
+                                <a href="index.php" class="dropdown-toggle"> خانه </a>
 
                             </li>
 

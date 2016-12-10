@@ -63,7 +63,6 @@ $day_product=$dbh->query($day_product_sql);
 
     <?php include 'register.php' ?>
     <?php include 'login.php' ?>
-
     <?php include 'header.php' ?>
 
 
@@ -84,7 +83,7 @@ $day_product=$dbh->query($day_product_sql);
                          data-speed="1000"
                          data-start="500"
                          data-easing="easeInOutBack">
-                        با وبمارکت، هیچ محدودیتی ندارید
+                        با آویتا، هیچ محدودیتی در انتخاب ندارید
                     </div>
 
                     <div class="caption lfl small_theme"
@@ -93,7 +92,7 @@ $day_product=$dbh->query($day_product_sql);
                          data-speed="1000"
                          data-start="700"
                          data-easing="easeInOutBack">
-                        با امکانات قالب HTML وبمارکت آشنا شوید
+                        با امکانات آویتا آشنا شوید
                     </div>
 
                     <a href="features.html" class="caption lfl btn btn-primary btn_theme"
@@ -102,7 +101,7 @@ $day_product=$dbh->query($day_product_sql);
                        data-speed="1000"
                        data-start="900"
                        data-easing="easeInOutBack">
-                        تمامی امکانات قالب
+                        تمامی امکانات
                     </a>
                 </li><!-- /slide -->
 
@@ -117,7 +116,7 @@ $day_product=$dbh->query($day_product_sql);
                          data-speed="1000"
                          data-start="500"
                          data-easing="easeInOutBack">
-                        Slider Revolution
+                        طراح خود باشید
                     </div>
 
                     <div class="caption lfl small_theme"
@@ -159,7 +158,7 @@ $day_product=$dbh->query($day_product_sql);
                          data-speed="1000"
                          data-start="700"
                          data-easing="easeInOutBack">
-                        پنجره مرورگر خود را تغییر سایز دهید، خواهید دید که وبمارکت روی هر رزولوشنی به خوبی کار میکند.
+                        تمامی عکس ها مشابه نمونه واقعی میباشند.
                     </div>
 
                     <a href="icons.html" class="caption lfl btn btn-primary btn_theme"
@@ -168,7 +167,7 @@ $day_product=$dbh->query($day_product_sql);
                        data-speed="1000"
                        data-start="900"
                        data-easing="easeInOutBack">
-                        در ضمن آیکن های آن هم مناسب رتینا هستند ...
+                        بااطمینان خرید کنید ...
                     </a>
                 </li><!-- /slide -->
 
@@ -365,7 +364,7 @@ $day_product=$dbh->query($day_product_sql);
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
+                            <h4 class="title">32تومان</h4>
                             <h5 class="no-margin">محصول ویژه 434</h5>
                         </div>
                         <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
@@ -396,7 +395,7 @@ $day_product=$dbh->query($day_product_sql);
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
+                            <h4 class="title">32 تومان</h4>
                             <h5 class="no-margin">محصول ویژه 414</h5>
                         </div>
                         <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
@@ -427,7 +426,7 @@ $day_product=$dbh->query($day_product_sql);
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
+                            <h4 class="title">32تومان</h4>
                             <h5 class="no-margin">محصول ویژه 450</h5>
                         </div>
                         <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
@@ -458,7 +457,7 @@ $day_product=$dbh->query($day_product_sql);
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
+                            <h4 class="title">32 تومان</h4>
                             <h5 class="no-margin">محصول ویژه 186</h5>
                         </div>
                         <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
@@ -491,7 +490,7 @@ $day_product=$dbh->query($day_product_sql);
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
+                            <h4 class="title">32 تومان</h4>
                             <h5 class="no-margin">محصول ویژه 258</h5>
                         </div>
                         <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
@@ -522,7 +521,7 @@ $day_product=$dbh->query($day_product_sql);
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
+                            <h4 class="title">32 تومان</h4>
                             <h5 class="no-margin">محصول ویژه 128</h5>
                         </div>
                         <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
@@ -553,7 +552,7 @@ $day_product=$dbh->query($day_product_sql);
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
+                            <h4 class="title">32 تومان</h4>
                             <h5 class="no-margin">محصول ویژه 156</h5>
                         </div>
                         <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
@@ -584,7 +583,7 @@ $day_product=$dbh->query($day_product_sql);
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">$32</h4>
+                            <h4 class="title">32 تومان</h4>
                             <h5 class="no-margin">محصول ویژه 218</h5>
                         </div>
                         <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
