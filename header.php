@@ -107,90 +107,86 @@
                 <!--  ==========  -->
                 <!--  = Cart =  -->
                 <!--  ==========  -->
-                <div class="span3">
+                <?php
+                if (isset($_SESSION["user"])){
+                    $current_basket_query = $dbh->prepare("SELECT product.PRID,cost,name,percentage
+                                                          FROM basket,basket_product,product   
+                                                          LEFT OUTER JOIN discount 
+                                                          ON product.DID=discount.DID 
+                                                          WHERE basket.UID=:UID AND 
+                                                          basket_product.PRID=product.PRID AND 
+                                                          basket.BID=basket_product.BID AND 
+                                                          basket.BID NOT IN                                              
+                                                          (SELECT purchase.BID FROM purchase);");
+                    $current_basket_query->bindParam(':UID', $_SESSION["user"]);
+                    $current_basket_query->execute();
+                    $current_basket_items = $current_basket_query->fetchAll();
+
+                    $huge_basket=false;
+                    $total_cost=0;
+                    if (sizeof($current_basket_items)>3){
+                        $huge_basket=true;
+                        $current_basket_items=array_slice($current_basket_items,0,3);
+                    }
+                echo '<div class="span3">
                     <div class="cart-container" id="cartContainer">
                         <div class="cart">
                             <p class="items">سبد خرید <span class="dark-clr">(3)</span></p>
-                            <p class="dark-clr hidden-tablet">$1816.90</p>
                             <a href="checkout-step-1.php" class="btn btn-danger">
                                 <!-- <span class="icon icons-cart"></span> -->
                                 <i class="icon-shopping-cart"></i>
                             </a>
                         </div>
-                        <div class="open-panel">
+                        <div class="open-panel">';
+                    foreach ($current_basket_items as $item) {
 
-                            <div class="item-in-cart clearfix">
+                            echo '<div class="item-in-cart clearfix">
                                 <div class="image">
-                                    <img src="images/dummy/cart-items/cart-item-1.jpg" width="124" height="124" alt="cart item" />
+                                    <img src="images/dummy/products/'.$item['PRID'].'/1.jpg" width="124" height="124" alt="cart item" />
                                 </div>
                                 <div class="desc">
-                                    <strong><a href="product.php">کلاه زمستانی</a></strong>
+                                    <strong><a href="product.php">'.$item['name'].'</a></strong>
                                     <span class="light-clr qty">
                                     تعداد : 1
                                     &nbsp;
                                     <a href="#" class="icon-remove-sign" title="Remove Item"></a>
                                 </span>
                                 </div>
-                                <div class="price">
-                                    <strong>$4957</strong>
-                                </div>
-                            </div>
+                                <div class="price">';
+                                if ($item['percentage']){
+                                    $total_cost+=$item["cost"]*$item['percentage'];
+                                    echo '<strong>'.$item["cost"]*$item['percentage'].'</strong>';}
+                                else{
+                                    $total_cost+=$item["cost"];
+                                    echo '<strong>'.$item["cost"].'</strong>';
+                                }
+                                echo '</div>
+                            </div>';}
 
-                            <div class="item-in-cart clearfix">
-                                <div class="image">
-                                    <img src="images/dummy/cart-items/cart-item-2.jpg" width="124" height="124" alt="cart item" />
-                                </div>
-                                <div class="desc">
-                                    <strong><a href="product.php">کمربند اسپورت</a></strong>
-                                    <span class="light-clr qty">
-                                    تعداد : 1
-                                    &nbsp;
-                                    <a href="#" class="icon-remove-sign" title="Remove Item"></a>
-                                </span>
-                                </div>
-                                <div class="price">
-                                    <strong>$1318</strong>
-                                </div>
-                            </div>
+                            if ($huge_basket){
+                                echo '<div class="item-in-cart clearfix">برای مشاهده ی همه ی کالاهای سبد خرید 
+روی ویرایش سبد کلیک کنید.
+</div>';
+                            }
 
-                            <div class="item-in-cart clearfix">
-                                <div class="image">
-                                    <img src="images/dummy/cart-items/cart-item-3.jpg" width="124" height="124" alt="cart item" />
-                                </div>
-                                <div class="desc">
-                                    <strong><a href="product.php">کیف پول مردانه</a></strong>
-                                    <span class="light-clr qty">
-                                    تعداد : 1
-                                    &nbsp;
-                                    <a href="#" class="icon-remove-sign" title="Remove Item"></a>
-                                </span>
-                                </div>
-                                <div class="price">
-                                    <strong>$3840</strong>
-                                </div>
-                            </div>
-
-                            <div class="summary">
-                                <div class="line">
-                                    <div class="row-fluid">
-                                        <div class="span6">هزینه ارسال :</div>
-                                        <div class="span6 align-right">$4.99</div>
-                                    </div>
-                                </div>
+                            echo '
+                                <div class="summary">
+                                
                                 <div class="line">
                                     <div class="row-fluid">
                                         <div class="span6">جمع کل :</div>
-                                        <div class="span6 align-right size-16">$357.81</div>
+                                        <div class="span6 align-right size-16">'.$total_cost.'</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="proceed">
                                 <a href="checkout-step-1.php" class="btn btn-danger pull-right bold higher">تصویه حساب <i class="icon-shopping-cart"></i></a>
-                                <small>هزینه ارسال بر اساس منطقه جغرافیایی محاسبه میشود. <a href="#">اطلاعات بیشتر</a></small>
+                                <a href="checkout-step-1.php" class="btn btn-primary bold higher">ویرایش سبد<i class="icon-shopping-cart"></i></a>
+
                             </div>
                         </div>
                     </div>
-                </div> <!-- /cart -->
+                </div> <!-- /cart -->';} ?>
 
             </div>
         </div>
