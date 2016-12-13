@@ -60,9 +60,9 @@
                 <div class="span12">
                     <ul class="breadcrumb">
                         <li>
-                            <a href="index.html">Webmarket</a>
+                            <a href="index.html">آویتا</a>
                         </li>
-                        <li><span class="icon-chevron-right"></span></li>
+                        <li><span class="icon-chevron-left"></span></li>
                         <li>
                             <a href="404.php">خطای 404</a>
                         </li>

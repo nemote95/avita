@@ -61,9 +61,9 @@
                 <div class="span12">
                     <ul class="breadcrumb">
                         <li>
-                            <a href="index.html">Webmarket</a>
+                            <a href="index.html">آویتا</a>
                         </li>
-                        <li><span class="icon-chevron-right"></span></li>
+                        <li><span class="icon-chevron-left"></span></li>
                         <li>
                             <a href="401.php">خطای 401</a>
                         </li>
@@ -97,19 +97,7 @@
 
                     </p>
                 	
-                	<div class="row">
-                	    <div class="span4 offset4">
-                	        <div class="sidebar-item widget_search">
-                                <form role="search" method="get" id="searchform" action="#" class="form">
-                                    <input type="text" placeholder="جستجو در نوشته ها ..." name="s" class="input-block-level" id="appendedInputButton">
-                                    <button type="submit">
-                                        <i class="icon-search"></i>
-                                    </button>
-                                </form>
-                            </div>
-                	    </div>
-                	</div>
-                	
+
                 </section> <!-- /main content -->
             </div>
         </div>
@@ -130,7 +118,7 @@
             <div class="container">
                 <div class="row">
                     <div class="span4">
-                        <h2 class="pacifico">Webmarket &nbsp; <img src="images/webmarket.png" alt="Webmarket Cart" class="align-baseline" /></h2>
+                        <h2 class="pacifico">آویتا &nbsp; <img src="images/آویتا.png" alt="آویتا Cart" class="align-baseline" /></h2>
                         <p>این یک نوشته آزمایشی است. شما میتوانید این قسمت را با نوشته های دلخواه خود که مناسب این ناحیه باشند پر نمایید. ما این بخش را با نوشته هایی بی معنی پر کرده ایم.</p>
                     </div>
                     <div class="span4">

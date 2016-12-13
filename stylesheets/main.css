@@ -770,7 +770,7 @@ pre { border-radius: 0; background-color: #f3f3f3; text-align: left;}
 .table-items td.image > img { max-width: 90%; }
 .table-items td.desc { color: 190F06; font-weight: bold; }
 .table-items td.qty { width: 100px; text-align: center; }
-.table-items td.qty input { margin: 0; }
+.table-items td.qty input { margin: 0;width:52px;height: 37px; }
 .table-items td.price { width: 120px; text-align: right; color: 190F06; font-weight: bold; font-size: 14px; }
 .table-items td .icon-remove-sign { font-size: 16px; color: #727272; }
 .table-items td .icon-remove-sign:hover { text-decoration: none; color: black; }

@@ -34,15 +34,14 @@
 
                 <div class="register">
                     <?php
-                        if(isset($_SESSION['user'])) {
-                            echo "   سلام".$_SESSION['lastname'];
-                                echo '<a href="logout.php?logout" role="button" class="btn buy btn-danger" data-toggle="modal" style=" margin:10px;">خروج</a>';
+                    if (isset($_SESSION['user'])) {
+                        echo "   سلام" . $_SESSION['lastname'];
+                        echo '<a href="logout.php?logout" role="button" class="btn buy btn-danger" data-toggle="modal" style=" margin:10px;">خروج</a>';
 
-                        }
-                            else{
-                                echo '<a href="#loginModal" role="button" class="btn more btn-primary" data-toggle="modal">ورود</a> یا';
-                                echo ' <a href="#registerModal" role="button" class="btn more btn-primary" data-toggle="modal">ثبت نام</a>';
-                            }
+                    } else {
+                        echo '<a href="#loginModal" role="button" class="btn more btn-primary" data-toggle="modal">ورود</a> یا';
+                        echo ' <a href="#registerModal" role="button" class="btn more btn-primary" data-toggle="modal">ثبت نام</a>';
+                    }
 
 
                     ?>
@@ -81,9 +80,9 @@
                                 <ul class="dropdown-menu">
                                     <?php
                                     $cat_sql = "select * from category";
-                                    $categories=$dbh->query($cat_sql);
-                                    foreach ($categories as $cat){
-                                        echo '<li><a href="shop.php?CAID='.$cat['CAID'].'">'.$cat['name'].'</a></li>';
+                                    $categories = $dbh->query($cat_sql);
+                                    foreach ($categories as $cat) {
+                                        echo '<li><a href="shop.php?CAID=' . $cat['CAID'] . '">' . $cat['name'] . '</a></li>';
                                     }
                                     ?>
                                 </ul>
@@ -108,7 +107,7 @@
                 <!--  = Cart =  -->
                 <!--  ==========  -->
                 <?php
-                if (isset($_SESSION["user"])){
+                if (isset($_SESSION["user"])) {
                     $current_basket_query = $dbh->prepare("SELECT product.PRID,cost,name,percentage
                                                           FROM basket,basket_product,product   
                                                           LEFT OUTER JOIN discount 
@@ -122,13 +121,10 @@
                     $current_basket_query->execute();
                     $current_basket_items = $current_basket_query->fetchAll();
 
-                    $huge_basket=false;
-                    $total_cost=0;
-                    if (sizeof($current_basket_items)>3){
-                        $huge_basket=true;
-                        $current_basket_items=array_slice($current_basket_items,0,3);
-                    }
-                echo '<div class="span3">
+                    $huge_basket = sizeof($current_basket_items) > 3;
+                    $total_cost = 0;
+
+                    echo '<div class="span3">
                     <div class="cart-container" id="cartContainer">
                         <div class="cart">
                             <p class="items">سبد خرید <span class="dark-clr">(3)</span></p>
@@ -138,14 +134,16 @@
                             </a>
                         </div>
                         <div class="open-panel">';
-                    foreach ($current_basket_items as $item) {
 
+
+                    for ($i = 0; $i < sizeof($current_basket_items); $i++) {
+                        if ($i < 3) {
                             echo '<div class="item-in-cart clearfix">
                                 <div class="image">
-                                    <img src="images/dummy/products/'.$item['PRID'].'/1.jpg" width="124" height="124" alt="cart item" />
+                                    <img src="images/dummy/products/' . $current_basket_items[$i]['PRID'] . '/1.jpg" width="124" height="124" alt="cart item" />
                                 </div>
                                 <div class="desc">
-                                    <strong><a href="product.php">'.$item['name'].'</a></strong>
+                                    <strong><a href="product.php">' . $current_basket_items[$i]['name'] . '</a></strong>
                                     <span class="light-clr qty">
                                     تعداد : 1
                                     &nbsp;
@@ -153,29 +151,38 @@
                                 </span>
                                 </div>
                                 <div class="price">';
-                                if ($item['percentage']){
-                                    $total_cost+=$item["cost"]*$item['percentage'];
-                                    echo '<strong>'.$item["cost"]*$item['percentage'].'</strong>';}
-                                else{
-                                    $total_cost+=$item["cost"];
-                                    echo '<strong>'.$item["cost"].'</strong>';
-                                }
-                                echo '</div>
-                            </div>';}
+                            if ($current_basket_items[$i]['percentage']) {
+                                $total_cost += $current_basket_items[$i]["cost"] * (1 - $current_basket_items[$i]['percentage']);
+                                echo '<strong>' . $current_basket_items[$i]["cost"] * (1 - $current_basket_items[$i]['percentage']) . 'تومان</strong>';
+                            } else {
+                                $total_cost += $current_basket_items[$i]["cost"];
+                                echo '<strong>' . $current_basket_items[$i]["cost"] . 'تومان</strong>';
+                            }
+                            echo '</div>
+                            </div>';
+                        }
+                        else{
+                            if ($current_basket_items[$i]['percentage']) {
+                                $total_cost += $current_basket_items[$i]["cost"] * (1 - $current_basket_items[$i]['percentage']);
+                            } else {
+                                $total_cost += $current_basket_items[$i]["cost"];
+                            }
+                        }
+                    }
 
-                            if ($huge_basket){
-                                echo '<div class="item-in-cart clearfix">برای مشاهده ی همه ی کالاهای سبد خرید 
+                    if ($huge_basket) {
+                        echo '<div class="item-in-cart clearfix">برای مشاهده ی همه ی کالاهای سبد خرید 
 روی ویرایش سبد کلیک کنید.
 </div>';
-                            }
+                    }
 
-                            echo '
+                    echo '
                                 <div class="summary">
                                 
                                 <div class="line">
                                     <div class="row-fluid">
                                         <div class="span6">جمع کل :</div>
-                                        <div class="span6 align-right size-16">'.$total_cost.'</div>
+                                        <div class="span6 align-right size-16">' . $total_cost . '</div>
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +193,8 @@
                             </div>
                         </div>
                     </div>
-                </div> <!-- /cart -->';} ?>
+                </div> <!-- /cart -->';
+                } ?>
 
             </div>
         </div>
