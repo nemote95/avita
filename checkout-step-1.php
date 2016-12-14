@@ -6,7 +6,7 @@ if (!isset($_SESSION["user"])) {
     header("Location: 401.php");
     exit;
 } else {
-    $current_basket_query = $dbh->prepare("SELECT product.PRID,cost,name,percentage
+    $current_basket_query = $dbh->prepare("SELECT product.PRID,cost,basket_product.Count,name,percentage
                                                           FROM basket,basket_product,product   
                                                           LEFT OUTER JOIN discount 
                                                           ON product.DID=discount.DID 
@@ -152,7 +152,7 @@ if (!isset($_SESSION["user"])) {
 									<td class="image"><img src="images/dummy/products/' . $item['PRID'] . '/1.jpg" alt="" width="124" height="124" /></td>
 									<td class="desc">' . $item['name'] . '<a title="Remove Item" class="icon-remove-sign" href="#"></a></td>
 									<td class="qty">
-										<input type="text" class="tiny-size" value="1" />
+										<input type="text" class="tiny-size" value="'.$item['Count'].'" />
 										<input type="hidden" value="' . $item['PRID'] . '" >
 									</td>
 									<td class="price">';
@@ -160,8 +160,8 @@ if (!isset($_SESSION["user"])) {
                                         $total_cost += $item['cost'];
                                         echo $item['cost'];
                                     } else {
-                                        $total_cost += $item['cost']*(1-$item['percentage']);
-                                        echo $item['cost']*(1-$item['percentage']);
+                                        $total_cost += $item['cost'] * (1 - $item['percentage']);
+                                        echo $item['cost'] * (1 - $item['percentage']);
                                     }
                                     echo 'تومان</td>
 									</tr>';
@@ -185,7 +185,7 @@ if (!isset($_SESSION["user"])) {
                                     <td class="stronger">جمع کل :</td>
                                     <td class="stronger">
                                         <?php
-                                        echo '<div class="size-16 align-right">'.$total_cost.' تومان</div>'; ?>
+                                        echo '<div class="size-16 align-right">' . $total_cost . ' تومان</div>'; ?>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -195,7 +195,7 @@ if (!isset($_SESSION["user"])) {
 
                             <p class="right-align">
                                 در مرحله بعدی شما آدرس ارسال را انتخاب خواهید کرد. &nbsp; &nbsp;
-                                <a href="checkout-step-2.php" class="btn btn-primary higher bold">ادامه</a>
+                                <button class="btn btn-primary higher bold" onclick="submit_basket()">ادامه</button>
                             </p>
                         </div>
                     </div>
@@ -218,6 +218,32 @@ if (!isset($_SESSION["user"])) {
 <!--  = FB =  -->
 
 <div id="fb-root"></div>
+<script>
+    function submit_basket() {
+
+        var input_tags = document.getElementsByTagName('input');
+        var items = [];
+        var i;
+        for (i = 0; i < input_tags.length - 1; i = i + 2) {
+            var product = {};
+            product.prid = input_tags[i+1].value;
+            product.amount = input_tags[i].value;
+            items.push(product);
+        }
+        var jsonString = JSON.stringify(items);
+        console.log(jsonString);
+        $.ajax({
+            type: "POST",
+            url: "submit_basket.php",
+            data: {data: jsonString},
+            cache: false,
+
+            success: function () {
+                alert("OK");
+            }
+        });
+    }
+</script>
 <script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;

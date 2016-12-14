@@ -282,7 +282,7 @@ $day_product=$dbh->query($day_product_sql);
                     <div class="product" >
                         <div class="product-img featured" >
                             <div class="picture" >'.
-                                    '<img src="images/dummy/products/product-' . $dp['PRID'] . '.jpg" alt = "" width = "518"
+                                    '<img src="images/dummy/products/' . $dp['PRID'] . '/1.jpg" alt = "" width = "518"
                                      height = "358" />';
                                 echo   '<div class="img-overlay" >
                                     <a href = "product.php?PRID='.$dp['PRID'].'" class="btn more btn-primary" > توضیحات بیشتر </a >

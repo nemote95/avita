@@ -108,7 +108,7 @@
                 <!--  ==========  -->
                 <?php
                 if (isset($_SESSION["user"])) {
-                    $current_basket_query = $dbh->prepare("SELECT product.PRID,cost,name,percentage
+                    $current_basket_query = $dbh->prepare("SELECT product.PRID,cost,basket_product.Count,name,percentage
                                                           FROM basket,basket_product,product   
                                                           LEFT OUTER JOIN discount 
                                                           ON product.DID=discount.DID 
@@ -127,7 +127,7 @@
                     echo '<div class="span3">
                     <div class="cart-container" id="cartContainer">
                         <div class="cart">
-                            <p class="items">سبد خرید <span class="dark-clr">(3)</span></p>
+                            <p class="items">سبد خرید <span class="dark-clr">('.sizeof($current_basket_items).')</span></p>
                             <a href="checkout-step-1.php" class="btn btn-danger">
                                 <!-- <span class="icon icons-cart"></span> -->
                                 <i class="icon-shopping-cart"></i>
@@ -144,11 +144,8 @@
                                 </div>
                                 <div class="desc">
                                     <strong><a href="product.php">' . $current_basket_items[$i]['name'] . '</a></strong>
-                                    <span class="light-clr qty">
-                                    تعداد : 1
-                                    &nbsp;
-                                    <a href="#" class="icon-remove-sign" title="Remove Item"></a>
-                                </span>
+                                    <span class="light-clr qty"> تعداد: '.$current_basket_items[$i]['Count'].
+                                    '</span>
                                 </div>
                                 <div class="price">';
                             if ($current_basket_items[$i]['percentage']) {
