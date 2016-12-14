@@ -19,6 +19,7 @@ if (isset($_POST['btn-signup']) ) {
 
     // clean user inputs to prevent sql injections
     if(isset($_POST['name'])){
+		
         $name = trim($_POST['name']);
         $name = strip_tags($name);
         $name = htmlspecialchars($name);
@@ -92,13 +93,12 @@ if (isset($_POST['btn-signup']) ) {
         $address ="test_address";
         $phone="09123456789";
         $sql->bindParam(':email', $email);
-        $sql->bindParam(':last_name', $last_name);
+        $sql->bindParam(':last_name', $name);
         $sql->bindParam(':first_name', $first_name);
         $sql->bindParam(':phone', $phone);
         $sql->bindParam(':address', $address);
         $sql->bindParam(':password', $pass);
         $sql->execute();
-        //print_r($sql);
         $errTyp = "success";
         $errMSG = "Successfully registered, you may login now";
 
