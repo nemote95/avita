@@ -219,7 +219,7 @@ if ($product['DID']!=null){
 <div class="fade in tab-pane active" id="tab-3">
                 <?php echo '<form action="comment.php?PRID='. $PRID.'" method="post">' ?>
                     <input style="width: 1100px ; height:100px ;" type="text" name="text">
-                    <input type="submit">
+                    <button type="submit" class="btn btn-primary">ثبت نظر</button>
                 </form>
                 <?php
                 $sql = "SELECT text,date,user.first_name as first_name,user.last_name as last_name
