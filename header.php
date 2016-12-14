@@ -143,7 +143,8 @@
                                     <img src="images/dummy/products/' . $current_basket_items[$i]['PRID'] . '/1.jpg" width="124" height="124" alt="cart item" />
                                 </div>
                                 <div class="desc">
-                                    <strong><a href="product.php">' . $current_basket_items[$i]['name'] . '</a></strong>
+                                    <strong><a href="product.php?PRID='.$current_basket_items[$i]['PRID'].'">'
+                                    . $current_basket_items[$i]['name'] . '</a></strong>
                                     <span class="light-clr qty"> تعداد: '.$current_basket_items[$i]['Count'].
                                     '</span>
                                 </div>
