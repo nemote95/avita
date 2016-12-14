@@ -19,7 +19,6 @@ if (isset($_POST['btn-signup']) ) {
 
     // clean user inputs to prevent sql injections
     if(isset($_POST['name'])){
-		
         $name = trim($_POST['name']);
         $name = strip_tags($name);
         $name = htmlspecialchars($name);
@@ -80,12 +79,7 @@ if (isset($_POST['btn-signup']) ) {
 
     // if there's no error, continue to signup
     if( !$error ) {
-/*
-        $query="INSERT INTO user (email,last_name,first_name,phone,address,password) VALUES ('$email','ahmadi','$name','09127472816','yazd','$password')";
-        //$query = "INSERT INTO user (UID,email,last_name,first_name,phone,address,password)VALUES(0,'$email','$name','aa','bb','dd','$password')";
-        $res = $dbh->prepare($query);
 
-        $res->execute();*/
 
         $sql = $dbh->prepare("INSERT INTO user (email,last_name,first_name,phone,address,password) VALUES 
         (:email, :last_name,:first_name, :phone,:address,:password);");

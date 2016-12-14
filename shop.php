@@ -249,7 +249,8 @@
                             <!--  = Single Product =  -->
                             <!--  ==========  -->
                             <?php
-                            $product_sql = "select * from product where CAID='$catid'";
+                            $product_sql = "select * from product LEFT OUTER JOIN discount ON
+											product.DID=discount.DID where CAID='$catid;'";
                             $products=$dbh->query($product_sql);
                                 foreach($products as $p){
                                     echo '<div class="span3 filter--swimwear" data-price="323" data-popularity="3"
@@ -259,16 +260,26 @@
                                     <div class="product-img">
                                         <div class="picture">
                                             <img width="540" height="374" alt=""
-                                                 src="images/dummy/products/product-'.$p['PRID'].'.jpg"/>
+                                                 src="images/dummy/products/'.$p['PRID'].'/1.jpg"/>
                                             <div class="img-overlay">
-                                                <a class="btn more btn-primary" href="#">توضیحات بیشتر</a>
-                                                <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                                                <a class="btn more btn-primary" href="product.php?PRID='.$p['PRID'].'">توضیحات بیشتر</a>
+                                                <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
+                                    
+												<input type="hidden" name="PRID" value="'. $p['PRID'].'">
+												<button type="submit" class="btn buy btn-danger"> اضافه به سبد خرید</button>
+												</form>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="main-titles no-margin">
-                                        <h4 class="title">'.$p['cost'].'</h4>
-                                        <h5 class="no-margin isotope--title">'.$p['name'].'</h5>
+                                    <div class="main-titles no-margin">';
+										if ($p['percentage']==Null){
+                                       echo  '<h4 class="title">'.$p['cost'].'تومان</h4>';
+										}
+										else{
+											echo  '<h4 class="title" style="text; text-decoration: line-through; color: grey;">'.$p['cost'].'تومان</h4>';
+											echo  '<h4 class="title">'.$p['cost']*(1-$p['percentage']).'تومان</h4>';
+										}
+                                        echo '<h5 class="no-margin isotope--title">'.$p['name'].'</h5>
                                     </div>
                                 </div>
                             </div> <!-- /single product -->';
@@ -277,35 +288,7 @@
                             <!--  ==========  -->
                             <!--  = Single Product =  -->
                             <!--  ==========  -->
-                            <div class="span3 filter--blazers" data-price="1421" data-popularity="5"
-                                 data-size="s|l|xl|xxl" data-color="red" data-brand="puma">
-                                <div class="product">
-
-                                    <div class="product-img">
-                                        <div class="picture">
-                                            <img width="540" height="374" alt=""
-                                                 src="images/dummy/products/product-18.jpg"/>
-                                            <div class="img-overlay">
-                                                <a class="btn more btn-primary" href="#">توضیحات بیشتر</a>
-                                                <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="main-titles no-margin">
-                                        <h4 class="title">$1421</h4>
-                                        <h5 class="no-margin isotope--title">Vivamus Dapibus Condimentum</h5>
-                                    </div>
-                                    <p class="center-align stars">
-                                        <span class="icon-star stars-clr"></span>
-                                        <span class="icon-star stars-clr"></span>
-                                        <span class="icon-star stars-clr"></span>
-                                        <span class="icon-star stars-clr"></span>
-                                        <span class="icon-star stars-clr"></span>
-
-                                    </p>
-                                </div>
-                            </div> <!-- /single product -->
-
+                            
                         </div>
                     </div>
                     <hr/>
