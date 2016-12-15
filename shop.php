@@ -218,8 +218,8 @@ if (isset($_GET['find'])) {
                         <div class="row">
                             <div class="span5">
                                 <h3><span class="light">همه</span> محصولات</h3>
-                                
-                                <h4>نتیجه ی جست و جو برای : echo $searchedProduct ?></h4>
+
+                                <h4>نتیجه ی جست و جو برای :<?php echo $searchedProduct ?></h4>
 
                             </div>
                             <div class="span4">
