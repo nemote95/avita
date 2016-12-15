@@ -1,7 +1,9 @@
-
-    <?php
+<?php
     if (isset($_GET['CAID'])){
     $catid = $_GET['CAID'];
+    }
+    if (isset($_GET['find'])){
+        $searchedProduct= $_GET['find'];
     }
     ?>
 <!--[if lt IE 8]>
@@ -99,7 +101,7 @@
                         <!--  ==========  -->
                         <div class="underlined">
                             <h3><span class="light">بر اساس فیلتر</span> خرید کنید</h3>
-                            <h4><?php echo $catid; ?></h4>
+<!--                            <h4>--><?php //echo $catid; ?><!--</h4>-->
                         </div>
 
                         <!--  ==========  -->
@@ -117,7 +119,7 @@
                                     $cat_sql = "select * from category";
                                     $categories=$dbh->query($cat_sql);
                                     foreach ($categories as $cat){
-                                        echo '<a href="filter.php" data-target=".filter--accessories" class="selectable"><i class="box"></i>'.$cat['name'].'</a>';
+                                        echo '<a href="shop.php" data-target=".filter--accessories" class="selectable"><i class="box"></i>'.$cat['name'].'</a>';
                                     }
                                     ?>
                                 </div>
@@ -217,6 +219,8 @@
                         <div class="row">
                             <div class="span5">
                                 <h3><span class="light">همه</span> محصولات</h3>
+                                <h4>نتیجه ی جست و جو برای :<?php echo $searchedProduct ?></h4>
+
                             </div>
                             <div class="span4">
                                 <div class="form-inline sorting-by" id="tourStep4">
@@ -249,6 +253,8 @@
                             <!--  = Single Product =  -->
                             <!--  ==========  -->
                             <?php
+
+                            if(isset($_GET['CAID'])){
                             $product_sql = "select * from product LEFT OUTER JOIN discount ON
 											product.DID=discount.DID where CAID='$catid;'";
                             $products=$dbh->query($product_sql);
@@ -284,6 +290,41 @@
                                 </div>
                             </div> <!-- /single product -->';
                                 }
+                            }
+                            ?>
+
+                            <?php
+                            if($find=''){
+                                header("Location: 404.php");
+                                exit();
+                            }
+                            $find = strtoupper($find);
+                            $find = strip_tags($find);
+                            $find = trim ($find);
+                            $searchResult="select * from product where name LIKE '%$searchedProduct%'";
+                            $result = $dbh->query($searchResult);
+                            foreach ($result as $res){
+                                echo '<div class="span3 filter--swimwear" data-price="323" data-popularity="3"
+                                 data-size="xs|s|m|xxl" data-color="pink|orange" data-brand="adidas">
+                                <div class="product">
+
+                                    <div class="product-img">
+                                        <div class="picture">
+                                            <img width="540" height="374" alt=""
+                                                 src="images/dummy/products/product-'.$res['PRID'].'.jpg"/>
+                                            <div class="img-overlay">
+                                                <a class="btn more btn-primary" href="#">توضیحات بیشتر</a>
+                                                <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="main-titles no-margin">
+                                        <h4 class="title">'.$res['cost'].'</h4>
+                                        <h5 class="no-margin isotope--title">'.$res['name'].'</h5>
+                                    </div>
+                                </div>
+                            </div> <!-- /single product -->';
+                            }
                             ?>
                             <!--  ==========  -->
                             <!--  = Single Product =  -->

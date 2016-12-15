@@ -82,7 +82,7 @@
                                     $cat_sql = "select * from category";
                                     $categories = $dbh->query($cat_sql);
                                     foreach ($categories as $cat) {
-                                        echo '<li><a href="shop.php?CAID=' . $cat['CAID'] . '">' . $cat['name'] . '</a></li>';
+                                        echo '<li><a href="shop.php?CAID='. $cat['CAID'] . '">' . $cat['name'] . '</a></li>';
                                     }
                                     ?>
                                 </ul>
@@ -96,13 +96,12 @@
                         <!--  ==========  -->
                         <!--  = Search form =  -->
                         <!--  ==========  -->
-                        <form class="navbar-form pull-right" action="#" method="get">
-                            <button type="submit"><span class="icon-search"></span></button>
-                            <input type="text" class="span1" name="search" id="navSearchInput">
+                        <form class="navbar-form pull-right" action="shop.php" method="get">
+                            <button type="submit" name="search"><span class="icon-search"></span></button>
+                            <input type="text" class="span1" name="find" id="navSearchInput">
                         </form>
                     </div><!-- /.nav-collapse -->
                 </div>
-
                 <!--  ==========  -->
                 <!--  = Cart =  -->
                 <!--  ==========  -->
