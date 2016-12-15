@@ -109,22 +109,19 @@ if (!isset($_SESSION["user"])) {
                             <!--  ==========  -->
                             <!--  = Steps =  -->
                             <!--  ==========  -->
-                            <div class="checkout-steps">
+                            <div class="checkout-steps" style="margin-left: 20px;">
                                 <div class="clearfix">
                                     <div class="step active">
                                         <div class="step-badge">1</div>
                                         سبد خرید
                                     </div>
                                     <div class="step">
-                                        <div class="step-badge">3</div>
+                                        <div class="step-badge">2</div>
                                         آدرس ارسال
                                     </div>
+
                                     <div class="step">
-                                        <div class="step-badge">2</div>
-                                        شیوه پرداخت
-                                    </div>
-                                    <div class="step">
-                                        <div class="step-badge">4</div>
+                                        <div class="step-badge">3</div>
                                         تایید و پرداخت
                                     </div>
                                 </div>
@@ -239,8 +236,9 @@ if (!isset($_SESSION["user"])) {
             cache: false,
 
             success: function () {
-                alert("OK");
+                window.location="checkout-step-2.php";
             }
+
         });
     }
 </script>

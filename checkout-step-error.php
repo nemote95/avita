@@ -8,7 +8,7 @@
 <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>Avita - Checkout Step 3</title>
+    <title>Avita - Checkout Step 1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ProteusThemes">
@@ -66,98 +66,34 @@
                             <!--  ==========  -->
                             <header>
                                 <div class="row">
-
+                                    <div class="span2">
+                                        <!--                    		    		<a href="index.html"><img src="images/logo-bw.png" alt="Webmarket Logo" width="48" height="48" /></a>-->
+                                    </div>
                                     <div class="span6">
                                         <div class="center-align">
-                                            <h1> صورت حساب</h1>
+                                            <h1>خطا</h1>
                                         </div>
                                     </div>
                                     <div class="span2">
-
+                                        <div class="right-align">
+                                            <!--                    		    	    	<img src="images/buttons/security.jpg" alt="Security Sign" width="92" height="65" />-->
+                                        </div>
                                     </div>
                                 </div>
                             </header>
 
-                            <!--  ==========  -->
-                            <!--  = Steps =  -->
-                            <!--  ==========  -->
-                            <div class="checkout-steps">
-                                <div class="clearfix">
-                                    <div class="step done">
-                                        <div class="step-badge"><i class="icon-ok"></i></div>
-                                        <a href="checkout-step-1.php">سبد خريد</a>
-                                    </div>
-                                    <div class="step done">
-                                        <div class="step-badge"><i class="icon-ok"></i></div>
-                                        <a href="checkout-step-2.php">آدرس ارسال</a>
-                                    </div>
-
-                                    <div class="step active">
-                                        <div class="step-badge">4</div>
-                                        تاييد و پرداخت
-                                    </div>
-                                </div>
-                            </div> <!-- /steps -->
-
-                            <!--  ==========  -->
-                            <!--  = Selected Items =  -->
-                            <!--  ==========  -->
-                            <table class="table table-items">
-
-                                <tbody>
-
-                                <tr>
-                                    <td class="desc">نام :</td>
-                                    <td class="qty">
-                                        </td>
-
-                                </tr>
-
-                                <tr>
-                                    <td class="desc">نام خانوادگی :</td>
-                                    <td class="qty">
-                                        </td>
-
-                                </tr>
-
-                                <tr>
-                                    <td class="desc">تلفن :</td>
-                                    <td class="qty">
-                                        </td>
-
-                                </tr>
-                                <tr>
-                                    <td class="desc">آدرس :</td>
-                                    <td class="qty">
-                                        </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td class="stronger">هزينه ارسال :</td>
-                                    <td class="stronger">
-                                        <div class="align-right">$4.99</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="stronger">جمع کل :</td>
-                                    <td class="stronger">
-                                        <div class="size-16 align-right">$357.81</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="stronger">شماره ی صورت حساب :</td>
-                                    <td class="stronger">
-                                        <div class="size-16 align-right"></div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-
+                            <hr/>
                             <p class="right-align">
-                                <a href="index.php" class="btn btn-primary higher bold">تاييد </a>
+                                <?php
+                                if (isset($_GET["err"])) {
+                                    if ($_GET["err"] = "nobasket") {
+                                        echo '
+سبد خرید شما خالی می باشد &nbsp; &nbsp;                        ';
+                                    }
+
+                                }?>
+
+                                <!--<button class="btn btn-primary higher bold" onclick="submit_basket()">ادامه</button>-->
                             </p>
                         </div>
                     </div>
@@ -180,6 +116,7 @@
 <!--  = FB =  -->
 
 <div id="fb-root"></div>
+
 <script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
@@ -233,6 +170,3 @@
 
 </body>
 </html>
-
-    
-    
