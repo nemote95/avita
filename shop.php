@@ -1,11 +1,11 @@
 <?php
-    if (isset($_GET['CAID'])){
+if (isset($_GET['CAID'])) {
     $catid = $_GET['CAID'];
-    }
-    if (isset($_GET['find'])){
-        $searchedProduct= $_GET['find'];
-    }
-    ?>
+}
+if (isset($_GET['find'])) {
+    $searchedProduct = $_GET['find'];
+}
+?>
 <!--[if lt IE 8]>
 <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>
@@ -57,7 +57,7 @@
 <div class="master-wrapper">
 
     <?php include 'register.php' ?>
-    <?php include 'login.php'?>
+    <?php include 'login.php' ?>
 
     <?php include 'header.php' ?>
 
@@ -101,7 +101,7 @@
                         <!--  ==========  -->
                         <div class="underlined">
                             <h3><span class="light">بر اساس فیلتر</span> خرید کنید</h3>
-<!--                            <h4>--><?php //echo $catid; ?><!--</h4>-->
+                            <!--                            <h4>--><?php //echo $catid; ?><!--</h4>-->
                         </div>
 
                         <!--  ==========  -->
@@ -117,9 +117,9 @@
                                     <?php
                                     include 'config.php';
                                     $cat_sql = "select * from category";
-                                    $categories=$dbh->query($cat_sql);
-                                    foreach ($categories as $cat){
-                                        echo '<a href="shop.php" data-target=".filter--accessories" class="selectable"><i class="box"></i>'.$cat['name'].'</a>';
+                                    $categories = $dbh->query($cat_sql);
+                                    foreach ($categories as $cat) {
+                                        echo '<a href="shop.php" data-target=".filter--accessories" class="selectable"><i class="box"></i>' . $cat['name'] . '</a>';
                                     }
                                     ?>
                                 </div>
@@ -200,7 +200,6 @@
                         </div> <!-- /color filter -->
 
 
-
                         <a href="#" class="remove-filter" id="removeFilters"><span class="icon-ban-circle"></span> حذف
                             همه فیلتر ها</a>
 
@@ -219,7 +218,8 @@
                         <div class="row">
                             <div class="span5">
                                 <h3><span class="light">همه</span> محصولات</h3>
-                                <h4>نتیجه ی جست و جو برای :<?php echo $searchedProduct ?></h4>
+                                
+                                <h4>نتیجه ی جست و جو برای : echo $searchedProduct ?></h4>
 
                             </div>
                             <div class="span4">
@@ -254,11 +254,11 @@
                             <!--  ==========  -->
                             <?php
 
-                            if(isset($_GET['CAID'])){
-                            $product_sql = "select * from product LEFT OUTER JOIN discount ON
+                            if (isset($_GET['CAID'])) {
+                                $product_sql = "select * from product LEFT OUTER JOIN discount ON
 											product.DID=discount.DID where CAID='$catid;'";
-                            $products=$dbh->query($product_sql);
-                                foreach($products as $p){
+                                $products = $dbh->query($product_sql);
+                                foreach ($products as $p) {
                                     echo '<div class="span3 filter--swimwear" data-price="323" data-popularity="3"
                                  data-size="xs|s|m|xxl" data-color="pink|orange" data-brand="adidas">
                                 <div class="product">
@@ -266,26 +266,25 @@
                                     <div class="product-img">
                                         <div class="picture">
                                             <img width="540" height="374" alt=""
-                                                 src="images/dummy/products/'.$p['PRID'].'/1.jpg"/>
+                                                 src="images/dummy/products/' . $p['PRID'] . '/1.jpg"/>
                                             <div class="img-overlay">
-                                                <a class="btn more btn-primary" href="product.php?PRID='.$p['PRID'].'">توضیحات بیشتر</a>
+                                                <a class="btn more btn-primary" href="product.php?PRID=' . $p['PRID'] . '">توضیحات بیشتر</a>
                                                 <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
                                     
-												<input type="hidden" name="PRID" value="'. $p['PRID'].'">
+												<input type="hidden" name="PRID" value="' . $p['PRID'] . '">
 												<button type="submit" class="btn buy btn-danger"> اضافه به سبد خرید</button>
 												</form>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="main-titles no-margin">';
-										if ($p['percentage']==Null){
-                                       echo  '<h4 class="title">'.$p['cost'].'تومان</h4>';
-										}
-										else{
-											echo  '<h4 class="title" style="text; text-decoration: line-through; color: grey;">'.$p['cost'].'تومان</h4>';
-											echo  '<h4 class="title">'.$p['cost']*(1-$p['percentage']).'تومان</h4>';
-										}
-                                        echo '<h5 class="no-margin isotope--title">'.$p['name'].'</h5>
+                                    if ($p['percentage'] == Null) {
+                                        echo '<h4 class="title">' . $p['cost'] . 'تومان</h4>';
+                                    } else {
+                                        echo '<h4 class="title" style="text; text-decoration: line-through; color: grey;">' . $p['cost'] . 'تومان</h4>';
+                                        echo '<h4 class="title">' . $p['cost'] * (1 - $p['percentage']) . 'تومان</h4>';
+                                    }
+                                    echo '<h5 class="no-margin isotope--title">' . $p['name'] . '</h5>
                                     </div>
                                 </div>
                             </div> <!-- /single product -->';
@@ -294,16 +293,17 @@
                             ?>
 
                             <?php
-                            if($find=''){
+                            if ($find = '') {
                                 header("Location: 404.php");
                                 exit();
                             }
                             $find = strtoupper($find);
                             $find = strip_tags($find);
-                            $find = trim ($find);
-                            $searchResult="select * from product where name LIKE '%$searchedProduct%'";
+                            $find = trim($find);
+                            $searchResult = "select * from product LEFT OUTER JOIN discount ON
+											product.DID=discount.DID where name LIKE '%$searchedProduct%'";
                             $result = $dbh->query($searchResult);
-                            foreach ($result as $res){
+                            foreach ($result as $res) {
                                 echo '<div class="span3 filter--swimwear" data-price="323" data-popularity="3"
                                  data-size="xs|s|m|xxl" data-color="pink|orange" data-brand="adidas">
                                 <div class="product">
@@ -311,16 +311,25 @@
                                     <div class="product-img">
                                         <div class="picture">
                                             <img width="540" height="374" alt=""
-                                                 src="images/dummy/products/product-'.$res['PRID'].'.jpg"/>
+                                                 src="images/dummy/products/' . $res['PRID'] . '/1.jpg"/>
                                             <div class="img-overlay">
-                                                <a class="btn more btn-primary" href="#">توضیحات بیشتر</a>
-                                                <a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>
+                                                <a class="btn more btn-primary" href="product.php?PRID=' . $res['PRID'] . '">توضیحات بیشتر</a>
+                                                <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
+                                    
+                                                <input type="hidden" name="PRID" value="' . $res['PRID'] . '">
+                                                <button type="submit" class="btn buy btn-danger"> اضافه به سبد خرید</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="main-titles no-margin">
-                                        <h4 class="title">'.$res['cost'].'</h4>
-                                        <h5 class="no-margin isotope--title">'.$res['name'].'</h5>
+                                    <div class="main-titles no-margin">';
+                                if ($res['percentage'] == Null) {
+                                    echo '<h4 class="title">' . $res['cost'] . 'تومان</h4>';
+                                } else {
+                                    echo '<h4 class="title" style="text; text-decoration: line-through; color: grey;">' . $res['cost'] . 'تومان</h4>';
+                                    echo '<h4 class="title">' . $res['cost'] * (1 - $res['percentage']) . 'تومان</h4>';
+                                }
+                                echo '<h5 class="no-margin isotope--title">' . $res['name'] . '</h5>
                                     </div>
                                 </div>
                             </div> <!-- /single product -->';
@@ -329,7 +338,7 @@
                             <!--  ==========  -->
                             <!--  = Single Product =  -->
                             <!--  ==========  -->
-                            
+
                         </div>
                     </div>
                     <hr/>
@@ -348,7 +357,6 @@
     <!--  ==========  -->
     <!--  = Modal Windows =  -->
     <!--  ==========  -->
-
 
 
 </div> <!-- end of master-wrapper -->
