@@ -49,6 +49,6 @@ else if(!$type){
     $basket_items_query->bindParam(':BID', $current_basket);
     $basket_items_query->execute();
 
-    //header('Location:checkout-step-3.php?BID='.$current_basket);
+    header('Location:checkout-step-3.php?BID='.$current_basket);
 }
 

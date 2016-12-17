@@ -105,30 +105,53 @@
                             <table class="table table-items">
 
                                 <tbody>
+								<?php 
+								include "config.php";
+								if (!isset($_GET["BID"])){
+									header("Location: 404.php");
+								}
+								$purchase_query = $dbh->prepare("SELECT PUID,first_name,last_name,phone,address,cost,percentage 
+																FROM purchase,basket_product,product
+																LEFT OUTER JOIN discount ON product.DID=discount.DID 
+																WHERE purchase.BID= :BID AND
+																basket_product.BID=purchase.BID AND
+																product.PRID=basket_product.PRID;");
+								$purchase_query->bindParam(':BID', $_GET["BID"]);
+								$purchase_query->execute();
+								$purchase_info= $purchase_query->fetchAll();
+								
+								$discount_sum=0;
+                                    foreach($purchase_info as $p){
+										if ($p['percentage']!=null){
+											$discount_sum+=(1-$p['percentage'])*$p['cost'];}
+										else{
+											$discount_sum+=$p['cost'];}
+										}
 
-                                <tr>
+                                echo '<tr>
                                     <td class="desc">نام :</td>
-                                    <td class="qty">
+                                    <td class="qty">'.$purchase_info[0]["first_name"].'
+                                    
                                         </td>
 
                                 </tr>
 
                                 <tr>
                                     <td class="desc">نام خانوادگی :</td>
-                                    <td class="qty">
+                                    <td class="qty">'.$purchase_info[0]["last_name"].'
                                         </td>
 
                                 </tr>
 
                                 <tr>
                                     <td class="desc">تلفن :</td>
-                                    <td class="qty">
+                                    <td class="qty">'.$purchase_info[0]["phone"].'
                                         </td>
 
                                 </tr>
                                 <tr>
                                     <td class="desc">آدرس :</td>
-                                    <td class="qty">
+                                    <td class="qty">'.$purchase_info[0]["address"].'
                                         </td>
 
                                 </tr>
@@ -144,16 +167,18 @@
                                 <tr>
                                     <td class="stronger">جمع کل :</td>
                                     <td class="stronger">
-                                        <div class="size-16 align-right">$357.81</div>
+                                    
+										
+                                        <div class="size-16 align-right">'.$discount_sum.'</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="stronger">شماره ی صورت حساب :</td>
                                     <td class="stronger">
-                                        <div class="size-16 align-right"></div>
+                                     <div class="size-16 align-right">'.$purchase_info[0]["PUID"].'</div>
                                     </td>
                                 </tr>
-                                </tbody>
+                                </tbody>'; ?>
                             </table>
 
                             <p class="right-align">
