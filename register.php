@@ -52,7 +52,7 @@ if (isset($_POST['btn-signup']) ) {
         $emailError = "Please enter valid email address.";
     } else {
         // check email exist or not
-        $query = "SELECT email FROM user WHERE email='$email'";
+        $query = "SELECT email FROM users WHERE email='$email'";
         $result = $dbh->prepare($query);
         $res = $result->execute();
         $rows = $result->fetchAll(); // assuming $result == true
@@ -81,16 +81,12 @@ if (isset($_POST['btn-signup']) ) {
     if( !$error ) {
 
 
-        $sql = $dbh->prepare("INSERT INTO user (email,last_name,first_name,phone,address,password) VALUES 
-        (:email, :last_name,:first_name, :phone,:address,:password);");
+        $sql = $dbh->prepare("INSERT INTO users (email,last_name,first_name,password) VALUES 
+        (:email, :last_name,:first_name,:password);");
         $first_name="test";
-        $address ="test_address";
-        $phone="09123456789";
         $sql->bindParam(':email', $email);
         $sql->bindParam(':last_name', $name);
         $sql->bindParam(':first_name', $first_name);
-        $sql->bindParam(':phone', $phone);
-        $sql->bindParam(':address', $address);
         $sql->bindParam(':password', $pass);
         $sql->execute();
         $errTyp = "success";

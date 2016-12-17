@@ -34,23 +34,20 @@ if(isset($_POST['btn-login']) ) {
 <?php
     if (!$error) {
         $password = hash('sha256', $pass); // password hashing using SHA256
-        $query = "SELECT UID,last_name,password FROM user WHERE email='$email'";
+        $query = "SELECT UID,last_name,password FROM users WHERE email='$email'";
         $result = $dbh->prepare($query);
         $result->execute();
-        $row=$result->fetch(PDO::FETCH_OBJ);
-        $count=$result->rowCount();
-
-//<!--        <h1>--><?php //echo $row->password<!-- </h1>-->
-
-        if( $count==1) {
-//            echo "<h1>".$row->password."</h1>";
-            if($row->password==$pass){
-//                echo "<h1>".$row->password."</h1>";
+        $row=$result->fetch();
+        
+        if( $result) {
+			var_dump(str_replace('"', '', $row["password"])==$pass);
+			echo "space";
+			var_dump($pass);
+            if($row['password']==$pass){
                 $_SESSION['user'] = $row->UID;
                 $_SESSION['lastname']=$row->last_name;
                 $_SESSION['loggedIn']=true;
-//                echo "<h1>".$_SESSION['lastname']."</h1>";
-//                header("Location: index.php");
+                
                 $errMSG = "u logged in successfully..";
             }
             else{
