@@ -33,7 +33,7 @@ foreach ($discounts as $d){
     echo'<tr>
         <td>'.$d["DID"].'</td>
         <td>'.$d["percentage"].'</td>
-        <td><a href="" >Delete</a>|
+        <td><a href="delete_discount.php?DID='.$d["DID"].'" >Delete</a>|
         <a href="" >Edit</a></td>
     </tr>';
 }

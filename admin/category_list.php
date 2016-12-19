@@ -33,7 +33,7 @@ foreach ($categories as $c){
     echo'<tr>
         <td>'.$c["CAID"].'</td>
         <td>'.$c["name"].'</td>
-        <td><a href="" >Delete</a>|
+        <td><a href="delete_category.php?CAID='.$c["CAID"].'" >Delete</a>|
         <a href="" >Edit</a></td>
     </tr>';
 }

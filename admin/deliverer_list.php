@@ -35,7 +35,7 @@ foreach ($deliverers as $d){
         <td>'.$d["DEID"].'</td>
         <td>'.$d["name"].'</td>
         <td>'.$d["phone"].'</td>
-        <td><a href="" >Delete</a>|
+        <td><a href="delete_deliverer.php?DEID='.$d["DEID"].'" >Delete</a>|
         <a href="" >Edit</a></td>
     </tr>';
 }
