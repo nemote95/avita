@@ -1,7 +1,7 @@
-INSERT INTO basket_product (BID,PRID) VALUES (1,2);
-INSERT INTO basket_product (BID,PRID) VALUES (1,4);
-INSERT INTO basket_product (BID,PRID) VALUES (3,6);
-INSERT INTO basket_product (BID,PRID) VALUES (3,5);
+INSERT INTO basket_product (BID,PRID,Count) VALUES (1,2,1);
+INSERT INTO basket_product (BID,PRID,Count) VALUES (1,4,2);
+INSERT INTO basket_product (BID,PRID,Count) VALUES (3,6,3);
+INSERT INTO basket_product (BID,PRID,Count) VALUES (3,5,4);
 INSERT INTO basket_product (BID,PRID) VALUES (5,0);
 INSERT INTO basket_product (BID,PRID) VALUES (5,1);
 INSERT INTO basket_product (BID,PRID) VALUES (2,15);
