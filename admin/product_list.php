@@ -54,7 +54,7 @@ foreach ($products as $p){
         <td>'.$p["percentage"].'</td>
         <td>'.$p["cat"].'</td>
         <td>'.$p["st"].'</td>
-        <td><a href="" >Delete</a>|
+        <td><a href="delete_product.php?PRID='.$p["PRID"].'" >Delete</a>|
         <a href="" >Edit</a></td>
     </tr>';
 }

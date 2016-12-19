@@ -33,7 +33,7 @@ foreach ($stores as $s){
     echo'<tr>
         <td>'.$s["SID"].'</td>
         <td>'.$s["name"].'</td>
-        <td><a href="" >Delete</a>|
+        <td><a href="delete_store.php?SID='.$s["SID"].'" >Delete</a>|
         <a href="" >Edit</a></td>
     </tr>';
 }

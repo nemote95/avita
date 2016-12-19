@@ -35,7 +35,7 @@ foreach ($requests as $r){
         <td>'.$r["RID"].'</td>
         <td>'.$r["UID"].'</td>
         <td>'.$r["text"].'</td>
-        <td><a href="" >Delete</a></td>
+                <td><a href="delete_request.php?RID='.$r["RID"].'" >Delete</a></td>
     </tr>';
 }
 echo '</table>

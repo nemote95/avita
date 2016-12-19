@@ -41,7 +41,6 @@ foreach ($purchases as $p){
         <td>'.$p["phone"].'</td>
         <td>'.$p["address"].'</td>
         <td>'.$p["DEID"].'</td>
-        <td><a href="" >Delete</a>|
         <a href="" >Edit</a></td>
     </tr>';
 }
