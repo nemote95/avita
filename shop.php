@@ -70,11 +70,7 @@ if (isset($_GET['size'])) {
     <!--  ==========  -->
     <!--  = Breadcrumbs =  -->
     <!--  ==========  -->
-    <?php
-        $catNameSql="select * from category where CAID='$catid'";
-        $catName = $dbh->query($catNameSql);
 
-    ?>
     <div class="darker-stripe">
         <div class="container">
             <div class="row">
@@ -84,12 +80,23 @@ if (isset($_GET['size'])) {
                             <a href="index.html">آویتا</a>
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
-                        <li>
+                        <?php
+                        if (isset($_GET["CAID"])) {
+                            $catNameSql = "select * from category where CAID='$catid'";
+                            $catName = $dbh->query($catNameSql);
+
+                            foreach ($catName as $cn) {
+                                echo '<li>
                             <a href="shop.php">دسته بندی ها</a>
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
-                            <a href="shop.php"><?php  foreach ($catName as $cn){echo $cn['name'];}?></a>
+                            <a href="shop.php">'.$cn["name"].'</a>';
+                            }
+                        } else
+                            echo '<li>
+                            <a href="shop.php">جست و جو</a>
+                        </li>'; ?>
                         </li>
                     </ul>
                 </div>
@@ -122,20 +129,19 @@ if (isset($_GET['size'])) {
                         <!--  ==========  -->
 
 
-
-
                         <div class="accordion-group">
                             <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" href="#filterPrices">قیمت <b
+                                <a class="accordion-toggle">قیمت <b
                                         class="caret"></b></a>
                             </div>
-                            <div id="filterPrices" class="accordion-body in collapse">
+                            <div class="accordion-body in collapse">
                                 <div class="accordion-inner with-slider">
                                     <div class="jqueryui-slider-container">
                                         <div id="pricesRange"></div>
                                     </div>
-                                    <input type="text" data-initial="432" class="max-val pull-right" disabled/>
-                                    <input type="text" data-initial="99" class="min-val" disabled/>
+                                    <input type="text" id="maxPrice" data-initial="1000" onchange="maxPriceChange()"
+                                           class="max-val pull-right"/>
+                                    <input type="text" data-initial="0" class="min-val"/>
                                 </div>
                             </div>
                         </div> <!-- /prices slider -->
@@ -145,21 +151,18 @@ if (isset($_GET['size'])) {
                         <!--  ==========  -->
                         <div class="accordion-group" id="tourStep3">
                             <div class="accordion-heading">
-                                <a class="accordion-toggle collapsed" data-toggle="collapse" href="#filterTwo">سایز <b
+                                <a class="accordion-toggle collapsed" data-toggle="collapse">سایز <b
                                         class="caret"></b></a>
                             </div>
-<!--                            <form class="navbar-form pull-right" action="shop.php" method="get">-->
-<!--                                <button type="submit" name="search"><span class="icon-search"></span></button>-->
-<!--                                <input type="text" class="span1" name="find" id="navSearchInput">-->
-<!--                            </form>-->
-                            <div id="filterTwo" class="accordion-body collapse">
+
+                            <div class="accordion-body collapse">
                                 <div class="accordion-inner">
                                     <input type="checkbox" id="xs" onchange="sizeCheck('xs');"> <label>XS</label>
-                                    <input type="checkbox" id="s" onchange="sizeCheck('s');"> <label >S</label>
-                                    <input type="checkbox" id="m" onchange="sizeCheck('m');"> <label >M</label>
-                                    <input type="checkbox" id="l" onchange="sizeCheck('l');"> <label >L</label>
-                                    <input type="checkbox" id="xl" onchange="sizeCheck('xl');"> <label >XL</label>
-                                    <input type="checkbox" id="xxl" onchange="sizeCheck('xxl');"> <label >XXL</label>
+                                    <input type="checkbox" id="s" onchange="sizeCheck('s');"> <label>S</label>
+                                    <input type="checkbox" id="m" onchange="sizeCheck('m');"> <label>M</label>
+                                    <input type="checkbox" id="l" onchange="sizeCheck('l');"> <label>L</label>
+                                    <input type="checkbox" id="xl" onchange="sizeCheck('xl');"> <label>XL</label>
+                                    <input type="checkbox" id="xxl" onchange="sizeCheck('xxl');"> <label>XXL</label>
 
 
                                 </div>
@@ -211,11 +214,15 @@ if (isset($_GET['size'])) {
                     <div class="underlined push-down-20">
                         <div class="row">
                             <div class="span5">
-                                <h3><span class="light"> محصولات دسته بندی <?php foreach ($catName as $n){echo $n['name'];}?></span></h3>
-                                <?php if(isset($_GET['find'])) {
+                                <h3><span class="light"> محصولات دسته بندی <?php
+                                        if (isset($catName)){
+                                        foreach ($catName as $n) {
+                                            echo $n['name'];
+                                        }} ?></span></h3>
+                                <?php if (isset($_GET['find'])) {
                                     echo '<h4>نتیجه ی جست و جو برای :' . $searchedProduct . ' </h4>';
                                 }
-                               ?>
+                                ?>
                             </div>
                             <div class="span4">
                                 <div class="form-inline sorting-by" id="tourStep4">
@@ -250,18 +257,18 @@ if (isset($_GET['size'])) {
                             <?php
                             if (isset($_GET['CAID'])) {
                                 $product_sql = "select * from product LEFT OUTER JOIN discount ON
-											product.DID=discount.DID where CAID=".$_GET["CAID"];
-                                if (isset($_GET["size"])){
-                                    $product_sql=$product_sql." AND size='".$_GET["size"]."'";
+											product.DID=discount.DID where CAID=" . $_GET["CAID"];
+                                if (isset($_GET["size"])) {
+                                    $product_sql = $product_sql . " AND size='" . $_GET["size"] . "'";
                                 }
-                                if (isset($_GET["color"])){
-                                    $product_sql=$product_sql." AND color='".$_GET["color"]."'";
+                                if (isset($_GET["color"])) {
+                                    $product_sql = $product_sql . " AND color='" . $_GET["color"] . "'";
                                 }
-                                if (isset($_GET["max_price"])){
-                                    $product_sql=$product_sql." AND cost<".$_GET["max_price"];
+                                if (isset($_GET["max_price"])) {
+                                    $product_sql = $product_sql . " AND cost<" . $_GET["max_price"];
                                 }
-                                if (isset($_GET["min_price"])){
-                                    $product_sql=$product_sql." AND cost>".$_GET["min_price"];
+                                if (isset($_GET["min_price"])) {
+                                    $product_sql = $product_sql . " AND cost>" . $_GET["min_price"];
                                 }
                                 $products = $dbh->query($product_sql);
                                 foreach ($products as $p) {
@@ -301,7 +308,7 @@ if (isset($_GET['size'])) {
                             ?>
 
                             <?php
-                            if(isset($_GET['find'])) {
+                            if (isset($_GET['find'])) {
                                 if ($find = '') {
                                     header("Location: 404.php");
                                     exit();
@@ -399,7 +406,7 @@ if (isset($_GET['size'])) {
     }
 </script>
 <script>
-    var CAID="<?php echo $catid; ?>";
+    var CAID = "<?php echo $catid; ?>";
 </script>
 <script>
     function sizeCheck(value) {
@@ -408,10 +415,10 @@ if (isset($_GET['size'])) {
         $.ajax({
             type: "GET",
             url: 'shop.php',
-            data:{size:value},
-            success: function(data) {
+            data: {size: value},
+            success: function (data) {
 
-                window.location.assign('shop.php?CAID='+CAID+'&size='+value);
+                window.location.assign('shop.php?CAID=' + CAID + '&size=' + value);
             },
 
         });
@@ -425,17 +432,22 @@ if (isset($_GET['size'])) {
         $.ajax({
             type: "GET",
             url: 'shop.php',
-            data:{size:value},
-            success: function(data) {
+            data: {size: value},
+            success: function (data) {
 
-                window.location.assign('shop.php?CAID='+CAID+'&color='+value);
+                window.location.assign('shop.php?CAID=' + CAID + '&color=' + value);
             },
 
         });
 
     }
 </script>
-
+<script>
+    function maxPriceChange() {
+        alert("test");
+        $('#txt_name').val();
+    }
+</script>
 <!--  = _ =  -->
 <script src="js/underscore/underscore-min.js" type="text/javascript"></script>
 
