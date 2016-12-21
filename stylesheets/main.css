@@ -652,7 +652,7 @@ header .register { display: -moz-inline-stack; display: inline-block; vertical-a
 .banner.colored { background-color: #8cb049; background-image: -moz-linear-gradient(top, #9cc256, #749636); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9cc256), to(#749636)); background-image: -webkit-linear-gradient(top, #9cc256, #749636); background-image: -o-linear-gradient(top, #9cc256, #749636); background-image: linear-gradient(to bottom, #9cc256, #749636); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF9CC256', endColorstr='#FF749636', GradientType=0); color: #3c5924; }
 .banner.colored:hover, .banner.colored:focus { background-color: #8db346; background-image: -moz-linear-gradient(top, #98bf4f, #7da13a); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#98bf4f), to(#7da13a)); background-image: -webkit-linear-gradient(top, #98bf4f, #7da13a); background-image: -o-linear-gradient(top, #98bf4f, #7da13a); background-image: linear-gradient(to bottom, #98bf4f, #7da13a); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF98BF4F', endColorstr='#FF7DA13A', GradientType=0); }
 
-.featured-items .product .main-titles { padding-bottom: 0; text-align: right;}
+.featured-items .product .main-titles { padding-bottom: 0; text-align: center;}
 .featured-items .product p { color: #efd3b8; text-align: right;}
 
 .boxed-area { background-color: #fee4c7;  padding: 40px 0 10px; }
