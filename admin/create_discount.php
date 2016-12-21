@@ -7,7 +7,7 @@ $stmnt->execute();
 header('Location: discount_list.php');}
 catch(PDOException $err)
 {
-    var_dump($err->getMessage());
+    echo $err->getMessage();
     echo '<a href="discount_list.php">Back</a>';
     exit();
 }
