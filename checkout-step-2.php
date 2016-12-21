@@ -52,7 +52,7 @@
             <!--  ==========  -->
             <!--  = Main content =  -->
             <!--  ==========  -->
-            <section class="span12">
+            <section class="span12" style="margin-top: 120px;">
                 
                 <div class="checkout-container">
                     <div class="row">
