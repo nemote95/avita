@@ -16,11 +16,11 @@
                 <!--  ==========  -->
                 <div class="span3">
                     <div class="main-titles lined">
-                        <h3 class="title"><span class="light">ناوبری</span> اصلی</h3>
+                        <h3 class="title"><span class="light">صفحات</span> اصلی</h3>
                     </div>
                     <ul class="nav bold">
                         <li><a href="#">خانه</a></li>
-                        <li><a href="#">صفحات</a></li>
+                        <li><a href="#">دسته بندی ها</a></li>
                         <li><a href="#">درباره ما</a></li>
                         <li><a href="#">تماس با ما</a></li>
                     </ul>

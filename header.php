@@ -184,7 +184,7 @@
                                 </div>
                             </div>
                             <div class="proceed">
-                                <a href="checkout-step-1.php" class="btn btn-danger pull-right bold higher">تصویه حساب <i class="icon-shopping-cart"></i></a>
+                                <a href="checkout-step-1.php" class="btn btn-danger pull-right bold higher">تسویه حساب <i class="icon-shopping-cart"></i></a>
                                 <a href="checkout-step-1.php" class="btn btn-primary bold higher">ویرایش سبد<i class="icon-shopping-cart"></i></a>
 
                             </div>
