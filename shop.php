@@ -408,9 +408,9 @@ $url= $_SERVER["REQUEST_URI"];
 </script>
 <script>
     function sizeCheck(value) {
-        var match=url.match(/size=[a-z]/);
+        var match=url.match(/size=[a-z]+/);
         if (match!=null){
-            url=url.replace(/size=[a-z]/,'size='+value)
+            url=url.replace(/size=[a-z]+/,'size='+value)
         }
         else{
             url=url+"&size="+value
