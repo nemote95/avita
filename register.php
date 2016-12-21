@@ -18,10 +18,15 @@ $errTyp="";
 if (isset($_POST['btn-signup']) ) {
 
     // clean user inputs to prevent sql injections
-    if(isset($_POST['name'])){
-        $name = trim($_POST['name']);
-        $name = strip_tags($name);
-        $name = htmlspecialchars($name);
+    if(isset($_POST['first_name'])){
+        $first_name = trim($_POST['first_name']);
+        $first_name = strip_tags($first_name);
+        $name = htmlspecialchars($first_name);
+    }
+    if(isset($_POST['last_name'])){
+        $last_name = trim($_POST['last_name']);
+        $last_name = strip_tags($last_name);
+        $last_name= htmlspecialchars($last_name);
     }
     if(isset($_POST['email'])) {
         $email = trim($_POST['email']);
@@ -35,13 +40,24 @@ if (isset($_POST['btn-signup']) ) {
 }
 
     // basic name validation
-    if (empty($name)) {
+    if (empty($first_name)) {
         $error = true;
         $nameError = "Please enter your full name.";
-    } else if (strlen($name) < 3) {
+    } else if (strlen($first_name) < 3) {
         $error = true;
-        $nameError = "Name must have atleat 3 characters.";
-    } else if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
+        $fistnameError = "Name must have atleat 3 characters.";
+    } else if (!preg_match("/^[a-zA-Z ]+$/",$first_name)) {
+        $error = true;
+        $nameError = "Name must contain alphabets and space.";
+    }
+
+    if (empty($last_name)) {
+        $error = true;
+        $nameError = "Please enter your full name.";
+    } else if (strlen($last_name) < 3) {
+        $error = true;
+        $fistnameError = "Name must have atleat 3 characters.";
+    } else if (!preg_match("/^[a-zA-Z ]+$/",$last_name)) {
         $error = true;
         $nameError = "Name must contain alphabets and space.";
     }
@@ -83,7 +99,6 @@ if (isset($_POST['btn-signup']) ) {
 
         $sql = $dbh->prepare("INSERT INTO user (email,last_name,first_name,phone,address,password) VALUES 
         (:email, :last_name,:first_name, :phone,:address,:password);");
-        $first_name="test";
         $address ="test_address";
         $phone="09123456789";
         $sql->bindParam(':email', $email);
@@ -112,9 +127,16 @@ if (isset($_POST['btn-signup']) ) {
     <div class="modal-body">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off" >
             <div class="control-group">
-                <label class="control-label hidden shown-ie8" for="inputUsernameRegister">نام کاربری</label>
+                <label class="control-label hidden shown-ie8" for="inputUsernameRegister">نام</label>
                 <div class="controls">
-                    <input type="text" name="name" class="input-block-level" id="inputUsernameRegister" placeholder="نام کاربری" >
+                    <input type="text" name="first_name" class="input-block-level" id="inputUsernameRegister" placeholder="نام" >
+                    <span class="text-danger"><?php echo $nameError; ?></span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label hidden shown-ie8" for="inputUsernameRegister">نام خانوادگی</label>
+                <div class="controls">
+                    <input type="text" name="last_name" class="input-block-level" id="inputUsernameRegister" placeholder="نام خانوادگی" >
                     <span class="text-danger"><?php echo $nameError; ?></span>
                 </div>
             </div>

@@ -141,10 +141,10 @@ if ($product['DID']!=null){
                 <div class="meta">
                     <?php
                     if ($price_after_discount==null){
-                    echo'<span class="tag">' . $product['cost'] *1000 . ' تومان</span>';}
+                    echo'<span class="tag">' . $product['cost']  . ' تومان</span>';}
                     else{
-                        echo'<span class="tag" style="text; text-decoration: line-through; color: grey;">' . $product['cost'] *1000 . ' تومان</span>';
-                        echo'<span class="tag" style="text; color:forestgreen">' . $price_after_discount *1000 . ' تومان</span>';
+                        echo'<span class="tag" style="text; text-decoration: line-through; color: grey;">' . $product['cost']  . ' تومان</span>';
+                        echo'<span class="tag" style="text; color:forestgreen">' . $price_after_discount  . ' تومان</span>';
 
                     }
                 echo '<span class="stock">';

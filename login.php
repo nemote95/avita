@@ -72,9 +72,9 @@ if(isset($_POST['btn-login']) ) {
     <div class="modal-body">
         <form method="post" action="#">
             <div class="control-group">
-                <label class="control-label hidden shown-ie8" for="inputEmail">نام کاربری</label>
+                <label class="control-label hidden shown-ie8" for="inputEmail">ایمیل</label>
                 <div class="controls">
-                    <input type="text" class="input-block-level" name="email" id="inputEmail" placeholder="نام کاربری">
+                    <input type="text" class="input-block-level" name="email" id="inputEmail" placeholder="ایمیل">
                 </div>
             </div>
             <div class="control-group">
