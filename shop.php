@@ -195,12 +195,12 @@ $url= $_SERVER["REQUEST_URI"];
                                 </div>
                             </div>
                         </div> <!-- /color filter -->
-
-
-                        <a href="#" class="remove-filter" id="removeFilters"><span class="icon-ban-circle"></span> حذف
-                            همه فیلتر ها</a>
-
+                        <?php echo '<a href="shop.php?CAID='.$_GET['CAID'].'" class="remove-filter" ><span class="icon-ban-circle"></span> حذف
+                            همه فیلتر ها
+                            </a>'; ?>
                     </div>
+
+
                 </aside> <!-- /sidebar -->
 
                 <!--  ==========  -->
