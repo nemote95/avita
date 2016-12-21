@@ -15,6 +15,7 @@ echo '
         <section class="content-header">
             <h1>
                 Categories
+                        <a href="category.php" class="btn btn-primary">Create</a>
 
             </h1>
             <ol class="breadcrumb">
@@ -23,6 +24,7 @@ echo '
             </ol>
         </section>
     <section class="content">
+
     <table class="table table-bordered">
 <tr>
       <td>CAID</td>
@@ -34,7 +36,7 @@ foreach ($categories as $c){
         <td>'.$c["CAID"].'</td>
         <td>'.$c["name"].'</td>
         <td><a href="delete_category.php?CAID='.$c["CAID"].'" >Delete</a>|
-        <a href="" >Edit</a></td>
+        <a href="category.php?CAID='.$c["CAID"].'" >Edit</a></td>
     </tr>';
 }
 echo '</table>

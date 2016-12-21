@@ -5,11 +5,11 @@ try{
     $stmnt=$dbh->prepare("delete discount where DID=:DID");
     $stmnt->bindParam(':DID',$_GET['DID']);
     $stmnt->execute();
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: discount_list.php');
     }
 catch(PDOException $err)
 {
     var_dump($err->getMessage());
-    echo '<a href="'.$_SERVER['HTTP_REFERER'].'">Back</a>';
+    echo '<a href="discount_list.php">Back</a>';
     exit();
 }

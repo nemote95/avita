@@ -5,11 +5,11 @@ try{
     $stmnt=$dbh->prepare("delete store where SID=:SID");
     $stmnt->bindParam(':SID',$_GET['SID']);
     $stmnt->execute();
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: store_list.php');
 }
 catch(PDOException $err)
 {
     var_dump($err->getMessage());
-    echo '<a href="'.$_SERVER['HTTP_REFERER'].'">Back</a>';
+    echo '<a href="store_list.php">Back</a>';
     exit();
 }

@@ -1,10 +1,8 @@
 <?php
-
-
 include 'config.php';
 try{
-$stmnt=$dbh->prepare("delete category where CAID=:CAID");
-$stmnt->bindParam(':CAID',$_GET['CAID']);
+$stmnt=$dbh->prepare("insert into category VALUES (:name);");
+$stmnt->bindParam(':name',$_POST['name']);
 $stmnt->execute();
 header('Location: category_list.php');}
 catch(PDOException $err)

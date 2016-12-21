@@ -5,11 +5,11 @@ try{
     $stmnt=$dbh->prepare("delete deliverer where DEID=:DEID");
     $stmnt->bindParam(':DEID',$_GET['DEID']);
     $stmnt->execute();
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: deliverer_list.php');
 }
 catch(PDOException $err)
 {
     var_dump($err->getMessage());
-    echo '<a href="'.$_SERVER['HTTP_REFERER'].'">Back</a>';
+    echo '<a href="deliverer_list.php">Back</a>';
     exit();
 }
