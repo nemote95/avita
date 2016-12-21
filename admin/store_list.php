@@ -15,6 +15,7 @@ echo '
         <section class="content-header">
             <h1>
                 Stores
+                <a href="store.php" class="btn btn-primary">Create</a>
 
             </h1>
             <ol class="breadcrumb">
@@ -34,7 +35,7 @@ foreach ($stores as $s){
         <td>'.$s["SID"].'</td>
         <td>'.$s["name"].'</td>
         <td><a href="delete_store.php?SID='.$s["SID"].'" >Delete</a>|
-        <a href="" >Edit</a></td>
+        <a href="store.php?SID='.$s["SID"].'" >Edit</a></td>
     </tr>';
 }
 echo '</table>
