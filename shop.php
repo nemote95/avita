@@ -6,7 +6,9 @@ if (isset($_GET['CAID'])) {
 if (isset($_GET['find'])) {
     $searchedProduct = $_GET['find'];
 }
-
+if (isset($_GET['size'])) {
+    $size = $_GET['size'];
+}
 
 ?>
 <!--[if lt IE 8]>
@@ -68,6 +70,11 @@ if (isset($_GET['find'])) {
     <!--  ==========  -->
     <!--  = Breadcrumbs =  -->
     <!--  ==========  -->
+    <?php
+        $catNameSql="select * from category where CAID='$catid'";
+        $catName = $dbh->query($catNameSql);
+
+    ?>
     <div class="darker-stripe">
         <div class="container">
             <div class="row">
@@ -78,11 +85,11 @@ if (isset($_GET['find'])) {
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
-                            <a href="shop.php">فروشگاه</a>
+                            <a href="shop.php">دسته بندی ها</a>
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
-                            <a href="shop.php">دسته بندی اصلی</a>
+                            <a href="shop.php"><?php  foreach ($catName as $cn){echo $cn['name'];}?></a>
                         </li>
                     </ul>
                 </div>
@@ -204,12 +211,11 @@ if (isset($_GET['find'])) {
                     <div class="underlined push-down-20">
                         <div class="row">
                             <div class="span5">
-                                <h3><span class="light">همه</span> محصولات</h3>
+                                <h3><span class="light"> محصولات دسته بندی <?php foreach ($catName as $n){echo $n['name'];}?></span></h3>
                                 <?php if(isset($_GET['find'])) {
                                     echo '<h4>نتیجه ی جست و جو برای :' . $searchedProduct . ' </h4>';
                                 }
                                ?>
-
                             </div>
                             <div class="span4">
                                 <div class="form-inline sorting-by" id="tourStep4">
