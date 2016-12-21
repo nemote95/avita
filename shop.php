@@ -9,7 +9,7 @@ if (isset($_GET['find'])) {
 if (isset($_GET['size'])) {
     $size = $_GET['size'];
 }
-
+$url= $_SERVER["REQUEST_URI"];
 ?>
 <!--[if lt IE 8]>
 <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
@@ -151,12 +151,12 @@ if (isset($_GET['size'])) {
                         <!--  ==========  -->
                         <div class="accordion-group" id="tourStep3">
                             <div class="accordion-heading">
-                                <a class="accordion-toggle collapsed" data-toggle="collapse">سایز <b
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" href="#filterTwo">سایز <b
                                         class="caret"></b></a>
                             </div>
 
-                            <div class="accordion-body collapse">
-                                <div class="accordion-inner">
+                            <div id="filterTwo" class="accordion-body collapse">
+                                <div  class="accordion-inner">
                                     <input type="checkbox" id="xs" onchange="sizeCheck('xs');"> <label>XS</label>
                                     <input type="checkbox" id="s" onchange="sizeCheck('s');"> <label>S</label>
                                     <input type="checkbox" id="m" onchange="sizeCheck('m');"> <label>M</label>
@@ -228,18 +228,11 @@ if (isset($_GET['size'])) {
                                 <div class="form-inline sorting-by" id="tourStep4">
                                     <label for="isotopeSorting" class="black-clr">چینش :</label>
                                     <select id="isotopeSorting" class="span3">
-                                        <option value='{"sortBy":"price", "sortAscending":"true"}'>بر اساس قیمت (کم به
+                                        <option onclick="sort('asc')">بر اساس قیمت (کم به
                                             زیاد) &uarr;</option>
-                                        <option value='{"sortBy":"price", "sortAscending":"false"}'>بر اساس قیمت (زیاد
+                                        <option onclick="sort('desc')">بر اساس قیمت (زیاد
                                             به کم) &darr;</option>
-                                        <option value='{"sortBy":"name", "sortAscending":"true"}'>بر اساس نام
-                                            (صعودی) &uarr;</option>
-                                        <option value='{"sortBy":"name", "sortAscending":"false"}'>بر اساس نام
-                                            (نزولی) &darr;</option>
-                                        <option value='{"sortBy":"popularity", "sortAscending":"true"}'>بر اساس محبوبیت
-                                            (کم به زیاد) &uarr;</option>
-                                        <option value='{"sortBy":"popularity", "sortAscending":"false"}'>بر اساس محبوبیت
-                                            (زیاد به کم) &darr;</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -269,6 +262,9 @@ if (isset($_GET['size'])) {
                                 }
                                 if (isset($_GET["min_price"])) {
                                     $product_sql = $product_sql . " AND cost>" . $_GET["min_price"];
+                                }
+                                if (isset($_GET["sort"])) {
+                                    $product_sql = $product_sql . " ORDER BY cost " . $_GET["sort"];
                                 }
                                 $products = $dbh->query($product_sql);
                                 foreach ($products as $p) {
@@ -405,12 +401,20 @@ if (isset($_GET['size'])) {
         document.write('<script src="js/jquery.min.js"><\/script>');
     }
 </script>
+
 <script>
     var CAID = "<?php echo $catid; ?>";
+    var url = "<?php echo $url ?>";
 </script>
 <script>
     function sizeCheck(value) {
-
+        var match=url.match(/size=[a-z]/);
+        if (match!=null){
+            url=url.replace(/size=[a-z]/,'size='+value)
+        }
+        else{
+            url=url+"&size="+value
+        }
 
         $.ajax({
             type: "GET",
@@ -418,7 +422,7 @@ if (isset($_GET['size'])) {
             data: {size: value},
             success: function (data) {
 
-                window.location.assign('shop.php?CAID=' + CAID + '&size=' + value);
+                window.location.assign(url);
             },
 
         });
@@ -427,7 +431,13 @@ if (isset($_GET['size'])) {
 </script>
 <script>
     function colorChange(value) {
-
+        var match=url.match(/color=[a-z]+/);
+        if (match!=null){
+            url=url.replace(/color=[a-z]+/,'color='+value)
+        }
+        else{
+            url=url+"&color="+value
+        }
 
         $.ajax({
             type: "GET",
@@ -435,17 +445,28 @@ if (isset($_GET['size'])) {
             data: {size: value},
             success: function (data) {
 
-                window.location.assign('shop.php?CAID=' + CAID + '&color=' + value);
+                window.location.assign(url);
             },
 
         });
 
     }
 </script>
+
 <script>
-    function maxPriceChange() {
-        alert("test");
-        $('#txt_name').val();
+    function sort(value) {
+
+
+        $.ajax({
+            type: "GET",
+            url: 'shop.php',
+            success: function (data) {
+
+                window.location.assign('shop.php?CAID=' + CAID + '&sort=' + value);
+            },
+
+        });
+
     }
 </script>
 <!--  = _ =  -->
