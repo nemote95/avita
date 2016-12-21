@@ -22,8 +22,6 @@
                         <li><a href="#">خانه</a></li>
                         <li><a href="#">صفحات</a></li>
                         <li><a href="#">درباره ما</a></li>
-                        <li><a href="#">کد های میانبر</a></li>
-                        <li><a href="#">گالری</a></li>
                         <li><a href="#">تماس با ما</a></li>
                     </ul>
                 </div>
@@ -33,14 +31,13 @@
                 <!--  ==========  -->
                 <div class="span3">
                     <div class="main-titles lined">
-                        <h3 class="title"><span class="light">دومین</span> ناوبری</h3>
+                        <h3 class="title"><span class="light">راهنمای خرید</span>از آویتا</h3>
                     </div>
                     <ul class="nav">
-                        <li><a href="#">پیوند نوشتار آزمایشی</a></li>
-                        <li><a href="#">نوشتار آزمایشی دیگر</a></li>
-                        <li><a href="#">برند ها</a></li>
+                        <li><a href="#">ثبت سفارش</a></li>
+                        <li><a href="#">رویه های ارسال سفارش</a></li>
+                        <li><a href="#">شیوه های پرداخت</a></li>
                         <li><a href="#">مشاهده آخرین توییت ها</a></li>
-                        <li><a href="#">نوشتار آزمایشی دیگر</a></li>
                     </ul>
                 </div>
 
@@ -49,14 +46,13 @@
                 <!--  ==========  -->
                 <div class="span3">
                     <div class="main-titles lined">
-                        <h3 class="title"><span class="light">سومین</span> ناوبری</h3>
+                        <h3 class="title"><span class="light">خدمات</span> مشتریان</h3>
                     </div>
                     <ul class="nav">
-                        <li><a href="#">پیوند نوشتار آزمایشی</a></li>
-                        <li><a href="#">نوشتار آزمایشی دیگر</a></li>
-                        <li><a href="#">برند ها</a></li>
-                        <li><a href="#">مشاهده آخرین توییت ها</a></li>
-                        <li><a href="#">نوشتار آزمایشی دیگر</a></li>
+                        <li><a href="#">پاسخ به پرسش های متداول</a></li>
+                        <li><a href="#">رویه های باز گرداندن کالا</a></li>
+                        <li><a href="#">شرایط استفاده</a></li>
+                        <li><a href="#">حریم خصوصی</a></li>
                     </ul>
                 </div>
 
@@ -65,14 +61,13 @@
                 <!--  ==========  -->
                 <div class="span3">
                     <div class="main-titles lined">
-                        <h3 class="title"><span class="light">چهارمین</span> ناوبری</h3>
+                        <h3 class="title"><span class="light">دسته بندی های</span> برتر</h3>
                     </div>
                     <ul class="nav">
-                        <li><a href="#">پیوند نوشتار آزمایشی</a></li>
-                        <li><a href="#">نوشتار آزمایشی دیگر</a></li>
-                        <li><a href="#">برند ها</a></li>
-                        <li><a href="#">مشاهده آخرین توییت ها</a></li>
-                        <li><a href="#">نوشتار آزمایشی دیگر</a></li>
+                        <li><a href="#">ماگ </a></li>
+                        <li><a href="#">قاب</a></li>
+                        <li><a href="#">کیف پول </a></li>
+                        <li><a href="#">جعبه </a></li>
                     </ul>
                 </div>
             </div>
