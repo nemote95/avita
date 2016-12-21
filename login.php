@@ -40,12 +40,10 @@ if(isset($_POST['btn-login']) ) {
         $row=$result->fetch();
         
         if( $result) {
-			var_dump(str_replace('"', '', $row["password"])==$pass);
-			echo "space";
-			var_dump($pass);
+
             if($row['password']==$pass){
-                $_SESSION['user'] = $row->UID;
-                $_SESSION['lastname']=$row->last_name;
+                $_SESSION['user'] = $row["UID"];
+                $_SESSION['lastname']=$row["last_name"];
                 $_SESSION['loggedIn']=true;
                 
                 $errMSG = "u logged in successfully..";

@@ -7,37 +7,39 @@
  */
 include 'config.php';
 include 'header.php';
-$deliverers=$dbh->query("select * from deliverer;");
+$users=$dbh->query("select * from users;");
 
 echo '
 <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Deliverers
-                <a href="deliverer.php" class="btn btn-primary">Create</a>
+                Users
+           
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Control Panel</a></li>
-                <li class="active">Deliverers</li>
+                <li class="active">Users</li>
             </ol>
         </section>
     <section class="content">
     <table class="table table-bordered">
 <tr>
-      <td>DEID</td>
-      <td>Full Name</td>
-      <td>Phone</td>
-      <td>Action</td>
+      <td>UID</td>
+      <td>Fist Name</td>
+      <td>Last Name</td>
+      <td>Email</td>
+      <td>Password</td>
+
 </tr>';
-foreach ($deliverers as $d){
+foreach ($users as $u){
     echo'<tr>
-        <td>'.$d["DEID"].'</td>
-        <td>'.$d["name"].'</td>
-        <td>'.$d["phone"].'</td>
-        <td><a href="delete_deliverer.php?DEID='.$d["DEID"].'" >Delete</a>|
-        <a href="deliverer.php?DEID='.$d["DEID"].'" >Edit</a></td>
-    </tr>';
+        <td>'.$u["UID"].'</td>
+        <td>'.$u["first_name"].'</td>
+        <td>'.$u["last_name"].'</td>
+        <td>'.$u["email"].'</td>
+        <td>'.$u["password"].'</td>
+        </tr>';
 }
 echo '</table>
 </section>

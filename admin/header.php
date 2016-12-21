@@ -52,9 +52,8 @@
         <!-- Logo -->
         <a href="index2.html" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>Admin</b>LTE</span>
+            <span class="logo-lg"><b>Admin</b></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -92,7 +91,8 @@
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="category_list.php"><i class="fa fa-circle-o"></i>Categories</a></li>
+                        <li><a href="user_list.php"><i class="fa fa-circle-o"></i> Users</a></li>
+                        <li><a href="category_list.php"><i class="fa fa-circle-o"></i> Categories</a></li>
                         <li><a href="discount_list.php"><i class="fa fa-circle-o"></i> Discounts</a></li>
                         <li><a href="store_list.php"><i class="fa fa-circle-o"></i> Stores</a></li>
                         <li><a href="product_list.php"><i class="fa fa-circle-o"></i>Products</a></li>
