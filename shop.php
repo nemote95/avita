@@ -1,4 +1,5 @@
 <?php
+include 'config.php';
 if (isset($_GET['CAID'])) {
     $catid = $_GET['CAID'];
 }
@@ -8,7 +9,7 @@ if (isset($_GET['find'])) {
 if (isset($_GET['size'])) {
     $size = $_GET['size'];
 }
-
+$url= $_SERVER["REQUEST_URI"];
 ?>
 <!--[if lt IE 8]>
 <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
@@ -69,6 +70,7 @@ if (isset($_GET['size'])) {
     <!--  ==========  -->
     <!--  = Breadcrumbs =  -->
     <!--  ==========  -->
+
     <div class="darker-stripe">
         <div class="container">
             <div class="row">
@@ -78,12 +80,23 @@ if (isset($_GET['size'])) {
                             <a href="index.html">آویتا</a>
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
-                        <li>
-                            <a href="shop.php">فروشگاه</a>
+                        <?php
+                        if (isset($_GET["CAID"])) {
+                            $catNameSql = "select * from category where CAID='$catid'";
+                            $catName = $dbh->query($catNameSql);
+
+                            foreach ($catName as $cn) {
+                                echo '<li>
+                            <a href="shop.php">دسته بندی ها</a>
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
-                            <a href="shop.php">قالب بندی اصلی</a>
+                            <a href="shop.php">'.$cn["name"].'</a>';
+                            }
+                        } else
+                            echo '<li>
+                            <a href="shop.php">جست و جو</a>
+                        </li>'; ?>
                         </li>
                     </ul>
                 </div>
@@ -107,90 +120,28 @@ if (isset($_GET['size'])) {
                         <div class="underlined">
                             <h3><span class="light">بر اساس فیلتر</span> خرید کنید</h3>
                             <h5><?php if (isset($_GET['size'])) {
-                                    echo '<h4>نتیجه ی فیلتر برای سایز :' . $size . ' </h4>';
+                                    echo '<h4>نتیجه ی فیلتر برای سایز :' . $_GET['size'] . ' </h4>';
                                 } ?></h5>
-                            <!--                            <h4>--><?php //echo $catid; ?><!--</h4>-->
                         </div>
 
                         <!--  ==========  -->
                         <!--  = Categories =  -->
                         <!--  ==========  -->
-                        <div class="accordion-group" id="tourStep2">
-                            <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" href="#filterOne">دسته بندی ها <b
-                                        class="caret"></b></a>
-                            </div>
-                            <div id="filterOne" class="accordion-body collapse in">
-                                <div class="accordion-inner">
-                                    <?php
-                                    include 'config.php';
-                                    $cat_sql = "select * from category";
-                                    $categories = $dbh->query($cat_sql);
-                                    foreach ($categories as $cat) {
-                                        echo '<a href="shop.php" data-target=".filter--accessories" class="selectable"><i class="box"></i>' . $cat['name'] . '</a>';
-                                    }
-                                    ?>
-                                </div>
-                            </div>
-                        </div> <!-- /categories -->
 
-                        <!--  ==========  -->
-                        <!--  = Prices slider =  -->
-                        <!--  ==========  -->
-                        <script>
-                           function sizeCheck() {
-                               var value=$('#cbox2').val();
-                               alert(value);
-                               $.ajax({
-                                   type: "GET",
-                                   url: 'shop.php',
-                                   data:{size:value},
-//                                   data: $(this).attr('value'), //--> send id of checked checkbox on other page
-                                   success: function(data) {
-                                       alert('it worked');
-                                       alert(data);
-                                       window.location.assign('shop.php?CAID=1'+<?php ?>'&size='+value);
-//                                       $('#spanCat').html(data);
-                                   },
-                                   error: function() {
-                                       alert('it broke');
-                                   },
-                                   complete: function() {
-                                       alert('it completed');
-                                   }
-                               });
 
-                           }
-//                            $('#cbox2').click(function() {
-//                                alert($(this).attr('id'));  //-->this will alert id of checked checkbox.
-//                                if(this.checked){
-//
-//                                }
-//                            });
-//                                function sizeCheck() {
-//                                    if ($('#cbox2').is(":checked"))
-//                                    {
-//                                    var sizeValue= $('#cbox2:checked').val();
-//                                        alert (sizeValue);
-//                                        <?php
-//                                        $sizeSql="select * from product where size=";
-//                                        $sizes=$dbh->query($sizeSql);
-//                                        ?>
-//                                    }
-//                                }
-                        </script>
                         <div class="accordion-group">
                             <div class="accordion-heading">
-                                <a class="accordion-toggle" data-toggle="collapse" href="#filterPrices">قیمت <b
+                                <a class="accordion-toggle">قیمت <b
                                         class="caret"></b></a>
                             </div>
-                            <div id="filterPrices" class="accordion-body in collapse">
+                            <div class="accordion-body in collapse">
                                 <div class="accordion-inner with-slider">
                                     <div class="jqueryui-slider-container">
                                         <div id="pricesRange"></div>
                                     </div>
-                                    <input type="text" data-initial="432" class="max-val pull-right" disabled/>
-                                    <input type="text" data-initial="99" class="min-val" disabled/>
+                                    <input type="text" id="maxPrice" data-initial="1000" onchange="maxPriceChange()"
+                                           class="max-val pull-right"/>
+                                    <input type="text" data-initial="0" class="min-val"/>
                                 </div>
                             </div>
                         </div> <!-- /prices slider -->
@@ -203,20 +154,17 @@ if (isset($_GET['size'])) {
                                 <a class="accordion-toggle collapsed" data-toggle="collapse" href="#filterTwo">سایز <b
                                         class="caret"></b></a>
                             </div>
-<!--                            <form class="navbar-form pull-right" action="shop.php" method="get">-->
-<!--                                <button type="submit" name="search"><span class="icon-search"></span></button>-->
-<!--                                <input type="text" class="span1" name="find" id="navSearchInput">-->
-<!--                            </form>-->
+
                             <div id="filterTwo" class="accordion-body collapse">
-                                <div class="accordion-inner">
-                                    <input type="checkbox" id="cbox2" value="s" onchange="sizeCheck();"> <label for="cbox2">XS</label>
-                                    <a href="shop.php?size=XS" data-target="xs" id="sCheck" data-type="size" class="selectable detailed"><i
-                                            class="box"></i> XS</a>
-                                    <a href="#" data-target="s" data-type="size" class="selectable detailed"><i class="box"></i> S</a>
-                                    <a href="#" data-target="m" data-type="size" class="selectable detailed"><i class="box"></i> M</a>
-                                    <a href="#" data-target="l" data-type="size" class="selectable detailed"><i class="box"></i> L</a>
-                                    <a href="#" data-target="xl" data-type="size" class="selectable detailed"><i class="box"></i> XL</a>
-                                    <a href="#" data-target="xxl" data-type="size" class="selectable detailed"><i class="box"></i> XXL</a>
+                                <div  class="accordion-inner">
+                                    <input type="checkbox" id="xs" onchange="sizeCheck('xs');"> <label>XS</label>
+                                    <input type="checkbox" id="s" onchange="sizeCheck('s');"> <label>S</label>
+                                    <input type="checkbox" id="m" onchange="sizeCheck('m');"> <label>M</label>
+                                    <input type="checkbox" id="l" onchange="sizeCheck('l');"> <label>L</label>
+                                    <input type="checkbox" id="xl" onchange="sizeCheck('xl');"> <label>XL</label>
+                                    <input type="checkbox" id="xxl" onchange="sizeCheck('xxl');"> <label>XXL</label>
+
+
                                 </div>
                             </div>
                         </div> <!-- /size filter -->
@@ -232,27 +180,27 @@ if (isset($_GET['size'])) {
                             <div id="filterThree" class="accordion-body collapse">
                                 <div class="accordion-inner">
                                     <a href="#" data-target="red" data-type="color" class="selectable detailed"><i
-                                            class="box"></i> قرمز</a>
+                                            class="box" onclick="colorChange('red')"></i> قرمز</a>
                                     <a href="#" data-target="green" data-type="color" class="selectable detailed"><i
-                                            class="box"></i> سبز</a>
+                                            class="box" onclick="colorChange('green')"></i> سبز</a>
                                     <a href="#" data-target="blue" data-type="color" class="selectable detailed"><i
-                                            class="box"></i> آبی</a>
+                                            class="box" onclick="colorChange('blue')"></i> آبی</a>
                                     <a href="#" data-target="pink" data-type="color" class="selectable detailed"><i
-                                            class="box"></i> صورتی</a>
+                                            class="box" onclick="colorChange('pink')"></i> صورتی</a>
                                     <a href="#" data-target="purple" data-type="color" class="selectable detailed"><i
-                                            class="box"></i> بنفش</a>
+                                            class="box" onclick="colorChange('purple')"></i> بنفش</a>
                                     <a href="#" data-target="orange" data-type="color" class="selectable detailed"><i
-                                            class="box"></i> نارنجی</a>
+                                            class="box" onclick="colorChange('orange')"></i> نارنجی</a>
 
                                 </div>
                             </div>
                         </div> <!-- /color filter -->
-
-
-                        <a href="#" class="remove-filter" id="removeFilters"><span class="icon-ban-circle"></span> حذف
-                            همه فیلتر ها</a>
-
+                        <?php echo '<a href="shop.php?CAID='.$_GET['CAID'].'" class="remove-filter" ><span class="icon-ban-circle"></span> حذف
+                            همه فیلتر ها
+                            </a>'; ?>
                     </div>
+
+
                 </aside> <!-- /sidebar -->
 
                 <!--  ==========  -->
@@ -266,29 +214,25 @@ if (isset($_GET['size'])) {
                     <div class="underlined push-down-20">
                         <div class="row">
                             <div class="span5">
-                                <h3><span class="light">همه</span> محصولات</h3>
-                                <?php if(isset($_GET['find'])) {
+                                <h3><span class="light"> محصولات دسته بندی <?php
+                                        if (isset($catName)){
+                                        foreach ($catName as $n) {
+                                            echo $n['name'];
+                                        }} ?></span></h3>
+                                <?php if (isset($_GET['find'])) {
                                     echo '<h4>نتیجه ی جست و جو برای :' . $searchedProduct . ' </h4>';
                                 }
-                               ?>
-
+                                ?>
                             </div>
                             <div class="span4">
                                 <div class="form-inline sorting-by" id="tourStep4">
                                     <label for="isotopeSorting" class="black-clr">چینش :</label>
                                     <select id="isotopeSorting" class="span3">
-                                        <option value='{"sortBy":"price", "sortAscending":"true"}'>بر اساس قیمت (کم به
+                                        <option onclick="sort('asc')">بر اساس قیمت (کم به
                                             زیاد) &uarr;</option>
-                                        <option value='{"sortBy":"price", "sortAscending":"false"}'>بر اساس قیمت (زیاد
+                                        <option onclick="sort('desc')">بر اساس قیمت (زیاد
                                             به کم) &darr;</option>
-                                        <option value='{"sortBy":"name", "sortAscending":"true"}'>بر اساس نام
-                                            (صعودی) &uarr;</option>
-                                        <option value='{"sortBy":"name", "sortAscending":"false"}'>بر اساس نام
-                                            (نزولی) &darr;</option>
-                                        <option value='{"sortBy":"popularity", "sortAscending":"true"}'>بر اساس محبوبیت
-                                            (کم به زیاد) &uarr;</option>
-                                        <option value='{"sortBy":"popularity", "sortAscending":"false"}'>بر اساس محبوبیت
-                                            (زیاد به کم) &darr;</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -304,9 +248,24 @@ if (isset($_GET['size'])) {
                             <!--  = Single Product =  -->
                             <!--  ==========  -->
                             <?php
-                            if (isset($_GET['CAID']) & !isset($_GET['size'])) {
+                            if (isset($_GET['CAID'])) {
                                 $product_sql = "select * from product LEFT OUTER JOIN discount ON
-											product.DID=discount.DID where CAID='$catid;'";
+											product.DID=discount.DID where CAID=" . $_GET["CAID"];
+                                if (isset($_GET["size"])) {
+                                    $product_sql = $product_sql . " AND size='" . $_GET["size"] . "'";
+                                }
+                                if (isset($_GET["color"])) {
+                                    $product_sql = $product_sql . " AND color='" . $_GET["color"] . "'";
+                                }
+                                if (isset($_GET["max_price"])) {
+                                    $product_sql = $product_sql . " AND cost<" . $_GET["max_price"];
+                                }
+                                if (isset($_GET["min_price"])) {
+                                    $product_sql = $product_sql . " AND cost>" . $_GET["min_price"];
+                                }
+                                if (isset($_GET["sort"])) {
+                                    $product_sql = $product_sql . " ORDER BY cost " . $_GET["sort"];
+                                }
                                 $products = $dbh->query($product_sql);
                                 foreach ($products as $p) {
                                     echo '<div id="spanCat" class="span3 filter--swimwear" data-price="323" data-popularity="3"
@@ -345,7 +304,7 @@ if (isset($_GET['size'])) {
                             ?>
 
                             <?php
-                            if(isset($_GET['find'])) {
+                            if (isset($_GET['find'])) {
                                 if ($find = '') {
                                     header("Location: 404.php");
                                     exit();
@@ -395,49 +354,6 @@ if (isset($_GET['size'])) {
                             <!--  ==========  -->
                             <!--  = Single Product =  -->
                             <!--  ==========  -->
-                            <?php
-                            if(isset($_GET['size'])) {
-                                $size = strtoupper($size);
-                                $size = strip_tags($size);
-                                $find = trim($size);
-                                $sizeQuery = "select * from product  where size='$size' and CAID='$catid'";
-                                $sizeResult = $dbh->query($sizeQuery);
-                                foreach ($sizeResult as $sz) {
-                                    echo '<div class="span3 filter--swimwear" data-price="323" data-popularity="3"
-                                 data-size="xs|s|m|xxl" data-color="pink|orange" data-brand="adidas">
-                                <div class="product">
-
-                                    <div class="product-img">
-                                        <div class="picture">
-                                            <img width="540" height="374" alt=""
-                                                 src="images/dummy/products/' . $sz['PRID'] . '/1.jpg"/>
-                                            <div class="img-overlay">
-                                                <a class="btn more btn-primary" href="product.php?PRID=' . $sz['PRID'] . '">توضیحات بیشتر</a>
-                                                <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
-                                    
-                                                <input type="hidden" name="PRID" value="' . $sz['PRID'] . '">
-                                                <button type="submit" class="btn buy btn-danger"> اضافه به سبد خرید</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="main-titles no-margin" style="text-align: center;">
-                                    <h5 class="no-margin isotope--title">' . $sz['name'] . '</h5>
-                                    ';
-                                    if ($sz['percentage'] == Null) {
-                                        echo '<h4 class="title">' . $sz['cost'] . 'تومان</h4>';
-                                    } else {
-                                        echo '<h4 class="title" style="text; text-decoration: line-through; color: grey;">' . $sz['cost'] . 'تومان</h4>';
-                                        echo '<h4 class="title">' . $sz['cost'] * (1 - $sz['percentage']) . 'تومان</h4>';
-                                    }
-                                    echo '
-                                    </div>
-                                </div>
-                            </div> <!-- /single product -->';
-                                }
-                            }
-
-                            ?>
 
                         </div>
                     </div>
@@ -486,6 +402,73 @@ if (isset($_GET['size'])) {
     }
 </script>
 
+<script>
+    var CAID = "<?php echo $catid; ?>";
+    var url = "<?php echo $url ?>";
+</script>
+<script>
+    function sizeCheck(value) {
+        var match=url.match(/size=[a-z]+/);
+        if (match!=null){
+            url=url.replace(/size=[a-z]+/,'size='+value)
+        }
+        else{
+            url=url+"&size="+value
+        }
+
+        $.ajax({
+            type: "GET",
+            url: 'shop.php',
+            data: {size: value},
+            success: function (data) {
+
+                window.location.assign(url);
+            },
+
+        });
+
+    }
+</script>
+<script>
+    function colorChange(value) {
+        var match=url.match(/color=[a-z]+/);
+        if (match!=null){
+            url=url.replace(/color=[a-z]+/,'color='+value)
+        }
+        else{
+            url=url+"&color="+value
+        }
+
+        $.ajax({
+            type: "GET",
+            url: 'shop.php',
+            data: {size: value},
+            success: function (data) {
+
+                window.location.assign(url);
+            },
+
+        });
+
+    }
+</script>
+
+<script>
+    function sort(value) {
+
+
+        $.ajax({
+            type: "GET",
+            url: 'shop.php',
+            success: function (data) {
+
+                window.location.assign('shop.php?CAID=' + CAID + '&sort=' + value);
+            },
+
+        });
+
+    }
+</script>
 <!--  = _ =  -->
 <script src="js/underscore/underscore-min.js" type="text/javascript"></script>
 

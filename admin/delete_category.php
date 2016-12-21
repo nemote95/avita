@@ -9,7 +9,7 @@ $stmnt->execute();
 header('Location: category_list.php');}
 catch(PDOException $err)
 {
-    var_dump($err->getMessage());
+    echo $err->getMessage();
     echo '<a href="category_list.php">Back</a>';
     exit();
 }

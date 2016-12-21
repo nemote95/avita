@@ -9,7 +9,7 @@ try{
 }
 catch(PDOException $err)
 {
-    var_dump($err->getMessage());
+    echo $err->getMessage();
     echo '<a href="deliverer_list.php">Back</a>';
     exit();
 }

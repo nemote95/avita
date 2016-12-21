@@ -367,10 +367,11 @@ $day_product=$day_product_stmnt->fetchAll();
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">32تومان</h4>
-                            <h5 class="no-margin">محصول ویژه 434</h5>
+                            <h3 class="no-margin">نخ های رنگی</h3>
+                            <h4 class="title">3200تومان</h4>
+
                         </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+                        <p class="desc">توضیحاتی که در مورد محصول لازم است در اینجانوشته میشود</p>
                         <p class="center-align stars">
                             <span class="icon-star stars-clr"></span>
                             <span class="icon-star stars-clr"></span>
@@ -398,10 +399,10 @@ $day_product=$day_product_stmnt->fetchAll();
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">32 تومان</h4>
-                            <h5 class="no-margin">محصول ویژه 414</h5>
+                            <h5 class="no-margin"> دستکش های بافت</h5>
+                            <h4 class="title">12000 تومان</h4>
                         </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+                        <p class="desc">توضیحاتی که در مورد محصول لازم است در اینجانوشته میشود</p>
                         <p class="center-align stars">
                             <span class="icon-star stars-clr"></span>
                             <span class="icon-star stars-clr"></span>
@@ -429,10 +430,10 @@ $day_product=$day_product_stmnt->fetchAll();
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">32تومان</h4>
-                            <h5 class="no-margin">محصول ویژه 450</h5>
+                            <h3 class="no-margin">کیف دستی</h3>
+                            <h4 class="title">10500تومان</h4>
                         </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+                        <p class="desc">توضیحاتی که در مورد محصول لازم است در اینجا نوشته میشود</p>
                         <p class="center-align stars">
                             <span class="icon-star stars-clr"></span>
                             <span class="icon-star stars-clr"></span>
@@ -460,10 +461,11 @@ $day_product=$day_product_stmnt->fetchAll();
                             </div>
                         </div>
                         <div class="main-titles no-margin">
-                            <h4 class="title">32 تومان</h4>
-                            <h5 class="no-margin">محصول ویژه 186</h5>
+                            <h3 class="no-margin">کیف کوچک </h3>
+                            <h4 class="title">8200 تومان</h4>
+
                         </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
+                        <p class="desc">توضیحاتی که در مورد محصول لازم است در اینجا نوشته میشود</p>
                         <p class="center-align stars">
                             <span class="icon-star stars-clr"></span>
                             <span class="icon-star stars-clr"></span>
