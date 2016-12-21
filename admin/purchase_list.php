@@ -41,7 +41,7 @@ foreach ($purchases as $p){
         <td>'.$p["phone"].'</td>
         <td>'.$p["address"].'</td>
         <td>'.$p["DEID"].'</td>
-        <a href="" >Edit</a></td>
+        <td><a href="purchase.php?PUID='.$p["PUID"].'" >Edit</a></td>
     </tr>';
 }
 echo '</table>
