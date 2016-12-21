@@ -1,4 +1,5 @@
 <?php
+
 try {
     $user='SA';
     $pass = 'password';
@@ -8,3 +9,6 @@ try {
     print "Error!: " . $e->getMessage() . "<br/>";
     die();
 }
+
+
+

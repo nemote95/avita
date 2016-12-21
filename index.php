@@ -301,12 +301,12 @@ $day_product=$day_product_stmnt->fetchAll();
 
                                 echo '<h3 class="no-margin" >'.$dp['name'].'</h3 >';
                                 if ($dp['DID']==null){
-                                    echo '<h4 class="title" >'. $dp['cost']*1000 .'تومان</h4 >';}
+                                    echo '<h4 class="title" >'. $dp['cost'].'تومان</h4 >';}
                                 else {
-                                    echo '<h4 class="title" style="text-decoration: line-through;color: darkslategray;">' . $dp['cost']*1000 .'تومان</h4 >';
+                                    echo '<h4 class="title" style="text-decoration: line-through;color: darkslategray;">' . $dp['cost'] .'تومان</h4 >';
                                     $discount_sql="select percentage from discount where DID=".$dp['DID'];
                                     $discount=$dbh->query($discount_sql)->fetch();
-                                    echo '<h4 class="title" style="color: forestgreen;">'. $dp['cost']*(1-$discount['percentage'])*1000 .'تومان</h4 >';
+                                    echo '<h4 class="title" style="color: forestgreen;">'. $dp['cost']*(1-$discount['percentage']). 'تومان</h4 >';
                                 }
                                 echo '</div >                        
                     </div >
