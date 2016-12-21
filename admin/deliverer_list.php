@@ -15,7 +15,7 @@ echo '
         <section class="content-header">
             <h1>
                 Deliverers
-
+                <a href="deliverer.php" class="btn btn-primary">Create</a>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Control Panel</a></li>
@@ -36,7 +36,7 @@ foreach ($deliverers as $d){
         <td>'.$d["name"].'</td>
         <td>'.$d["phone"].'</td>
         <td><a href="delete_deliverer.php?DEID='.$d["DEID"].'" >Delete</a>|
-        <a href="" >Edit</a></td>
+        <a href="deliverer.php?DEID='.$d["DEID"].'" >Edit</a></td>
     </tr>';
 }
 echo '</table>

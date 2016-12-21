@@ -79,8 +79,8 @@
             <ul class="sidebar-menu">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active treeview">
-                    <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    <a href="index.php">
+                        <i class="fa fa-dashboard"></i> <span>Statistics</span>
 
                     </a>
 
