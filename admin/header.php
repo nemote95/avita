@@ -93,12 +93,13 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="category_list.php"><i class="fa fa-circle-o"></i>Categories</a></li>
-                        <li><a href="discount_list.php"><i class="fa fa-circle-o"></i> Discount</a></li>
-                        <li><a href="store_list.php"><i class="fa fa-circle-o"></i> Store</a></li>
-                        <li><a href="product_list.php"><i class="fa fa-circle-o"></i>Product</a></li>
-                        <li><a href="deliverer_list.php"><i class="fa fa-circle-o"></i>Deliverer</a></li>
-                        <li><a href="purchase_list.php"><i class="fa fa-circle-o"></i>Purchase</a></li>
-                        <li><a href="request_list.php"><i class="fa fa-circle-o"></i>Request</a></li>
+                        <li><a href="discount_list.php"><i class="fa fa-circle-o"></i> Discounts</a></li>
+                        <li><a href="store_list.php"><i class="fa fa-circle-o"></i> Stores</a></li>
+                        <li><a href="product_list.php"><i class="fa fa-circle-o"></i>Products</a></li>
+                        <li><a href="deliverer_list.php"><i class="fa fa-circle-o"></i>Deliverers</a></li>
+                        <li><a href="purchase_list.php"><i class="fa fa-circle-o"></i>Purchases</a></li>
+                        <li><a href="comment_list.php"><i class="fa fa-circle-o"></i>Comments</a></li>
+                        <li><a href="request_list.php"><i class="fa fa-circle-o"></i>Requests</a></li>
 
                     </ul>
                 </li>
