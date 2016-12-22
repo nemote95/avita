@@ -2,7 +2,7 @@
 
 include 'config.php';
 try{
-    $stmnt=$dbh->prepare("delete deliverer where DEID=:DEID");
+    $stmnt=$dbh->prepare("delete from deliverer where DEID=:DEID");
     $stmnt->bindParam(':DEID',$_GET['DEID']);
     $stmnt->execute();
     header('Location: deliverer_list.php');

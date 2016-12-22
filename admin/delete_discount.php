@@ -2,7 +2,7 @@
 
 include 'config.php';
 try{
-    $stmnt=$dbh->prepare("delete discount where DID=:DID");
+    $stmnt=$dbh->prepare("delete from discount where DID=:DID");
     $stmnt->bindParam(':DID',$_GET['DID']);
     $stmnt->execute();
     header('Location: discount_list.php');

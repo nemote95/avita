@@ -110,7 +110,7 @@
 								if (!isset($_GET["BID"])){
 									header("Location: 404.php");
 								}
-								$purchase_query = $dbh->prepare("SELECT PUID,first_name,last_name,phone,address,cost,percentage 
+								$purchase_query = $dbh->prepare("SELECT PUID,first_name,last_name,phone,address,cost,percentage,basket_product.Count 
 																FROM purchase,basket_product,product
 																LEFT OUTER JOIN discount ON product.DID=discount.DID 
 																WHERE purchase.BID= :BID AND
@@ -123,9 +123,9 @@
 								$discount_sum=0;
                                     foreach($purchase_info as $p){
 										if ($p['percentage']!=null){
-											$discount_sum+=(1-$p['percentage'])*$p['cost'];}
+											$discount_sum+=(1-$p['percentage'])*$p['cost']*$p['Count'];}
 										else{
-											$discount_sum+=$p['cost'];}
+											$discount_sum+=$p['cost']*$p['Count'];}
 										}
 
                                 echo '<tr>
@@ -157,13 +157,7 @@
                                 </tr>
 
 
-                                <tr>
-
-                                    <td class="stronger">هزينه ارسال :</td>
-                                    <td class="stronger">
-                                        <div class="align-right">$4.99</div>
-                                    </td>
-                                </tr>
+                                
                                 <tr>
                                     <td class="stronger">جمع کل :</td>
                                     <td class="stronger">
