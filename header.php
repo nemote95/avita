@@ -149,11 +149,11 @@
                                 </div>
                                 <div class="price">';
                             if ($current_basket_items[$i]['percentage']) {
-                                $total_cost += $current_basket_items[$i]["cost"] * (1 - $current_basket_items[$i]['percentage']);
-                                echo '<strong>' . $current_basket_items[$i]["cost"] * (1 - $current_basket_items[$i]['percentage']) . 'تومان</strong>';
+                                $total_cost += $current_basket_items[$i]["cost"] * (1 - $current_basket_items[$i]['percentage'])*$current_basket_items[$i]['Count'];
+                                echo '<strong>' . $current_basket_items[$i]["cost"] * (1 - $current_basket_items[$i]['percentage'])*$current_basket_items[$i]['Count'] . 'تومان</strong>';
                             } else {
-                                $total_cost += $current_basket_items[$i]["cost"];
-                                echo '<strong>' . $current_basket_items[$i]["cost"] . 'تومان</strong>';
+                                $total_cost += $current_basket_items[$i]["cost"]*$current_basket_items[$i]['Count'];
+                                echo '<strong>' . $current_basket_items[$i]["cost"]*$current_basket_items[$i]['Count'] . 'تومان</strong>';
                             }
                             echo '</div>
                             </div>';
