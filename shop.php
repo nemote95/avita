@@ -138,9 +138,11 @@ $url= $_SERVER["REQUEST_URI"];
                             </div>
                             <div class="accordion-body in collapse">
                                 <div class="accordion-inner with-slider">
-                                    <div class="jqueryui-slider-container">
-                                        <div id="pricesRange"></div>
-                                    </div>
+<!--                                    <div class="jqueryui-slider-container">-->
+<!--                                        <div id="pricesRange"></div>-->
+<!--                                    </div>-->
+<!--                                    <input type="text" id="maxPrice" data-initial="1000" class="max-val pull-right"/>-->
+<!--                                    <input type="text" data-initial="0" class="min-val"/>-->
                                     <script type="text/javascript">
 
                                         $(function() {
@@ -157,16 +159,13 @@ $url= $_SERVER["REQUEST_URI"];
                                                     maxPriceChange(ui.values[0],ui.values[ 1 ]);
                                                 }
                                             });
-                                            $( "#amount1" ).html($( "#slider-range" ).slider( "values", 0 ) +
-                                                "تومان--" );
-                                            $( "#amount2" ).html( $( "#slider-range" ).slider( "values", 1 ) +"تومان" );
+                                            $( "#amount" ).html($( "#slider-range" ).slider( "values", 0 ) +
+                                                "تومان--" + $( "#slider-range" ).slider( "values", 1 ) +"تومان" );
 //                                            var maxRange =ui.values[ 1 ];
 //                                            alert(minRange);
                                         });
                                     </script>
                                     <div id="slider-range"></div>
-                                    <input type="text" id="maxPrice" data-initial="1000" class="max-val pull-right"/>
-                                    <input type="text" data-initial="0" class="min-val"/>
                                         <p id="amount"></p>
 <!--                                    <form method="post" action="shop.php">-->
                                         <input type="text" id="amount1" style="width: 60px;float: left;">
@@ -453,7 +452,7 @@ $url= $_SERVER["REQUEST_URI"];
 //        alert(min);
         var match=url.match(/min_price=[0-9]+/);
         if (match!=null){
-            url=url.replace(/min_price=[a-z]+/,'min_price='+min)
+            url=url.replace(/min_price=[0-9]+/,'min_price='+min)
         }
         else{
             url=url+"&min_price="+min
@@ -461,7 +460,7 @@ $url= $_SERVER["REQUEST_URI"];
 
         var mach=url.match(/max_price=[0-9]+/);
         if (mach!=null){
-            url=url.replace(/max_price=[a-z]+/,'max_price='+max)
+            url=url.replace(/max_price=[0-9]+/,'max_price='+max)
         }
         else{
             url=url+"&max_price="+max
