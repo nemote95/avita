@@ -55,6 +55,8 @@ $url= $_SERVER["REQUEST_URI"];
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch/72.png">
     <link rel="apple-touch-icon-precomposed" href="images/apple-touch/57.png">
     <link rel="shortcut icon" href="images/apple-touch/57.png">
+
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap-slider.css" type="text/css">
 </head>
 
 
@@ -142,6 +144,33 @@ $url= $_SERVER["REQUEST_URI"];
                                     <input type="text" id="maxPrice" data-initial="1000" onchange="maxPriceChange()"
                                            class="max-val pull-right"/>
                                     <input type="text" data-initial="0" class="min-val"/>
+                                    <script type="text/javascript">
+
+                                        $(function() {
+                                            $( "#slider-range" ).slider({
+                                                range: true,
+                                                min: 0,
+                                                max: 500,
+                                                values: [ 0, 500 ],
+                                                slide: function( event, ui ) {
+                                                    $( "#amount" ).html( ui.values[ 0 ] + " تومان-" + ui.values[ 1 ] +"تومان" );
+                                                    $( "#amount1" ).val(ui.values[ 0 ]);
+                                                    $( "#amount2" ).val(ui.values[ 1 ]);
+                                                }
+                                            });
+                                            $( "#amount" ).html($( "#slider-range" ).slider( "values", 0 ) +
+                                                "تومان--" + $( "#slider-range" ).slider( "values", 1 ) +"تومان" );
+                                        });
+                                    </script>
+                                    <div id="slider-range"></div>
+                                    <p>
+                                        Price Range:<p id="amount"></p>
+                                    </p>
+                                    <form method="post" action="get_items.php">
+                                        <input type="hidden" id="amount1">
+                                        <input type="hidden" id="amount2">
+                                        <input type="submit" name="submit_range" value="Submit">
+                                    </form>
                                 </div>
                             </div>
                         </div> <!-- /prices slider -->
@@ -407,6 +436,11 @@ $url= $_SERVER["REQUEST_URI"];
     var url = "<?php echo $url ?>";
 </script>
 <script>
+    function maxPriceChange() {
+        alert ('hi');
+    }
+</script>
+<script>
     function sizeCheck(value) {
         var match=url.match(/size=[a-z]+/);
         if (match!=null){
@@ -501,7 +535,9 @@ $url= $_SERVER["REQUEST_URI"];
 
 <!--  = Custom JS =  -->
 <script src="js/custom.js" type="text/javascript"></script>
-<script src="js/angular.js"
+<script src="js/angular.js"></script>
+
+<script src="assets/bootstrap/bootstrap-slider.js"></script>
 
 </body>
 </html>
