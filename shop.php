@@ -141,9 +141,6 @@ $url= $_SERVER["REQUEST_URI"];
                                     <div class="jqueryui-slider-container">
                                         <div id="pricesRange"></div>
                                     </div>
-                                    <input type="text" id="maxPrice" data-initial="1000" onchange="maxPriceChange()"
-                                           class="max-val pull-right"/>
-                                    <input type="text" data-initial="0" class="min-val"/>
                                     <script type="text/javascript">
 
                                         $(function() {
@@ -156,25 +153,32 @@ $url= $_SERVER["REQUEST_URI"];
                                                     $( "#amount" ).html( ui.values[ 0 ] + " تومان-" + ui.values[ 1 ] +"تومان" );
                                                     $( "#amount1" ).val(ui.values[ 0 ]);
                                                     $( "#amount2" ).val(ui.values[ 1 ]);
+                                                    var minRange= ui.values[0];
+                                                    maxPriceChange(ui.values[0],ui.values[ 1 ]);
                                                 }
                                             });
-                                            $( "#amount" ).html($( "#slider-range" ).slider( "values", 0 ) +
-                                                "تومان--" + $( "#slider-range" ).slider( "values", 1 ) +"تومان" );
+                                            $( "#amount1" ).html($( "#slider-range" ).slider( "values", 0 ) +
+                                                "تومان--" );
+                                            $( "#amount2" ).html( $( "#slider-range" ).slider( "values", 1 ) +"تومان" );
+//                                            var maxRange =ui.values[ 1 ];
+//                                            alert(minRange);
                                         });
                                     </script>
                                     <div id="slider-range"></div>
-                                    <p>
-                                        Price Range:<p id="amount"></p>
-                                    </p>
-                                    <form method="post" action="get_items.php">
-                                        <input type="hidden" id="amount1">
-                                        <input type="hidden" id="amount2">
-                                        <input type="submit" name="submit_range" value="Submit">
-                                    </form>
+                                    <input type="text" id="maxPrice" data-initial="1000" class="max-val pull-right"/>
+                                    <input type="text" data-initial="0" class="min-val"/>
+                                        <p id="amount"></p>
+<!--                                    <form method="post" action="shop.php">-->
+                                        <input type="text" id="amount1" style="width: 60px;float: left;">
+                                        <input type="text" id="amount2" style="width: 60px;float: right;">
+<!--                                        <input type="submit" name="submit_range" onclick="maxPriceChange();" value="Submit">-->
+<!--                                    </form>-->
                                 </div>
                             </div>
                         </div> <!-- /prices slider -->
+                        <?php
 
+                        ?>
                         <!--  ==========  -->
                         <!--  = Size filter =  -->
                         <!--  ==========  -->
@@ -288,6 +292,13 @@ $url= $_SERVER["REQUEST_URI"];
                                 if (isset($_GET["color"])) {
                                     $product_sql = $product_sql . " AND color='" . $_GET["color"] . "'";
                                 }
+//                                if(isset($_POST['submit_range']))
+//                                {
+//                                    $price1=$_POST['amount1'];
+//                                    $price2=$_POST['amount2'];
+//
+//                                    $product_sql = $product_sql ."AND cost BETWEEN '$price1' AND '$price2'";
+//                                }
                                 if (isset($_GET["max_price"])) {
                                     $product_sql = $product_sql . " AND cost<" . $_GET["max_price"];
                                 }
@@ -438,8 +449,34 @@ $url= $_SERVER["REQUEST_URI"];
     var url = "<?php echo $url ?>";
 </script>
 <script>
-    function maxPriceChange() {
-        alert ('hi');
+    function maxPriceChange(min , max) {
+//        alert(min);
+        var match=url.match(/min_price=[0-9]+/);
+        if (match!=null){
+            url=url.replace(/min_price=[a-z]+/,'min_price='+min)
+        }
+        else{
+            url=url+"&min_price="+min
+        }
+
+        var mach=url.match(/max_price=[0-9]+/);
+        if (mach!=null){
+            url=url.replace(/max_price=[a-z]+/,'max_price='+max)
+        }
+        else{
+            url=url+"&max_price="+max
+        }
+        $.ajax({
+            type: "GET",
+            url: 'shop.php',
+            data: {min_price: min,max_price: max},
+            success: function (data) {
+                window.location.assign(url);
+            },
+
+        });
+
+
     }
 </script>
 <script>

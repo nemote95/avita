@@ -9,6 +9,10 @@ $most_popular = array_slice($dbh->query($most_popular_stmnt)->fetchAll(),0,4);
 
 $day_product_sql="select product.PRID,product.name,product.cost,product.DID from product where product.count<5 and product.count>0 limit 3";
 $day_product=$dbh->query($day_product_sql);
+
+$updateCostSql="update product set DID=1 where product.count<5 and product.count>0";
+$updateCost=$dbh->prepare($updateCostSql);
+$update = $updateCost->execute();
 ?>
 <html>
 <!--[if lt IE 8]>
