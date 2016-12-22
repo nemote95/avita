@@ -21,7 +21,7 @@ echo '
         <section class="content-header">
             <h1>
                 Products
-
+                <a href="product.php" class="btn btn-primary">Create</a>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Control Panel</a></li>
@@ -55,7 +55,7 @@ foreach ($products as $p){
         <td>'.$p["cat"].'</td>
         <td>'.$p["st"].'</td>
         <td><a href="delete_product.php?PRID='.$p["PRID"].'" >Delete</a>|
-        <a href="" >Edit</a></td>
+        <a href="product.php?PRID='.$p["PRID"].'" >Edit</a></td>
     </tr>';
 }
 echo '</table>

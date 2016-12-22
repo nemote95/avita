@@ -73,7 +73,7 @@ if ($product['DID']!=null){
                 <div class="span12">
                     <ul class="breadcrumb">
                         <li>
-                            <a href="index.html">وبمارکت</a>
+                            <a href="index.html">آویتا</a>
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
@@ -81,7 +81,7 @@ if ($product['DID']!=null){
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
-                            <a href="#">محصول ویژه</a>
+                            <a href="#">جزئیات محصول</a>
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>

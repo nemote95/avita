@@ -154,11 +154,11 @@ if (!isset($_SESSION["user"])) {
 									</td>
 									<td class="price">';
                                     if ($item['percentage'] == null) {
-                                        $total_cost += $item['cost'];
-                                        echo $item['cost'];
+                                        $total_cost += $item['cost']*$item['Count'];
+                                        echo $item['cost']*$item['Count'];
                                     } else {
-                                        $total_cost += $item['cost'] * (1 - $item['percentage']);
-                                        echo $item['cost'] * (1 - $item['percentage']);
+                                        $total_cost += $item['cost'] * (1 - $item['percentage'])*$item['Count'];
+                                        echo $item['cost'] * (1 - $item['percentage'])*$item['Count'];
                                     }
                                     echo 'تومان</td>
 									</tr>';

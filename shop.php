@@ -224,9 +224,11 @@ $url= $_SERVER["REQUEST_URI"];
                                 </div>
                             </div>
                         </div> <!-- /color filter -->
-                        <?php echo '<a href="shop.php?CAID='.$_GET['CAID'].'" class="remove-filter" ><span class="icon-ban-circle"></span> حذف
+                        <?php
+                        if(isset($_GET["CAID"])){
+                        echo '<a href="shop.php?CAID='.$_GET['CAID'].'" class="remove-filter" ><span class="icon-ban-circle"></span> حذف
                             همه فیلتر ها
-                            </a>'; ?>
+                            </a>';} ?>
                     </div>
 
 
