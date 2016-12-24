@@ -44,13 +44,12 @@ if(isset($_POST['btn-login']) ) {
 
         if( $count==1) {
 //            echo "<h1>".$row->password."</h1>";
-            if($row->password==$pass){
-//                echo "<h1>".$row->password."</h1>";
+            if( hash_equals($row->password, crypt($pass, $row->password)) ) {
+                // Ok!
+//            }
                 $_SESSION['user'] = $row->UID;
                 $_SESSION['lastname']=$row->last_name;
                 $_SESSION['loggedIn']=true;
-//                echo "<h1>".$_SESSION['lastname']."</h1>";
-//                header("Location: index.php");
                 $errMSG = "u logged in successfully..";
             }
             else{

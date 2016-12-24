@@ -21,7 +21,7 @@ if (isset($_POST['btn-signup']) ) {
     if(isset($_POST['first_name'])){
         $first_name = trim($_POST['first_name']);
         $first_name = strip_tags($first_name);
-        $name = htmlspecialchars($first_name);
+        $first_name = htmlspecialchars($first_name);
     }
     if(isset($_POST['last_name'])){
         $last_name = trim($_POST['last_name']);
@@ -45,7 +45,7 @@ if (isset($_POST['btn-signup']) ) {
         $nameError = "Please enter your full name.";
     } else if (strlen($first_name) < 3) {
         $error = true;
-        $fistnameError = "Name must have atleat 3 characters.";
+        $nameError = "Name must have atleat 3 characters.";
     } else if (!preg_match("/^[a-zA-Z ]+$/",$first_name)) {
         $error = true;
         $nameError = "Name must contain alphabets and space.";
@@ -53,10 +53,10 @@ if (isset($_POST['btn-signup']) ) {
 
     if (empty($last_name)) {
         $error = true;
-        $nameError = "Please enter your full name.";
+        $lastnameError = "Please enter your full name.";
     } else if (strlen($last_name) < 3) {
         $error = true;
-        $fistnameError = "Name must have atleat 3 characters.";
+        $lastnameError = "Name must have atleat 3 characters.";
     } else if (!preg_match("/^[a-zA-Z ]+$/",$last_name)) {
         $error = true;
         $nameError = "Name must contain alphabets and space.";
@@ -84,37 +84,61 @@ if (isset($_POST['btn-signup']) ) {
     // password validation
     if (empty($pass)){
         $error = true;
+        ?>
+        <script>alert( "Please enter password.")</script>
+        <?php
         $passError = "Please enter password.";
     } else if(strlen($pass) < 6) {
         $error = true;
         $passError = "Password must have atleast 6 characters.";
     }
-
-    // password encrypt using SHA256();
-    $password = hash('sha256', $pass);
+    //password hash
+    $cost = 10;
+    $salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
+    $salt = sprintf("$2a$%02d$", $cost) . $salt;
+    $password = crypt($pass, $salt);
 
     // if there's no error, continue to signup
     if( !$error ) {
-
-
         $sql = $dbh->prepare("INSERT INTO user (email,last_name,first_name,phone,address,password) VALUES 
         (:email, :last_name,:first_name, :phone,:address,:password);");
         $address ="test_address";
         $phone="09123456789";
         $sql->bindParam(':email', $email);
-        $sql->bindParam(':last_name', $name);
+        $sql->bindParam(':last_name', $last_name);
         $sql->bindParam(':first_name', $first_name);
         $sql->bindParam(':phone', $phone);
         $sql->bindParam(':address', $address);
-        $sql->bindParam(':password', $pass);
+        $sql->bindParam(':password', $password);
         $sql->execute();
         $errTyp = "success";
         $errMSG = "Successfully registered, you may login now";
 
-
         unset($name);
         unset($email);
-        unset($pass);}
+        unset($pass);
+    ?>
+        <script>
+            jQuery(function($) {
+                $('.btn-login').click(function() {
+                    var post_url = 'register.php';
+
+                    $.ajax({
+                        type: 'POST',
+                        url: post_url,
+                        data: $('#loginform').serialize(),
+//                        dataType: 'html',
+                        async: true,
+                        success: function(data) {
+                            $('#errorDiv1').append(data);
+                        }
+                    });
+                })
+            });
+            $('#registerModal').modal('hide');
+        </script>
+        <?php
+    }
 }
 ?>
 <!--  = Register =  -->
@@ -125,7 +149,7 @@ if (isset($_POST['btn-signup']) ) {
         <h3 id="registerModalLabel"><span class="light">ثبت نام</span>در آویتا</h3>
     </div>
     <div class="modal-body">
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off" >
+        <form method="post" id="loginform" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" autocomplete="off" >
             <div class="control-group">
                 <label class="control-label hidden shown-ie8" for="inputUsernameRegister">نام</label>
                 <div class="controls">
@@ -154,8 +178,11 @@ if (isset($_POST['btn-signup']) ) {
                            placeholder="Password">
                 </div>
                 <span class="text-danger"><?php echo $passError; ?></span>
+                <div id="errorDiv1">
+
+                </div>
             </div>
-            <button type="submit" name="btn-signup" class="btn btn-danger input-block-level bold higher">
+            <button type="submit" name="btn-signup" class="btn btn-danger input-block-level bold higher btn-login">
                 ثبت نام
             </button>
 <!--            <span class="text-danger">--><?php //echo $errMSG; ?><!--</span>-->
