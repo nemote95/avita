@@ -7,7 +7,7 @@
  */
 include 'config.php';
 include 'header.php';
-$users=$dbh->query("select * from users;");
+$users=$dbh->query("select * from user;");
 
 echo '
 <div class="content-wrapper">

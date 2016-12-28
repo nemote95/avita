@@ -73,7 +73,7 @@ if ($product['DID']!=null){
                 <div class="span12">
                     <ul class="breadcrumb">
                         <li>
-                            <a href="index.html">وبمارکت</a>
+                            <a href="index.html">آویتا</a>
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
@@ -81,7 +81,7 @@ if ($product['DID']!=null){
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
-                            <a href="#">محصول ویژه</a>
+                            <a href="#">جزئیات محصول</a>
                         </li>
                         <li><span class="icon-chevron-right"></span></li>
                         <li>
@@ -208,7 +208,16 @@ if ($product['DID']!=null){
         <ul id="myTab" class="nav nav-tabs">
 
             <li class="active">
-                <a href="#tab-3" data-toggle="tab">نظرات</a>
+                <a href="#tab-3" data-toggle="tab">
+					
+					نظرات
+					(
+					<?php $count_comment=$dbh->prepare("select dbo.calculateCommentCount(:PRID);");
+					$count_comment->bindParam(':PRID',$PRID);
+					$count_comment->execute();
+					$count=$count_comment->fetch();
+					echo $count[0];
+					 ?> )</a>
             </li>
             <li>
                 <a href="#tab-4" data-toggle="tab">جزئیات ارسال</a>
@@ -222,8 +231,8 @@ if ($product['DID']!=null){
                     <button type="submit" class="btn btn-primary">ثبت نظر</button>
                 </form>
                 <?php
-                $sql = "SELECT text,date,user.first_name as first_name,user.last_name as last_name
-                      FROM comment,user WHERE user.UID=comment.UID AND PRID = " . $PRID;
+                $sql = "SELECT text,date,users.first_name as first_name,users.last_name as last_name
+                      FROM comment,users WHERE users.UID=comment.UID AND PRID = " . $PRID;
                 foreach ($dbh->query($sql) as $comment) {
                     echo '<p style="border:1px solid;text-align: left">' . $comment['first_name'] . ' ' . $comment['last_name'] .
                         ': <br>' . $comment['text'] . '<br>' . $comment['date'] . '</p>';

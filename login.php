@@ -46,6 +46,7 @@ if(isset($_POST['btn-login']) ) {
                 $_SESSION['lastname']=$row["last_name"];
                 $_SESSION['loggedIn']=true;
                 
+
                 $errMSG = "u logged in successfully..";
             }
             else{

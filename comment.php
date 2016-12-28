@@ -5,11 +5,10 @@ $PRID = $_GET['PRID'];
 if (isset($_SESSION["user"])) {
     $UID = $_SESSION["user"];
     if (isset($_POST['text'])) {
-        $current_date = date('y-m-d');
+        $current_date = date('y.m.d');
         $sql = $dbh->prepare("INSERT INTO comment (text, date, UID,PRID)
-    VALUES (:text, :date, :UID, :PRID);");
+    VALUES (:text, GETDATE(), :UID, :PRID);");
         $sql->bindParam(':text', $_POST['text']);
-        $sql->bindParam(':date', $current_date);
         $sql->bindParam(':UID', $UID);
         $sql->bindParam(':PRID', $PRID);
         $sql->execute();

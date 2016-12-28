@@ -8,8 +8,6 @@ if (!isset($_SESSION["user"])) {
 }
 
 $UID = $_SESSION["user"];
-$current_date = date('y-m-d');
-
 $type=false;
 if($_POST['type']=="1"){
     $type=true;
@@ -29,7 +27,7 @@ if ($current_basket == null) {
 else if(!$type){
     $create_purchase_query = $dbh->prepare("INSERT INTO purchase 
                                             (type,date,phone,last_name,first_name,address,BID)
-                                             VALUES (:type,:date,:phone,:lastName,:firstName,:addr,:BID);");
+                                             VALUES (:type,GETDATE(),:phone,:lastName,:firstName,:addr,:BID);");
 
     $create_purchase_query->bindParam(':BID', $current_basket);
     $create_purchase_query->bindParam(':type', $type);
@@ -37,14 +35,14 @@ else if(!$type){
     $create_purchase_query->bindParam(':lastName', $_POST["lastName"]);
     $create_purchase_query->bindParam(':addr', $_POST["addr"]);
     $create_purchase_query->bindParam(':phone', $_POST["telephone"]);
-    $create_purchase_query->bindParam(':date', $current_date);
     $create_purchase_query->execute();
 
     //need a better query
-    $basket_items_query = $dbh->prepare("UPDATE  basket_product,product  
-                                        SET product.count=product.count-basket_product.Count 
-                                        WHERE basket_product.PRID=product.PRID AND                                                            
-                                        basket_product.BID=:BID;");
+    $basket_items_query = $dbh->prepare("UPDATE product 
+										SET product.count=product.count-basket_product.Count 
+										from product INNER JOIN basket_product ON 
+										basket_product.PRID=product.PRID
+                                         WHERE basket_product.BID=:BID;");
 
     $basket_items_query->bindParam(':BID', $current_basket);
     $basket_items_query->execute();

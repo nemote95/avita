@@ -55,6 +55,8 @@ $url= $_SERVER["REQUEST_URI"];
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch/72.png">
     <link rel="apple-touch-icon-precomposed" href="images/apple-touch/57.png">
     <link rel="shortcut icon" href="images/apple-touch/57.png">
+
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap-slider.css" type="text/css">
 </head>
 
 
@@ -136,16 +138,46 @@ $url= $_SERVER["REQUEST_URI"];
                             </div>
                             <div class="accordion-body in collapse">
                                 <div class="accordion-inner with-slider">
-                                    <div class="jqueryui-slider-container">
-                                        <div id="pricesRange"></div>
-                                    </div>
-                                    <input type="text" id="maxPrice" data-initial="1000" onchange="maxPriceChange()"
-                                           class="max-val pull-right"/>
-                                    <input type="text" data-initial="0" class="min-val"/>
+<!--                                    <div class="jqueryui-slider-container">-->
+<!--                                        <div id="pricesRange"></div>-->
+<!--                                    </div>-->
+<!--                                    <input type="text" id="maxPrice" data-initial="1000" class="max-val pull-right"/>-->
+<!--                                    <input type="text" data-initial="0" class="min-val"/>-->
+                                    <script type="text/javascript">
+
+                                        $(function() {
+                                            $( "#slider-range" ).slider({
+                                                range: true,
+                                                min: 0,
+                                                max: 500,
+                                                values: [ 0, 500 ],
+                                                slide: function( event, ui ) {
+                                                    $( "#amount" ).html( ui.values[ 0 ] + " تومان-" + ui.values[ 1 ] +"تومان" );
+                                                    $( "#amount1" ).val(ui.values[ 0 ]);
+                                                    $( "#amount2" ).val(ui.values[ 1 ]);
+                                                    var minRange= ui.values[0];
+                                                    maxPriceChange(ui.values[0],ui.values[ 1 ]);
+                                                }
+                                            });
+                                            $( "#amount" ).html($( "#slider-range" ).slider( "values", 0 ) +
+                                                "تومان--" + $( "#slider-range" ).slider( "values", 1 ) +"تومان" );
+//                                            var maxRange =ui.values[ 1 ];
+//                                            alert(minRange);
+                                        });
+                                    </script>
+                                    <div id="slider-range"></div>
+                                        <p id="amount"></p>
+<!--                                    <form method="post" action="shop.php">-->
+                                        <input type="text" id="amount1" style="width: 60px;float: left;">
+                                        <input type="text" id="amount2" style="width: 60px;float: right;">
+<!--                                        <input type="submit" name="submit_range" onclick="maxPriceChange();" value="Submit">-->
+<!--                                    </form>-->
                                 </div>
                             </div>
                         </div> <!-- /prices slider -->
+                        <?php
 
+                        ?>
                         <!--  ==========  -->
                         <!--  = Size filter =  -->
                         <!--  ==========  -->
@@ -195,9 +227,11 @@ $url= $_SERVER["REQUEST_URI"];
                                 </div>
                             </div>
                         </div> <!-- /color filter -->
-                        <?php echo '<a href="shop.php?CAID='.$_GET['CAID'].'" class="remove-filter" ><span class="icon-ban-circle"></span> حذف
+                        <?php
+                        if(isset($_GET["CAID"])){
+                        echo '<a href="shop.php?CAID='.$_GET['CAID'].'" class="remove-filter" ><span class="icon-ban-circle"></span> حذف
                             همه فیلتر ها
-                            </a>'; ?>
+                            </a>';} ?>
                     </div>
 
 
@@ -257,6 +291,13 @@ $url= $_SERVER["REQUEST_URI"];
                                 if (isset($_GET["color"])) {
                                     $product_sql = $product_sql . " AND color='" . $_GET["color"] . "'";
                                 }
+//                                if(isset($_POST['submit_range']))
+//                                {
+//                                    $price1=$_POST['amount1'];
+//                                    $price2=$_POST['amount2'];
+//
+//                                    $product_sql = $product_sql ."AND cost BETWEEN '$price1' AND '$price2'";
+//                                }
                                 if (isset($_GET["max_price"])) {
                                     $product_sql = $product_sql . " AND cost<" . $_GET["max_price"];
                                 }
@@ -407,6 +448,37 @@ $url= $_SERVER["REQUEST_URI"];
     var url = "<?php echo $url ?>";
 </script>
 <script>
+    function maxPriceChange(min , max) {
+//        alert(min);
+        var match=url.match(/min_price=[0-9]+/);
+        if (match!=null){
+            url=url.replace(/min_price=[0-9]+/,'min_price='+min)
+        }
+        else{
+            url=url+"&min_price="+min
+        }
+
+        var mach=url.match(/max_price=[0-9]+/);
+        if (mach!=null){
+            url=url.replace(/max_price=[0-9]+/,'max_price='+max)
+        }
+        else{
+            url=url+"&max_price="+max
+        }
+        $.ajax({
+            type: "GET",
+            url: 'shop.php',
+            data: {min_price: min,max_price: max},
+            success: function (data) {
+                window.location.assign(url);
+            },
+
+        });
+
+
+    }
+</script>
+<script>
     function sizeCheck(value) {
         var match=url.match(/size=[a-z]+/);
         if (match!=null){
@@ -501,7 +573,9 @@ $url= $_SERVER["REQUEST_URI"];
 
 <!--  = Custom JS =  -->
 <script src="js/custom.js" type="text/javascript"></script>
-<script src="js/angular.js"
+<script src="js/angular.js"></script>
+
+<script src="assets/bootstrap/bootstrap-slider.js"></script>
 
 </body>
 </html>

@@ -12,6 +12,7 @@ $day_product_stmnt=$dbh->prepare("select top 3 product.PRID,product.name,product
 								from product where product.count<5 and product.count>0");
 $day_product_stmnt->execute();
 $day_product=$day_product_stmnt->fetchAll();
+
 ?>
 <html>
 <!--[if lt IE 8]>
@@ -33,7 +34,6 @@ $day_product=$day_product_stmnt->fetchAll();
     <link
         href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,700,400italic,700italic&amp;subset=latin,latin-ext,greek'
         rel='stylesheet' type='text/css'>
-
     <!-- Twitter Bootstrap -->
     <link href="stylesheets/bootstrap.css" rel="stylesheet">
     <link href="stylesheets/responsive.css" rel="stylesheet">
@@ -44,10 +44,7 @@ $day_product=$day_product_stmnt->fetchAll();
     <!-- PrettyPhoto -->
     <link rel="stylesheet" href="js/prettyphoto/css/prettyPhoto.css" type="text/css"/>
     <!-- main styles -->
-
     <link href="stylesheets/main.css" rel="stylesheet">
-
-
     <!-- Modernizr -->
     <script src="js/modernizr.custom.56918.js"></script>
 
@@ -67,8 +64,6 @@ $day_product=$day_product_stmnt->fetchAll();
     <?php include 'register.php' ?>
     <?php include 'login.php' ?>
     <?php include 'header.php' ?>
-
-
     <!--  ==========  -->
     <!--  = Slider Revolution =  -->
     <!--  ==========  -->
@@ -77,8 +72,6 @@ $day_product=$day_product_stmnt->fetchAll();
             <ul>
                 <li data-transition="premium-random" data-slotamount="3">
                     <img src="images/dummy/slides/1/slide.jpg" alt="slider img" width="1400" height="377"/>
-
-
                     <!-- texts -->
                     <div class="caption lfl big_theme"
                          data-x="120"
@@ -98,7 +91,7 @@ $day_product=$day_product_stmnt->fetchAll();
                         با امکانات آویتا آشنا شوید
                     </div>
 
-                    <a href="features.html" class="caption lfl btn btn-primary btn_theme"
+                    <a class="caption lfl btn btn-primary btn_theme"
                        data-x="120"
                        data-y="260"
                        data-speed="1000"
@@ -131,7 +124,7 @@ $day_product=$day_product_stmnt->fetchAll();
                         سایت آویتا به شما این امکان را میدهد تا محصول دلخواه خودرا طراحی کنید .
                     </div>
 
-                    <a href="features.html" class="caption lfl btn btn-primary btn_theme"
+                    <a  class="caption lfl btn btn-primary btn_theme"
                        data-x="120"
                        data-y="260"
                        data-speed="1000"
@@ -164,7 +157,7 @@ $day_product=$day_product_stmnt->fetchAll();
                         تمامی عکس ها مشابه نمونه واقعی میباشند.
                     </div>
 
-                    <a href="icons.html" class="caption lfl btn btn-primary btn_theme"
+                    <a  class="caption lfl btn btn-primary btn_theme"
                        data-x="120"
                        data-y="260"
                        data-speed="1000"

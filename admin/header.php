@@ -105,9 +105,7 @@
                 </li>
 
                 <li>
-                    <a href="pages/mailbox/mailbox.html">
-                        <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                    </a>
+
                 </li>
             </ul>
 

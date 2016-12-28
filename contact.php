@@ -107,7 +107,7 @@
                     <!--  ==========  -->
                     <section class="contact-form-container">
                         
-                        <h3 class="push-down-25"><span class="light">درخواست</span> پیام</h3>
+                        <h3 class="push-down-25">ارسال درخواست</h3>
                         
                         <form id="commentform" method="post" action="request.php" class="form form-inline form-contact">
 
@@ -149,9 +149,7 @@
                         		    <strong class="opensans dark-clr">ایمیل:</strong> <a href="#">info@Avita.com</a>
                         		</p>
                         	</div>
-                        	<div class="span5">
-                        	    <div class="add-googlemap" data-height="205" data-addr="Prešernov Trg, Ljubljana" data-title="Avita Business" data-zoom="14" data-type="roadmap"></div>
-                        	</div>
+
                         </div>
     
                     </article>

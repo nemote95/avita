@@ -17,30 +17,14 @@ include 'header.php';?>
         <?php
         include 'config.php';
         //purchase in a day
-        $statement=$dbh->prepare('select Date,sum(cost) as sum 
-from purchase,product,basket_product
-where basket_product.prid=product.prid and purchase.bid=basket_product.bid and product.did is null group by date');
+        $statement=$dbh->prepare('select Date,sum(cost*(1-isnull(percentage,0))) as sum 
+from product LEFT OUTER JOIN discount ON discount.did=product.did 
+INNER JOIN basket_product ON basket_product.PRID=product.PRID 
+INNER JOIN purchase ON  purchase.bid=basket_product.bid group by date;');
         $statement->execute();
-        $no_discount=$statement->fetchAll();
+        $total_purchased=$statement->fetchAll();
 
-        $statement=$dbh->prepare('select Date,sum(cost*discount.percentage) as sum 
-from purchase,discount,product,basket_product 
-where basket_product.prid=product.prid and purchase.bid=basket_product.bid and product.did is not null and product.did=discount.did
-group by date;');
-        $statement->execute();
-        $with_discount=$statement->fetchAll();
 
-        //this code should be revised :|
-        $total_purchased=array_merge($with_discount,$no_discount);
-        for ($i=0;$i<count($total_purchased);$i++){
-            for ($j=0;$j<count($total_purchased);$j++) {
-                if ($total_purchased[$i]["Date"] == $total_purchased[$j]["Date"] && $total_purchased[$i]["sum"] != $total_purchased[$j]["sum"] && $i!=$j ) {
-                    $total_purchased[$i]["sum"]+=$total_purchased[$j]["sum"];
-                    unset($total_purchased[$j]);
-                    break;
-                }
-            }
-        }
         $total_purchased=json_encode($total_purchased);
 
 
@@ -63,13 +47,13 @@ group by product.caid,category.name');
 
         ?>
 
-        <h2 style="margin-top: 20px;text-align: center;">فروش در هر روز :</h2>
+        <h2 style="margin-top: 20px;text-align: center;">فروش در هر روز </h2>
         <div id="total-purchase" style="width: 800px;height: 400px;margin: auto;"></div>
 
-        <h2 style="margin-top: 20px;text-align: center;">میزان فروش رنگ ها :</h2>
+        <h2 style="margin-top: 20px;text-align: center;">میزان فروش رنگ ها</h2>
         <div id="color" style="width: 800px;height: 400px;margin: auto;"></div>
 
-        <h2 style="margin-top: 20px;text-align: center;">میزان فروش دسته بندی ها :</h2>
+        <h2 style="margin-top: 20px;text-align: center;">میزان فروش دسته بندی ها </h2>
         <div id="category" style="width: 800px;height: 400px;margin: auto;"></div>
 
     </section>

@@ -110,12 +110,17 @@
 								if (!isset($_GET["BID"])){
 									header("Location: 404.php");
 								}
-								$purchase_query = $dbh->prepare("SELECT PUID,first_name,last_name,phone,address,cost,percentage 
+								$total_without_discount=$dbh->prepare("SELECT dbo.calculateTotalCost(:BID);");
+								$total_without_discount->bindParam(':BID',$_GET['BID']);
+								$total_without_discount->execute();
+								$twd=$total_without_discount->fetch();
+								$purchase_query = $dbh->prepare("SELECT PUID,first_name,last_name,phone,address,cost,percentage,basket_product.Count 
 																FROM purchase,basket_product,product
 																LEFT OUTER JOIN discount ON product.DID=discount.DID 
 																WHERE purchase.BID= :BID AND
 																basket_product.BID=purchase.BID AND
 																product.PRID=basket_product.PRID;");
+																
 								$purchase_query->bindParam(':BID', $_GET["BID"]);
 								$purchase_query->execute();
 								$purchase_info= $purchase_query->fetchAll();
@@ -123,9 +128,9 @@
 								$discount_sum=0;
                                     foreach($purchase_info as $p){
 										if ($p['percentage']!=null){
-											$discount_sum+=(1-$p['percentage'])*$p['cost'];}
+											$discount_sum+=(1-$p['percentage'])*$p['cost']*$p['Count'];}
 										else{
-											$discount_sum+=$p['cost'];}
+											$discount_sum+=$p['cost']*$p['Count'];}
 										}
 
                                 echo '<tr>
@@ -158,12 +163,14 @@
 
 
                                 <tr>
-
-                                    <td class="stronger">هزينه ارسال :</td>
+                                    <td class="stronger">جمع کل بدون تخفیف : </td>
                                     <td class="stronger">
-                                        <div class="align-right">$4.99</div>
+                                    
+										
+                                        <div class="size-16 align-right">'.$twd[0].'</div>
                                     </td>
                                 </tr>
+                                
                                 <tr>
                                     <td class="stronger">جمع کل :</td>
                                     <td class="stronger">
