@@ -88,9 +88,10 @@
                                 </ul>
                             </li>
 
-
-                            <li><a href="about-us.php">درباره ما</a></li>
+							<li><a href="order.php">سفارش</a></li>
                             <li><a href="contact.php">تماس با ما</a></li>
+                            <li><a href="about-us.php">درباره ما</a></li>
+
                         </ul>
 
                         <!--  ==========  -->
