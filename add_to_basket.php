@@ -30,9 +30,11 @@ $current_basket_query = $dbh->prepare("select BID from basket where
                                                 (select purchase.BID from purchase);");
 $current_basket_query->bindParam(':UID', $UID);
 $current_basket_query->execute();
-$current_basket = $current_basket_query->fetch()["BID"];
+$current_basket = $current_basket_query->fetch();
+if ($current_basket){
+	$current_basket = $current_basket["BID"];}
 //new basket
-if ($current_basket == null) {
+else{
     $sql = $dbh->prepare("INSERT INTO basket (UID) VALUES (:UID);");
     $sql->bindParam(':UID', $UID);
     $sql->execute();

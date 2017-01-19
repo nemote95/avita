@@ -1,4 +1,4 @@
-CREATE TABLE user(UID INT NOT NULL AUTO_INCREMENT,email varchar(50) NOT NULL,last_name nvarchar(50) NOT NULL,first_name nvarchar(50) NOT NULL,phone char(11) NOT NULL,address nvarchar(100) NOT NULL,password char(10) NOT NULL,PRIMARY KEY (UID));
+CREATE TABLE user(UID INT NOT NULL AUTO_INCREMENT,email varchar(50) NOT NULL,last_name nvarchar(50) NOT NULL,first_name nvarchar(50) NOT NULL,password char(60) NOT NULL,PRIMARY KEY (UID));
 
 CREATE TABLE request(RID INT NOT NULL AUTO_INCREMENT,UID INT NOT NULL,text nvarchar(50) NOT NULL,PRIMARY KEY (RID),CONSTRAINT fk_request_user FOREIGN KEY (UID) REFERENCES user(UID));
 

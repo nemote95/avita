@@ -100,15 +100,11 @@ if (isset($_POST['btn-signup']) ) {
 
     // if there's no error, continue to signup
     if( !$error ) {
-        $sql = $dbh->prepare("INSERT INTO user (email,last_name,first_name,phone,address,password) VALUES 
-        (:email, :last_name,:first_name, :phone,:address,:password);");
-        $address ="test_address";
-        $phone="09123456789";
+        $sql = $dbh->prepare("INSERT INTO user (email,last_name,first_name,password) VALUES 
+        (:email, :last_name,:first_name,:password);");
         $sql->bindParam(':email', $email);
         $sql->bindParam(':last_name', $last_name);
         $sql->bindParam(':first_name', $first_name);
-        $sql->bindParam(':phone', $phone);
-        $sql->bindParam(':address', $address);
         $sql->bindParam(':password', $password);
         $sql->execute();
         $errTyp = "success";
