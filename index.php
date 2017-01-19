@@ -632,18 +632,24 @@ $update = $updateCost->execute();
                             <div class="picture" >' .
                         '<img src="images/dummy/products/' . $mp['PRID'] . '/1.jpg" alt = "" width = "540"
                                      height = "412" />';
+                    
                     echo '<div class="img-overlay" >
-                                    <a href = "product.php?PRID=' . $mp['PRID'] . '" class="btn more btn-primary" > توضیحات بیشتر </a >
-                           
-                                    <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
+                                    <a href = "product.php?PRID=' . $mp['PRID'] . '" class="btn more btn-primary" > توضیحات بیشتر </a >';
+                    if ($mp["count"]>0){
+                                    echo '<form action="add_to_basket.php" method="post" class="form form-inline clearfix">
                                     
                                     <input type="hidden" name="PRID" value="'. $mp['PRID'].'">
                                     <button type="submit" class="btn buy btn-danger"> اضافه به سبد خرید</button>
-                                    </form>
-                                </div >
+                                    </form>';}
+                    else{echo '<button class="btn buy btn-danger"> ناموجود</button>';}
+                   
+                                  
+                                echo '</div >
                             </div >
                         </div >
                         <div class="main-titles no-margin" >';
+                    
+                     
 
                     echo '<h3 class="no-margin" >' . $mp['name'] . '</h3 >';
                     if ($mp['DID'] == null) {

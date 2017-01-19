@@ -318,13 +318,16 @@ $url= $_SERVER["REQUEST_URI"];
                                             <img width="540" height="374" alt=""
                                                  src="images/dummy/products/' . $p['PRID'] . '/1.jpg"/>
                                             <div class="img-overlay">
-                                                <a class="btn more btn-primary" href="product.php?PRID=' . $p['PRID'] . '">توضیحات بیشتر</a>
-                                                <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
+                                                <a class="btn more btn-primary" href="product.php?PRID=' . $p['PRID'] . '">توضیحات بیشتر</a> ';
+                                                if ($p["count"]>0){
+                                               echo ' <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
                                     
 												<input type="hidden" name="PRID" value="' . $p['PRID'] . '">
-												<button type="submit" class="btn buy btn-danger"> اضافه به سبد خرید</button>
-												</form>
-                                            </div>
+												<button type="submit" class="btn buy btn-danger"> ناموجود</button>
+												</form>';}
+												else { echo '<button class="btn buy btn-danger"> ناموجود</button>';}
+											
+                                           echo ' </div>
                                         </div>
                                     </div>
                                     <div class="main-titles no-margin" style="text-align: center;">

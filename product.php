@@ -165,7 +165,8 @@ if ($product['DID']!=null){
             <!--  ==========  -->
             <!--  = Add to cart form =  -->
             <!--  ==========  -->
-            <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
+			<?php if ($product["count"]>0){
+            echo '<form action="add_to_basket.php" method="post" class="form form-inline clearfix">
                 <div class="numbered">
                     <input type="text" name="count" value="1" class="tiny-size"/>
                     <span class="clickable add-one icon-plus-sign-alt"></span>
@@ -173,7 +174,8 @@ if ($product['DID']!=null){
                 </div>
                 <input type="hidden" name="PRID" value="<?php echo $PRID; ?>">
                 <button type="submit" class="btn btn-danger pull-right"><i class="icon-shopping-cart"></i> اضافه به سبد خرید</button>
-            </form>
+            </form>'; } ?>
+
 
             <hr/>
 
