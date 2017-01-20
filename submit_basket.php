@@ -35,7 +35,6 @@ foreach ($items as $item){
     VALUES (:BID , :PRID,:count);");
     $sql->bindParam(':BID', $BID);
     $sql->bindParam(':PRID', $item->prid);
-    var_dump($item->prid);
     $sql->bindParam(':count', $item->amount);
     $sql->execute();
 }

@@ -1,20 +1,6 @@
 
   <head>
 
-    <style type="text/css">
-      .fs-container {
-        width: 1200px;
-        hegight : 1000px;
-        margin: 20px;
-      }
-
-      .literally {
-        width: 100%;
-        height: 100%;
-        position: relative;
-      }
-    </style>
-
     <meta charset="utf-8">
     <title>Avita - Order</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,10 +43,20 @@
 
     <div class="fs-container">
       <div id="lc"></div>
-    </div>
+                            
 
-    <!-- you really ought to include react-dom, but for react 0.14 you don't strictly have to. -->
-    <script src="./js/react-0.14.3.js"></script>
+
+		<p class="push-down-20">
+			<textarea id="text" class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="request" placeholder="پیامتان را در اینجا بنویسید ..." required></textarea>
+		</p>
+       <p>
+       <button class="btn btn-primary bold" onclick="saveOrder()" tabindex="5" id="submit">ارسال سفارش</button>
+       </p>
+
+</div>
+</div>
+ <?php include 'footer.php'; ?>
+   <script src="./js/react-0.14.3.js"></script>
     <script src="./js/literallycanvas.js"></script>
 
     <script type="text/javascript">
@@ -70,6 +66,31 @@
         defaultStrokeWidth: 2,
         strokeWidths: [1, 2, 3, 5, 30]
       });
+             
+    </script>
+    <script type="text/javascript">
+
+    function saveOrder() {
+		
+        var file = lc.getImage().toDataURL();
+		var text=document.getElementById('text').value;
+
+        var data = new FormData();
+        data.append('file', file);
+        data.append('text', text);
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+            }
+        };
+        xmlhttp.open("POST", "save_order.php" , true);
+        xmlhttp.send(data);
+        }
+    
+
+
     </script>
   </body>
- <?php include 'footer.php'; ?>
+

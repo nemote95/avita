@@ -228,7 +228,6 @@ if (!isset($_SESSION["user"])) {
             items.push(product);
         }
         var jsonString = JSON.stringify(items);
-        console.log(jsonString);
         $.ajax({
             type: "POST",
             url: "submit_basket.php",
