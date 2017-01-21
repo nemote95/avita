@@ -100,6 +100,7 @@
                         <li><a href="purchase_list.php"><i class="fa fa-circle-o"></i>Purchases</a></li>
                         <li><a href="comment_list.php"><i class="fa fa-circle-o"></i>Comments</a></li>
                         <li><a href="request_list.php"><i class="fa fa-circle-o"></i>Requests</a></li>
+                        <li><a href="order_list.php"><i class="fa fa-circle-o"></i>Orders</a></li>
 
                     </ul>
                 </li>
