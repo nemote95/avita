@@ -108,17 +108,23 @@
                     <section class="contact-form-container">
                         
                         <h3 class="push-down-25">ارسال درخواست</h3>
-                        
-                        <form id="commentform" method="post" action="request.php" class="form form-inline form-contact">
 
-    
+
+
+                        <div class="popup" >
+                            <span class="popuptext" id="myPopup">درخواست شما ثبت شد </span>
+                        </div>
+
                             <p class="push-down-20">
-                                <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="request" placeholder="پیامتان را در اینجا بنویسید ..." required></textarea>
+                                <textarea class="input-block-level" tabindex="4" rows="7" cols="70" id="request" name="request" placeholder="پیامتان را در اینجا بنویسید ..." required></textarea>
                             </p>
+
+
+
                             <p>
-                                <button class="btn btn-primary bold" type="submit" tabindex="5" id="submit">ارسال پیام</button>
+                                <button class="btn btn-primary bold" onclick="saveRequest()" tabindex="5" id="submit">ارسال پیام</button>
                             </p>
-                        </form>
+
                     </section>
                     
                     <hr />
@@ -287,6 +293,33 @@
     if (typeof jQuery == 'undefined') {
         document.write('<script src="js/jquery.min.js"><\/script>');
     }
+    </script>
+
+    <script type="text/javascript">
+        function saveRequest() {
+
+            var text=document.getElementById('request');
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var popup = document.getElementById('myPopup');
+                    popup.classList.toggle('show');
+                    text.value="";
+
+
+                }
+
+                else if (this.readyState == 4 && this.status == 401) {
+                    document.location = "401.php";
+
+                }
+            };
+
+            xmlhttp.open("POST", "request.php" , true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("request="+text.value);
+        }
     </script>
     
     <!--  = _ =  -->

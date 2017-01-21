@@ -4,7 +4,7 @@ echo '<div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Create Category
+                Create Product
 
             </h1>
             <ol class="breadcrumb">
