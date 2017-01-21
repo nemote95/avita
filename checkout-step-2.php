@@ -120,7 +120,8 @@
                                 <div class="control-group">
                                     <label class="control-label" for="telephone">تلفن<span class="red-clr bold">*</span></label>
                                     <div class="controls">
-                                        <input type="tel" name="telephone" id="telephone" class="span4" required>
+                                        <input type="tel" name="telephone" pattern="^09[0-9]{9}$" id="telephone" class="span4" required>
+<!--                                        <p>--><?php //if(isset($err)){echo $err;} ?><!--</p>-->
                                     </div>
                                 </div>
                                 
@@ -142,10 +143,18 @@
                                 <hr />
                                 <p class="right-align">
 						        در مرحله بعدی شما شیوه پرداخت را انتخاب میکنید &nbsp; &nbsp;
-						        <button type="submit" class="btn btn-primary higher bold">ادامه</button>
+						        <button type="submit" name="acceptBTN" class="btn btn-primary higher bold">ادامه</button>
 						    </p>
-                                
-                         
+
+<!--                              --><?php
+//                              if (isset($_POST['telephone'])){$telephone = trim($_POST['telephone']);}
+//                              if (isset($_POST['acceptBTN']) ) {
+//                                  if(!preg_match('/^09[0-9]{9}$/',$telephone)){
+//                                      $err="شماره تلفن وارد شده صحیح نمیباشد ";
+//                                      header("Location:checkout-step-2.php");
+//                                  }
+//                              }
+//                              ?>
                                 
                             </form>
 							

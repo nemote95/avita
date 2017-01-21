@@ -138,23 +138,19 @@ $url= $_SERVER["REQUEST_URI"];
                             </div>
                             <div class="accordion-body in collapse">
                                 <div class="accordion-inner with-slider">
-<!--                                    <div class="jqueryui-slider-container">-->
-<!--                                        <div id="pricesRange"></div>-->
-<!--                                    </div>-->
-<!--                                    <input type="text" id="maxPrice" data-initial="1000" class="max-val pull-right"/>-->
-<!--                                    <input type="text" data-initial="0" class="min-val"/>-->
                                     <script type="text/javascript">
-
+                                        var minvalue=location.search.split("min_price=")[1]|0;
                                         $(function() {
                                             $( "#slider-range" ).slider({
                                                 range: true,
-                                                min: 0,
-                                                max: 500,
-                                                values: [ 0, 500 ],
+                                                min: minvalue,
+                                                max: 20000,
+                                                values: [ minvalue, 20000 ],
                                                 slide: function( event, ui ) {
                                                     $( "#amount" ).html( ui.values[ 0 ] + " تومان-" + ui.values[ 1 ] +"تومان" );
                                                     $( "#amount1" ).val(ui.values[ 0 ]);
                                                     $( "#amount2" ).val(ui.values[ 1 ]);
+//                                                    document.getElementsByClassName("ui-slider-handle ui-state-default ui-corner-all").style.left="100px";
                                                     var minRange= ui.values[0];
                                                     maxPriceChange(ui.values[0],ui.values[ 1 ]);
                                                 }
@@ -168,8 +164,8 @@ $url= $_SERVER["REQUEST_URI"];
                                     <div id="slider-range"></div>
                                         <p id="amount"></p>
 <!--                                    <form method="post" action="shop.php">-->
-                                        <input type="text" id="amount1" style="width: 60px;float: left;">
-                                        <input type="text" id="amount2" style="width: 60px;float: right;">
+                                        <input type="text" value="<?php if(isset($_GET['min_price'])){echo $_GET['min_price'];}?>" id="amount1" style="width: 60px;float: left;">
+                                        <input type="text" value="<?php if(isset($_GET['max_price'])){echo $_GET['max_price'];}?>" id="amount2" style="width: 60px;float: right;">
 <!--                                        <input type="submit" name="submit_range" onclick="maxPriceChange();" value="Submit">-->
 <!--                                    </form>-->
                                 </div>
