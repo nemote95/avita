@@ -30,6 +30,7 @@ echo '
       <td>Last Name</td>
       <td>Phone</td>
       <td>Address</td>
+      <td>Date</td>
       <td>DEID</td>
       <td>Action</td>
 </tr>';
@@ -40,6 +41,8 @@ foreach ($purchases as $p){
         <td>'.$p["last_name"].'</td>
         <td>'.$p["phone"].'</td>
         <td>'.$p["address"].'</td>
+        <td>'.$p["date"].'</td>
+
         <td>'.$p["DEID"].'</td>
         <td><a href="purchase.php?PUID='.$p["PUID"].'" >Edit</a></td>
     </tr>';

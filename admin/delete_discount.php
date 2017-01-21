@@ -9,7 +9,8 @@ try{
     }
 catch(PDOException $err)
 {
-    echo $err->getMessage();
-    echo '<a href="discount_list.php">Back</a>';
+    $back= '<a href="discount_list.php">Back</a>';
+    require 'error.php';
+
     exit();
 }

@@ -42,12 +42,18 @@
         <?php include 'header.php' ?>
 
     <div class="fs-container">
-      <div id="lc"></div>
-                            
+
+      <div id="lc">
+
+      </div>
 
 
-		<p class="push-down-20">
-			<textarea id="text" class="input-block-level" tabindex="4" rows="7" cols="70" id="comment" name="request" placeholder="پیامتان را در اینجا بنویسید ..." required></textarea>
+
+        <div class="popup" >
+            <span class="popuptext" id="myPopup">سفارش شما ثبت شد </span>
+        </div>
+        <p class="push-down-20">
+			<textarea id="text" class="input-block-level" tabindex="4" rows="10" cols="70" id="comment" name="request" placeholder="پیامتان را در اینجا بنویسید ..." required></textarea>
 		</p>
        <p>
        <button class="btn btn-primary bold" onclick="saveOrder()" tabindex="5" id="submit">ارسال سفارش</button>
@@ -82,7 +88,8 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
+                var popup = document.getElementById('myPopup');
+                popup.classList.toggle('show');
             }
         };
         xmlhttp.open("POST", "save_order.php" , true);
