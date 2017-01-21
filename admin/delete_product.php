@@ -8,12 +8,11 @@ try{
 
     $target_dir = "../images/dummy/products/".$_GET['PRID'];
     system('rm -rf ' . escapeshellarg($target_dir));
-
     header('Location: product_list.php');
 }
 catch(PDOException $err)
 {
-    echo $err->getMessage();
-    echo '<a href="product_list.php">Back</a>';
+    $back='<a href="product_list.php">Back</a></section>';
+    require 'error.php';
     exit();
 }
