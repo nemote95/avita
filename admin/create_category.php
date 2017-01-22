@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 try{
-$stmnt=$dbh->prepare("insert into category VALUES (:name);");
+$stmnt=$dbh->prepare("insert into category(name) VALUES (:name);");
 $stmnt->bindParam(':name',$_POST['name']);
 $stmnt->execute();
 header('Location: category_list.php');}
