@@ -11,7 +11,7 @@ $day_product_sql="select product.PRID,product.name,product.cost,product.DID from
 $day_product=$dbh->query($day_product_sql);
 
 $latest_product_sql="select product.PRID,product.name,product.cost,product.DID from product order by product.PRID desc limit 4";
-$latest_product=$dbh->query($day_product_sql);
+$latest_product=$dbh->query($latest_product_sql);
 
 $updateCostSql="update product set DID=1 where product.count<5 and product.count>0";
 $updateCost=$dbh->prepare($updateCostSql);
@@ -384,7 +384,7 @@ $update = $updateCost->execute();
                     </div >
                 </div > <!-- /product-->';
                 } ?> <!-- /product -->
-                
+
 
 
             </div>
