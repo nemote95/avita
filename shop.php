@@ -319,7 +319,7 @@ $url= $_SERVER["REQUEST_URI"];
                                                echo ' <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
                                     
 												<input type="hidden" name="PRID" value="' . $p['PRID'] . '">
-												<button type="submit" class="btn buy btn-danger"> ناموجود</button>
+												<button type="submit" class="btn buy btn-danger"> اضافه به سبد خرید</button>
 												</form>';}
 												else { echo '<button class="btn buy btn-danger"> ناموجود</button>';}
 											
