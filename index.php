@@ -10,6 +10,9 @@ $most_popular = array_slice($dbh->query($most_popular_stmnt)->fetchAll(),0,4);
 $day_product_sql="select product.PRID,product.name,product.cost,product.DID from product where product.count<5 and product.count>0 limit 3";
 $day_product=$dbh->query($day_product_sql);
 
+$latest_product_sql="select product.PRID,product.name,product.cost,product.DID from product order by product.PRID desc limit 4";
+$latest_product=$dbh->query($day_product_sql);
+
 $updateCostSql="update product set DID=1 where product.count<5 and product.count>0";
 $updateCost=$dbh->prepare($updateCostSql);
 $update = $updateCost->execute();
@@ -348,253 +351,40 @@ $update = $updateCost->execute();
                 <!--  ==========  -->
                 <!--  = Product =  -->
                 <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/products/product-6.jpg" alt="" width="540" height="374"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h3 class="no-margin">نخ های رنگی</h3>
-                            <h4 class="title">3200تومان</h4>
+                <?php
+                foreach($latest_product as $dp){
+                    echo '<div class="span4" >
+                    <div class="product" >
+                        <div class="product-img featured" >
+                            <div class="picture" >'.
+                        '<img src="images/dummy/products/' . $dp['PRID'] . '/1.jpg" alt = "" width = "518"
+                                     height = "358" />';
+                    echo   '<div class="img-overlay" >
+                                    <a href = "product.php?PRID='.$dp['PRID'].'" class="btn more btn-primary" > توضیحات بیشتر </a >
+                                    <form action="add_to_basket.php" method="post" class="form form-inline clearfix">
+                                    
+                                    <input type="hidden" name="PRID" value="'. $dp['PRID'].'">
+                                    <button type="submit" class="btn buy btn-danger"> اضافه به سبد خرید</button>
+                                    </form>
+                                </div >
+                            </div >
+                        </div >
+                        <div class="main-titles" >';
 
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است در اینجانوشته میشود</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
-
-
-                <!--  ==========  -->
-                <!--  = Product =  -->
-                <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/products/product-7.jpg" alt="" width="540" height="374"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h5 class="no-margin"> دستکش های بافت</h5>
-                            <h4 class="title">12000 تومان</h4>
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است در اینجانوشته میشود</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
-
-
-                <!--  ==========  -->
-                <!--  = Product =  -->
-                <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/products/product-8.jpg" alt="" width="540" height="374"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h3 class="no-margin">کیف دستی</h3>
-                            <h4 class="title">10500تومان</h4>
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است در اینجا نوشته میشود</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
-
-
-                <!--  ==========  -->
-                <!--  = Product =  -->
-                <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/products/product-9.jpg" alt="" width="540" height="374"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h3 class="no-margin">کیف کوچک </h3>
-                            <h4 class="title">8200 تومان</h4>
-
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است در اینجا نوشته میشود</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
-
-                <div class="clearfix"></div>
-
-
-                <!--  ==========  -->
-                <!--  = Product =  -->
-                <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/products/product-10.jpg" alt="" width="540" height="374"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h4 class="title">32 تومان</h4>
-                            <h5 class="no-margin">محصول ویژه 258</h5>
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
-
-
-                <!--  ==========  -->
-                <!--  = Product =  -->
-                <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/products/product-11.jpg" alt="" width="540" height="374"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h4 class="title">32 تومان</h4>
-                            <h5 class="no-margin">محصول ویژه 128</h5>
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
-
-
-                <!--  ==========  -->
-                <!--  = Product =  -->
-                <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/products/product-12.jpg" alt="" width="540" height="374"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h4 class="title">32 تومان</h4>
-                            <h5 class="no-margin">محصول ویژه 156</h5>
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
-
-
-                <!--  ==========  -->
-                <!--  = Product =  -->
-                <!--  ==========  -->
-                <div class="span3">
-                    <div class="product">
-                        <div class="product-img">
-                            <div class="picture">
-                                <img src="images/dummy/products/product-13.jpg" alt="" width="540" height="374"/>
-                                <div class="img-overlay">
-                                    <a href="#" class="btn more btn-primary">توضیحات بیشتر</a>
-                                    <a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="main-titles no-margin">
-                            <h4 class="title">32 تومان</h4>
-                            <h5 class="no-margin">محصول ویژه 218</h5>
-                        </div>
-                        <p class="desc">توضیحاتی که در مورد محصول لازم است را در اینجا مینویسید</p>
-                        <p class="center-align stars">
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star stars-clr"></span>
-                            <span class="icon-star"></span>
-                            <span class="icon-star"></span>
-
-                        </p>
-                    </div>
-                </div> <!-- /product -->
+                    echo '<h3 class="no-margin" >'.$dp['name'].'</h3 >';
+                    if ($dp['DID']==null){
+                        echo '<h4 class="title" >'. $dp['cost'].'تومان</h4 >';}
+                    else {
+                        echo '<h4 class="title" style="text-decoration: line-through;color: darkslategray;">' . $dp['cost'] .'تومان</h4 >';
+                        $discount_sql="select percentage from discount where DID=".$dp['DID'];
+                        $discount=$dbh->query($discount_sql)->fetch();
+                        echo '<h4 class="title" style="color: forestgreen;">'. $dp['cost']*(1-$discount['percentage']). 'تومان</h4 >';
+                    }
+                    echo '</div >                        
+                    </div >
+                </div > <!-- /product-->';
+                } ?> <!-- /product -->
+                
 
 
             </div>
